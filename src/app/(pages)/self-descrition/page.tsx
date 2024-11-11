@@ -10,7 +10,7 @@ const page = () => {
       <Header
         title="Self Description"
         prevPage="/bruceLee"
-        nextPage="/"
+        nextPage="/the-origin"
         visible={true}
       />
       <section className="flex flex-1  flex-col items-center justify-start pt-4"> 

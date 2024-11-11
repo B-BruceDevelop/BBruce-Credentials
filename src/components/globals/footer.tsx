@@ -12,7 +12,7 @@ type Props = {
 const Footer = ({ title, red }: Props) => {
   return (
     <div className="flex w-full  items-end justify-between px-4 mb-4">
-      {title && <p className="text-8xl leading-none w-[80%]">{title}</p>}
+      {title && <p className="text-8xl leading-none w-[90%]">{title}</p>}
       <Image
         src={red ? BB_red : BB_white}
         alt="B-Bruce"
