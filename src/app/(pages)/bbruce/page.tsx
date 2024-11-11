@@ -1,0 +1,23 @@
+import Image from 'next/image'
+import React from 'react'
+
+import BBruceLogo from '@/assets/B-BRUCE_FullName_RED.svg'
+import Header from '@/components/header'
+
+const BBruce = () => {
+  return (
+    <main className="flex w-full h-full flex-col items-center justify-center p-4">
+        <Header prevPage="/bruceLee" nextPage='/' visible={false} />
+    <Image 
+      src={BBruceLogo}
+      alt="B-Bruce"
+      width={400}
+      height={100}
+      className="animate-ownFade w-[] "    
+    />
+    
+    </main>
+  )
+}
+
+export default BBruce
