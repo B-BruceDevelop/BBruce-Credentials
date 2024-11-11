@@ -1,18 +1,18 @@
 'use client';
 import { useState } from 'react';
 
-interface ButtonInfo {
-    id: string;
-    label: string;
-    content: string;
-    alignment: 'start' | 'center' | 'end';
-  }
+// interface ButtonInfo {
+//     id: string;
+//     label: string;
+//     content: string;
+//     alignment: 'start' | 'center' | 'end';
+//   }
   
-  const buttons: ButtonInfo[] = [
-    { id: 'savia', label: 'SAVIA DESIGN', content: 'St. Feliu de Codines', alignment: 'start' },
-    { id: 'logic', label: 'LOGIC DESIGN', content: 'Barcelona / París / Warsaw', alignment: 'center' },
-    { id: 'bbruce', label: 'B–BRUCE', content: 'Barcelona', alignment: 'end' },
-  ];
+//   const buttons: ButtonInfo[] = [
+//     { id: 'savia', label: 'SAVIA DESIGN', content: 'St. Feliu de Codines', alignment: 'start' },
+//     { id: 'logic', label: 'LOGIC DESIGN', content: 'Barcelona / París / Warsaw', alignment: 'center' },
+//     { id: 'bbruce', label: 'B–BRUCE', content: 'Barcelona', alignment: 'end' },
+//   ];
   
 
 
