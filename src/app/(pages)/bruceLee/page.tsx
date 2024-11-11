@@ -1,7 +1,7 @@
 import React from "react";
 import { Suspense } from "react";
 
-import Header from "@/components/header";
+import Header from "@/components/globals/header";
 
 
 const page = () => {

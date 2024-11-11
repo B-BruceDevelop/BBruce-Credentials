@@ -5,7 +5,7 @@ import prevIcon from "@/assets/Polygon_left.svg";
 import nextIcon from "@/assets/Polygon_right.svg";
 import NikeLogo from "@/components/nikeLogo";
 import Link from "next/link";
-import Header from "@/components/header";
+import Header from "@/components/globals/header";
 
 export default function Home() {
 
