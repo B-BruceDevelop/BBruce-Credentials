@@ -18,6 +18,8 @@ const Footer = ({ title, red }: Props) => {
         alt="B-Bruce"
         width={100}
         height={60}
+        className={!title ? "ml-auto w-[calc(50px + 4vw)] h-auto mb-3" : " w-[calc(50px + 4vw] h-auto mb-3"}  
+
       />
     </div>
   );

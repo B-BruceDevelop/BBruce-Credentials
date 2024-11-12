@@ -1,20 +1,6 @@
 'use client';
 import { useState } from 'react';
-
-// interface ButtonInfo {
-//     id: string;
-//     label: string;
-//     content: string;
-//     alignment: 'start' | 'center' | 'end';
-//   }
   
-//   const buttons: ButtonInfo[] = [
-//     { id: 'savia', label: 'SAVIA DESIGN', content: 'St. Feliu de Codines', alignment: 'start' },
-//     { id: 'logic', label: 'LOGIC DESIGN', content: 'Barcelona / París / Warsaw', alignment: 'center' },
-//     { id: 'bbruce', label: 'B–BRUCE', content: 'Barcelona', alignment: 'end' },
-//   ];
-  
-
 
 const Timeline = () => {
 
@@ -92,7 +78,7 @@ const Timeline = () => {
       {/* Contenedor de los botones */}
       <div className="flex justify-between w-full ">
         {/* Primer botón alineado a la izquierda */}
-        <div className="flex flex-col justify-start items-center w-[200px] gap-4">
+        <div className="flex flex-col justify-start items-center min-w-[200px] gap-4">
           <button
             className={`px-4 py-2 border rounded-full text-white w-full ${
               activeButton === 'savia' ? 'bg-gray-700' : 'bg-transparent'
@@ -105,7 +91,7 @@ const Timeline = () => {
         </div>
 
         {/* Segundo botón centrado */}
-        <div className="flex flex-col justify-start items-center w-[200px] gap-4">
+        <div className="flex flex-col justify-start items-center min-w-[200px] gap-4">
           <button
             className={`px-4 py-2 border rounded-full text-white w-full ${
               activeButton === 'logic' ? 'bg-gray-700' : 'bg-transparent'
@@ -119,7 +105,7 @@ const Timeline = () => {
         </div>
 
         {/* Tercer botón alineado a la derecha */}
-        <div className="flex flex-col justify-start items-center w-[200px] gap-4">
+        <div className="flex flex-col justify-start items-center min-w-[200px] gap-4">
           <button
             className={`px-4 py-2 border rounded-full text-white w-full ${
               activeButton === 'bbruce' ? 'bg-gray-700' : 'bg-transparent'
@@ -138,38 +124,6 @@ const Timeline = () => {
 
 
 
-{/* 
-
-    <div className="flex flex-col items-center w-full space-y-4">
-    
-
-      <div className="flex flex-col items-center w-full space-y-4">
-      <div className="flex justify-between w-full px-10">
-
-        {buttons.map((button) => (
-          <div key={button.id} className={`flex-1 flex flex-col items-${button.alignment}`}>
-            <button
-              className={`px-4 py-2 border rounded-full text-white mb-2 ${
-                activeButton === button.id ? 'bg-gray-700' : 'bg-transparent'
-              }`}
-              onClick={() => handleClick(button.id)}
-            >
-              {button.label}
-            </button>
-            {activeButton === button.id && (
-              <p className="text-white text-center">{button.content}</p>
-            )}
-          </div>
-        ))}
-
-        
-      </div>
-    </div>
-
-
-
-
-    </div> */}
 
 
 
