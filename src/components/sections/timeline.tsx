@@ -1,6 +1,6 @@
 "use client";
 import { TextPosition } from "@/types/types";
-import { use, useState } from "react";
+import { useState } from "react";
 
 const details: TextPosition[] = [
   {
