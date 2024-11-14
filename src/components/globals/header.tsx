@@ -35,11 +35,11 @@ const Header = ({ title, prevPage, nextPage, visible }: Props) => {
 
     if (!visible) return <></>
   return (
-    <header className="flex w-full items-center justify-between border-b border-white">
+    <header className="flex w-full h-[4vw] items-center justify-between border-b border-white">
       {title && <p className="text-base leading-loose ml-4">{title}</p>}{" "}
-      <div className="flex gap-2 text-base leading-loose mr-4">
+      <div className="flex text-base leading-loose h-full items-center ">
         {prevPage ? (
-          <Link href={prevPage}>
+          <Link href={prevPage} className="flex justify-center items-center h-full aspect-square border-l-[0.5px] border-white ">
             <LuArrowLeft />
           </Link>
         ) : (
@@ -47,7 +47,7 @@ const Header = ({ title, prevPage, nextPage, visible }: Props) => {
         )}
 
         {nextPage ? (
-          <Link href={nextPage}>
+          <Link href={nextPage} className="flex justify-center items-center h-full aspect-square border-l-[0.5px] border-white">
             <LuArrowRight />
           </Link>
         ) : (

@@ -11,6 +11,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        greyA0: "#A0A0A0"
       },
       fontSize: {
         'xs': 'calc(4px + 0.6vw)', // 16.52px en 1920px
@@ -32,7 +33,7 @@ export default {
         ownFade: "fadeInScale 0.5s ease-in-out",
 
         // animations for titles infinte carrousel
-        marquee: 'marquee 40s linear infinite',
+        marquee: 'marqueeReverse 40s linear infinite',
         marqueeSlow: 'marquee 50s linear infinite',
       },
       keyframes: {
@@ -43,6 +44,10 @@ export default {
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' },
+        },
+        marqueeReverse: {
+          '100%': { transform: 'translateX(0)' },
+          '0%': { transform: 'translateX(-100%)' },
         },
       },
     

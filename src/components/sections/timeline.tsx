@@ -1,15 +1,28 @@
-'use client';
-import { useState } from 'react';
-  
+"use client";
+import { TextPosition } from "@/types/types";
+import { use, useState } from "react";
+
+const details: TextPosition[] = [
+  {
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae suscipit officia iste excepturi vitae, fuga nobis blanditiis fugiat molestias. Cupiditate eaque ducimus consectetur, possimus incidunt natus ut id dicta accusantium. Debitis minima dicta numquam alias eaque ratione repudiandae eum temporibus, cupiditate incidunt molestiae dolorem explicabo, nostrum quam magnam rem officia!",
+    position: "left",
+  },
+  {
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae suscipit officia iste excepturi vitae, fuga nobis blanditiis fugiat molestias. Cupiditate eaque ducimus consectetur, possimus incidunt natus ut id dicta accusantium. Debitis minima dicta numquam alias eaque ratione repudiandae eum temporibus, cupiditate incidunt molestiae dolorem explicabo, nostrum quam magnam rem officia!",
+    position: "center",
+  },
+  {
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae suscipit officia iste excepturi vitae, fuga nobis blanditiis fugiat molestias. Cupiditate eaque ducimus consectetur, possimus incidunt natus ut id dicta accusantium. Debitis minima dicta numquam alias eaque ratione repudiandae eum temporibus, cupiditate incidunt molestiae dolorem explicabo, nostrum quam magnam rem officia!",
+    position: "right",
+  },
+];
 
 const Timeline = () => {
+  const [activeButton, setActiveButton] = useState<string | null>(null);
 
-    const [activeButton, setActiveButton] = useState<string | null>(null);
-
-    const handleClick = (button: string) => {
-      setActiveButton(button === activeButton ? null : button);
-    };
-  
+  const handleClick = (button: string) => {
+    setActiveButton(button === activeButton ? null : button);
+  };
 
   return (
     <section className="flex flex-col items-center justify-center text-sm">
@@ -68,65 +81,67 @@ const Timeline = () => {
         ></div>
       </div>
 
-
-
-
-
-
-
       <div className="flex flex-col items-center w-[94%] pt-4 space-y-4">
-      {/* Contenedor de los botones */}
-      <div className="flex justify-between w-full ">
-        {/* Primer botón alineado a la izquierda */}
-        <div className="flex flex-col justify-start items-center min-w-[200px] gap-4">
-          <button
-            className={`px-4 py-2 border rounded-full text-white w-full ${
-              activeButton === 'savia' ? 'bg-gray-700' : 'bg-transparent'
-            }`}
-            onClick={() => handleClick('savia')}
-          >
-            SAVIA DESIGN
-          </button>
-          {activeButton === 'savia' && <p className='text-left'>Sant Feliu de Codines</p>}
+        {/* Contenedor de los botones */}
+        <div className="flex justify-between w-full ">
+          {/* Primer botón alineado a la izquierda */}
+          <div className="flex flex-col justify-start items-center min-w-[200px] gap-4">
+            <button
+              className={`px-4 py-2 border rounded-full text-white w-full hover:bg-greyA0/50 ${
+                activeButton === "savia" ? "bg-greyA0" : "bg-transparent"
+              }`}
+              onClick={() => handleClick("savia")}
+            >
+              SAVIA DESIGN
+            </button>
+            <p className="text-left">Sant Feliu de Codines</p>
+          </div>
+
+          {/* Segundo botón centrado */}
+          <div className="flex flex-col justify-start items-center min-w-[200px] gap-4">
+            <button
+              className={`px-4 py-2 border rounded-full text-white w-full hover:bg-greyA0/50 ${
+                activeButton === "logic" ? "bg-greyA0" : "bg-transparent"
+              }`}
+              onClick={() => handleClick("logic")}
+            >
+              LOGIC DESIGN
+            </button>
+            <p className="text-center">Barcelona / París / Warsaw</p>
+          </div>
+
+          {/* Tercer botón alineado a la derecha */}
+          <div className="flex flex-col justify-start items-center min-w-[200px] gap-4">
+            <button
+              className={`px-4 py-2 border rounded-full text-white w-full hover:bg-greyA0/50 ${
+                activeButton === "bbruce" ? "bg-greyA0" : "bg-transparent"
+              }`}
+              onClick={() => handleClick("bbruce")}
+            >
+              B–BRUCE
+            </button>
+            <p className="text-right">Barcelona</p>
+          </div>
         </div>
 
-        {/* Segundo botón centrado */}
-        <div className="flex flex-col justify-start items-center min-w-[200px] gap-4">
-          <button
-            className={`px-4 py-2 border rounded-full text-white w-full ${
-              activeButton === 'logic' ? 'bg-gray-700' : 'bg-transparent'
-            }`}
-            onClick={() => handleClick('logic')}
-          >
-            LOGIC DESIGN
-          </button>
-          {activeButton === 'logic' && <p className='text-center' >Barcelona / París / Warsaw</p>}
+        {activeButton === "savia" && (
+          <div className="flex w-full justify-start text-xs text-left text-greyA0 ">
+            <p className="w-[30vw]">{details[0].text}</p>
+          </div>
+        )}
+        {activeButton === "logic" && (
+          <div className="flex w-full justify-center text-xs text-center text-greyA0 ">
+            <p className="w-[30vw]">{details[1].text}</p>
+          </div>
+        )}
 
-        </div>
-
-        {/* Tercer botón alineado a la derecha */}
-        <div className="flex flex-col justify-start items-center min-w-[200px] gap-4">
-          <button
-            className={`px-4 py-2 border rounded-full text-white w-full ${
-              activeButton === 'bbruce' ? 'bg-gray-700' : 'bg-transparent'
-            }`}
-            onClick={() => handleClick('bbruce')}
-          >
-            B–BRUCE
-          </button>
-          {activeButton === 'bbruce' && <p className='text-right'>Barcelona</p>}
-
-        </div>
+        {activeButton === "bbruce" && (
+          <div className="flex w-full justify-end text-xs text-right text-greyA0 ">
+            <p className="w-[30vw]">{details[2].text}</p>
+          </div>
+        )}
+        
       </div>
-
-    </div>
-
-
-
-
-
-
-
     </section>
   );
 };

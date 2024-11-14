@@ -6,15 +6,15 @@ import { Suspense } from "react";
 
 const TheOrigin = () => {
   return (
-    <main className="flex flex-col h-full flex-col items-center justify-center pt-4">
+    <main className="flex flex-col h-full flex-col items-center justify-center">
       <Header
         title="The Origin"
         prevPage="/self-descrition"
         nextPage="/the-principles"
         visible={true}
       />
-      <section className="flex flex-1 flex-col w-full h-[350px]  items-center p-8 ">
-        <div className="w-full h-full rounded-3xl overflow-hidden">
+      <section className="flex grow flex-col w-full h-[350px]  items-center p-8 overflow-scroll">
+        <div className="w-full rounded-3xl">
           <Suspense fallback={<p>Loading video...</p>}>
             <video
               width="320"

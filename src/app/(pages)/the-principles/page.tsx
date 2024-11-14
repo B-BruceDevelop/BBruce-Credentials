@@ -32,14 +32,14 @@ const principles: Principle[] = [
 
 const ThePrinciples = () => {
   return (
-    <main className="flex flex-col h-screen  items-center justify-center p-4">
+    <main className="flex flex-col h-screen  items-center justify-center">
       <Header
         title="The Principles"
         prevPage="the-origin"
         nextPage="shapeless-method"
         visible={true}
       />
-      <div className="flex-1 items-center justify-center w-full px-8 py-[4vw]">
+      <div className="grow items-center justify-center w-full px-8 py-[4vw] overflow-scroll">
         <article className="grid grid-cols-3 w-full  rounded-xl border divide-x">
           {principles.map(({ id, description, icon }) => (
             <div
