@@ -32,7 +32,7 @@ const TheOrigin = () => {
           <Timeline />
         </div>
       </section>
-      <Footer title="Stages of physical and mental evolution." red={false} />
+      <Footer title="Stages of physical and mental evolution."  red={false} />
     </main>
   );
 };

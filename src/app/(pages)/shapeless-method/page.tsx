@@ -38,7 +38,7 @@ const ShapelessMethod = () => {
       <Header
         title="Shapeless Method"
         prevPage="/the-principles"
-        nextPage="/mixed-brand-arts"
+        nextPage="/key-industries-expertise"
         visible={true}
       />
       <section className="flex flex-1 flex-col items-center justify-center w-full h-full p-4">
@@ -101,7 +101,7 @@ const ShapelessMethod = () => {
           </div>
         </div>
       </section>
-      <Footer title="Find your own path and make it unique." />
+      <Footer title="Find your own path and make it unique." width="80%" size="4xl"  />
     </main>
   );
 };

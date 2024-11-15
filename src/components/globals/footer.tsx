@@ -7,20 +7,26 @@ import Image from "next/image";
 type Props = {
   title?: string;
   red?: boolean;
+  size?: "4xl" | "8xl";
+  width?: string;
 };
 
-const Footer = ({ title, red }: Props) => {
+const Footer = ({ title, red=false, size = "8xl", width = "90%" }: Props) => {
   return (
-    <div className="flex w-full  items-end justify-between px-4">
-      {title && <p className="text-8xl leading-none w-[90%]">{title}</p>}
+    <footer className="flex w-full items-end justify-between px-4">
+      {title && (
+        <p className={`text-${size} leading-none w-[${width}] tracking-[-0.1vw] mb-2`}>{title}</p>
+      )}
       <Image
         src={red ? BB_red : BB_white}
         alt="B-Bruce"
         width={100}
         height={60}
-        className={!title ? "ml-auto w-[8vw] h-full mb-3" : " w-[8vw] h-auto mb-3"}  
+        className={
+          !title ? "ml-auto w-[8vw] h-auto mb-3" : " w-[8vw] h-auto mb-3" 
+        }
       />
-    </div>
+    </footer>
   );
 };
 

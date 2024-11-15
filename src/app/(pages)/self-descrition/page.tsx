@@ -24,7 +24,7 @@ const page = () => {
           className="animate-ownFade"
         /> */}
       </section>
-      <Footer title="A Barcelona—based studio where strategy, creativity, and design flow together to reach the next level." red={true} />
+      <Footer title="A Barcelona—based studio where strategy, creativity, and design flow together to reach the next level." width="80%" red={true} />
     </main>
   );
 };
