@@ -23,7 +23,7 @@ function Strategy() {
         <ul className="flex w-full items-center justify-center text-xs md:text-sm gap-4">
           <Link
             href={"/shapeless-method/strategy"}
-            className="text-greyA0 hover:text-white"
+            className="text-white"
           >
             STRATEGY
           </Link>
@@ -33,7 +33,7 @@ function Strategy() {
           >
             DESIGN
           </Link>
-          <Link href={"/shapeless-method/activation"} className="text-white">
+          <Link href={"/shapeless-method/activation"} className="text-greyA0 hover:text-white">
             ACTIVATION
           </Link>
         </ul>
@@ -50,7 +50,7 @@ function Strategy() {
         </div>
       </header>
 
-      <main className="flex grow flex-col items-center justify-between w-full h-full overflow-scroll ">
+      <main className="flex grow flex-col items-center justify-between w-full h-full  ">
         <div className="flex  flex-col items-center  w-full ">
           <ul className="flex gap-8 text-sm p-8">
             {values.map((value, index) => (
