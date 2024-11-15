@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,49 +10,120 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        greyA0: "#A0A0A0"
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        greyA0: "#A0A0A0",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        chart: {
+          "1": "hsl(var(--chart-1))",
+          "2": "hsl(var(--chart-2))",
+          "3": "hsl(var(--chart-3))",
+          "4": "hsl(var(--chart-4))",
+          "5": "hsl(var(--chart-5))",
+        },
       },
       fontSize: {
-        'xs': 'calc(4px + 0.6vw)', // 16.52px en 1920px
-        'sm': 'calc(6px + 0.9vw)', // 23.19px en 1920px
-        'base': 'calc(6px + 1.2vw)', // 29.86px en 1920px
-        'lg': 'calc(8px + 1.5vw)', // 36.53px en 1920px
-        'xl': 'calc(8px + 1.8vw)', // 43.20px en 1920px
-        '2xl': 'calc(8px + 2.1vw)', // 49.87px en 1920px
-        '3xl': 'calc(8px + 2.4vw)', // 56.54px en 1920px
-        '4xl': 'calc(10px + 2.7vw)', // 63.21px en 1920px
-        '5xl': 'calc(10px + 3.0vw)', // 69.88px en 1920px
-        '6xl': 'calc(10px + 3.3vw)', // 76.55px en 1920px
-        '7xl': 'calc(12px + 3.6vw)', // 83.22px en 1920px
-        '8xl': 'calc(12px + 3.9vw)', // 89.89px en 1920px
+        xs: "calc(4px + 0.6vw)",
+        sm: "calc(6px + 0.9vw)",
+        base: "calc(6px + 1.2vw)",
+        lg: "calc(8px + 1.5vw)",
+        xl: "calc(8px + 1.8vw)",
+        "2xl": "calc(8px + 2.1vw)",
+        "3xl": "calc(8px + 2.4vw)",
+        "4xl": "calc(10px + 2.7vw)",
+        "5xl": "calc(10px + 3.0vw)",
+        "6xl": "calc(10px + 3.3vw)",
+        "7xl": "calc(12px + 3.6vw)",
+        "8xl": "calc(12px + 3.9vw)",
       },
-      
       animation: {
         spinSlow: "spin 3s linear infinite",
         ownFade: "fadeInScale 0.5s ease-in-out",
-
-        // animations for titles infinte carrousel
-        marquee: 'marqueeReverse 40s linear infinite',
-        marqueeSlow: 'marquee 50s linear infinite',
+        marquee: "marqueeReverse 40s linear infinite",
+        marqueeSlow: "marquee 50s linear infinite",
+        accordionDown: "accordionDown 0.2s ease-out",
+        accordionUp: "accordionUp 0.2s ease-out",
       },
       keyframes: {
         fadeInScale: {
-          "0%": { opacity: "0", transform: "scale(2)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
+          "0%": {
+            opacity: "0",
+            transform: "scale(2)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
         },
         marquee: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-100%)' },
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
+          },
         },
         marqueeReverse: {
-          '100%': { transform: 'translateX(0)' },
-          '0%': { transform: 'translateX(-100%)' },
+          "100%": {
+            transform: "translateX(0)",
+          },
+          "0%": {
+            transform: "translateX(-100%)",
+          },
         },
+		accordionDown: {
+			from: {
+			  height: '0',
+			},
+			to: {
+			  height: 'var(--radix-accordion-content-height)',
+			},
+		  },
+		  accordionUp: {
+			from: {
+			  height: 'var(--radix-accordion-content-height)',
+			},
+			to: {
+			  height: '0',
+			},
+		  },
       },
-    
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;

@@ -11,11 +11,12 @@ type Props = {
   width?: string;
 };
 
-const Footer = ({ title, red=false, size = "8xl", width = "90%" }: Props) => {
+const Footer = ({ title, red=false, size = "8xl", width = "90vw" }: Props) => {
   return (
     <footer className="flex w-full items-end justify-between px-4">
       {title && (
         <p className={`text-${size} leading-none w-[${width}] tracking-[-0.1vw] mb-2`}>{title}</p>
+        // <p className={`text-${size} leading-none w-[60vw] tracking-[-0.1vw] mb-2`}>{title}</p>
       )}
       <Image
         src={red ? BB_red : BB_white}
