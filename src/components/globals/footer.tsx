@@ -35,9 +35,12 @@ const Footer = ({ title, red = false, size = "4xl", width }: Props) => {
         alt="B-Bruce"
         width={100}
         height={60}
-        className={
-          !title ? "ml-auto w-[8vw] h-auto mb-3" : " w-[8vw] h-auto mb-3" 
-        }
+       
+        className={cn(
+          "w-[calc(26px+3.9vw)] h-auto mb-3", // Tamaño fijo de 4vw de ancho
+          !title && "ml-auto"
+        )}
+        
       />
     </footer>
   );
