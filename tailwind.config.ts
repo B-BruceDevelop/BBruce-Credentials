@@ -54,18 +54,18 @@ export default {
         },
       },
       fontSize: {
-        xs: "calc(4px + 0.6vw)", // ~15px
-        sm: "calc(6px + 0.9vw)", // ~23px
-        base: "calc(6px + 1.2vw)", // ~29px
-        lg: "calc(8px + 1.5vw)", // ~37px
-        xl: "calc(8px + 1.8vw)", // ~42px
-        "2xl": "calc(8px + 2.1vw)", // ~47px
-        "3xl": "calc(8px + 2.4vw)", // ~52px
-        "4xl": "calc(10px + 2.7vw)", // ~61px
-        "5xl": "calc(10px + 3.0vw)", // ~67px
-        "6xl": "calc(10px + 3.3vw)", // ~73px
-        "7xl": "calc(12px + 3.6vw)", // ~81px
-        "8xl": "calc(12px + 3.9vw)", // ~86px
+        xs: "calc(2px + 0.68vw)", // ~15px en 1920px
+        sm: "calc(3px + 1.04vw)", // ~23px en 1920px
+        base: "calc(4px + 1.30vw)", // ~29px en 1920px
+        lg: "calc(5px + 1.67vw)", // ~37px en 1920px
+        xl: "calc(5px + 1.93vw)", // ~42px en 1920px
+        "2xl": "calc(6px + 2.14vw)", // ~47px en 1920px
+        "3xl": "calc(6px + 2.40vw)", // ~52px en 1920px
+        "4xl": "calc(7px + 2.81vw)", // ~61px en 1920px
+        "5xl": "calc(8px + 3.07vw)", // ~67px en 1920px
+        "6xl": "calc(8px + 3.39vw)", // ~73px en 1920px
+        "7xl": "calc(9px + 3.75vw)", // ~81px en 1920px
+        "8xl": "calc(10px + 3.95vw)", // ~86px en 1920px
       },
       animation: {
         spinSlow: "spin 3s linear infinite",
