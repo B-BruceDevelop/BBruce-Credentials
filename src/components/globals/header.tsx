@@ -11,10 +11,10 @@ type Props = {
   title?: string;
   prevPage?: string;
   nextPage?: string;
-  visible: boolean;
+  visible?: boolean;
 };
 
-const Header = ({ title, prevPage, nextPage, visible }: Props) => {
+const Header = ({ title, prevPage, nextPage, visible = true }: Props) => {
     const router = useRouter()
 
     useEffect(() => {

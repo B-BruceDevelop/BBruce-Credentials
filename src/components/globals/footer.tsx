@@ -1,5 +1,7 @@
 import React from "react";
 
+import { cn } from "@/lib/utils";
+
 import BB_red from "@/assets/B—BRUCE_red.svg";
 import BB_white from "@/assets/B—BRUCE.svg";
 import Image from "next/image";
@@ -11,12 +13,22 @@ type Props = {
   width?: string;
 };
 
-const Footer = ({ title, red=false, size = "8xl", width = "90vw" }: Props) => {
+const Footer = ({ title, red = false, size = "4xl", width }: Props) => {
+
+  console.log(">>>>", size);
   return (
     <footer className="flex w-full items-end justify-between px-4">
-      {title && (
-        <p className={`text-${size} leading-none w-[${width}] tracking-[-0.1vw] mb-2`}>{title}</p>
-        // <p className={`text-${size} leading-none w-[60vw] tracking-[-0.1vw] mb-2`}>{title}</p>
+     {title && (
+        <p
+          style={{ width: width || "auto" }}
+          className={cn(
+            size === "4xl" && "text-4xl",
+            size === "8xl" && "text-8xl",
+            "leading-none tracking-[-0.1vw] mb-2"
+          )}
+        >
+          {title}
+        </p>
       )}
       <Image
         src={red ? BB_red : BB_white}
@@ -32,3 +44,7 @@ const Footer = ({ title, red=false, size = "8xl", width = "90vw" }: Props) => {
 };
 
 export default Footer;
+
+
+
+ 

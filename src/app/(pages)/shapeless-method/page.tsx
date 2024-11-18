@@ -35,6 +35,7 @@ const Methods: MethodsType[] = [
 const ShapelessMethod = () => {
   return (
     <main className="flex flex-col h-screen  items-center justify-center">
+      
       <Header
         title="Shapeless Method"
         prevPage="/the-principles"
@@ -101,7 +102,7 @@ const ShapelessMethod = () => {
           </div>
         </div>
       </section>
-      <Footer title="Find your own path and make it unique." width="80%" size="4xl"  />
+      <Footer title="Find your own path and make it unique." width="80vw" size="4xl"  />
     </main>
   );
 };

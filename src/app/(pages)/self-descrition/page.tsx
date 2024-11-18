@@ -4,7 +4,7 @@ import React from "react";
 
 import Footer from "@/components/globals/footer";
 import DynamicBrandsCarousel from "@/components/sections/dynamicBrandsCarousel";
-const page = () => {
+const SelfDescription = () => {
   return (
     <main className="flex flex-col h-full flex-col items-center justify-between">
       <Header
@@ -24,9 +24,9 @@ const page = () => {
           className="animate-ownFade"
         /> */}
       </section>
-      <Footer title="A Barcelona—based studio where strategy, creativity, and design flow together to reach the next level." width="80%" red={true} />
+      <Footer title="A Barcelona—based studio where strategy, creativity, and design flow together to reach the next level." width="80vw" size="4xl" red={true} />
     </main>
   );
 };
 
-export default page;
+export default SelfDescription;

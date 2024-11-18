@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import tailwindcssAnimate from "tailwindcss-animate";
 export default {
   darkMode: ["class"],
   content: [
@@ -101,22 +101,22 @@ export default {
             transform: "translateX(-100%)",
           },
         },
-		accordionDown: {
-			from: {
-			  height: '0',
-			},
-			to: {
-			  height: 'var(--radix-accordion-content-height)',
-			},
-		  },
-		  accordionUp: {
-			from: {
-			  height: 'var(--radix-accordion-content-height)',
-			},
-			to: {
-			  height: '0',
-			},
-		  },
+        accordionDown: {
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
+        },
+        accordionUp: {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -125,5 +125,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
