@@ -9,11 +9,12 @@ import Image from "next/image";
 type Props = {
   title?: string;
   red?: boolean;
-  size?: "4xl" | "8xl";
+  size?: "sm"| "4xl" | "8xl";
   width?: string;
+  className?: string;
 };
 
-const Footer = ({ title, red = false, size = "4xl", width }: Props) => {
+const Footer = ({ title, red = false, size = "4xl", width, className }: Props) => {
 
   console.log(">>>>", size);
   return (
@@ -22,9 +23,11 @@ const Footer = ({ title, red = false, size = "4xl", width }: Props) => {
         <p
           style={{ width: width || "auto" }}
           className={cn(
+            size === "sm" && "text-sm",
             size === "4xl" && "text-4xl",
             size === "8xl" && "text-8xl",
-            "leading-none tracking-[-0.1vw] mb-2"
+            "leading-none tracking-[-0.1vw] mb-2",
+            className
           )}
         >
           {title}
