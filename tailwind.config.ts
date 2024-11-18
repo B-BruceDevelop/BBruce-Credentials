@@ -13,6 +13,7 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         greyA0: "#A0A0A0",
+        nutrisport: "#F8F7EF",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -53,18 +54,18 @@ export default {
         },
       },
       fontSize: {
-        xs: "calc(4px + 0.6vw)",
-        sm: "calc(6px + 0.9vw)",
-        base: "calc(6px + 1.2vw)",
-        lg: "calc(8px + 1.5vw)",
-        xl: "calc(8px + 1.8vw)",
-        "2xl": "calc(8px + 2.1vw)",
-        "3xl": "calc(8px + 2.4vw)",
-        "4xl": "calc(10px + 2.7vw)",
-        "5xl": "calc(10px + 3.0vw)",
-        "6xl": "calc(10px + 3.3vw)",
-        "7xl": "calc(12px + 3.6vw)",
-        "8xl": "calc(12px + 3.9vw)",
+        xs: "calc(4px + 0.6vw)", // ~15px
+        sm: "calc(6px + 0.9vw)", // ~23px
+        base: "calc(6px + 1.2vw)", // ~29px
+        lg: "calc(8px + 1.5vw)", // ~37px
+        xl: "calc(8px + 1.8vw)", // ~42px
+        "2xl": "calc(8px + 2.1vw)", // ~47px
+        "3xl": "calc(8px + 2.4vw)", // ~52px
+        "4xl": "calc(10px + 2.7vw)", // ~61px
+        "5xl": "calc(10px + 3.0vw)", // ~67px
+        "6xl": "calc(10px + 3.3vw)", // ~73px
+        "7xl": "calc(12px + 3.6vw)", // ~81px
+        "8xl": "calc(12px + 3.9vw)", // ~86px
       },
       animation: {
         spinSlow: "spin 3s linear infinite",
