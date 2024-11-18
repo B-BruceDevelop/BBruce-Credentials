@@ -51,7 +51,9 @@ const Header = ({ title, prevPage, nextPage, visible = true }: Props) => {
             <LuArrowRight />
           </Link>
         ) : (
-          <LuArrowRight className="opacity-50" />
+          <div className="flex justify-center items-center h-full aspect-square border-l-[0.5px] border-white opacity-50">
+            {/* <LuArrowRight /> */}
+          </div>
         )}
       </div>
     </header>
