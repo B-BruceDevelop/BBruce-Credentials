@@ -1,10 +1,9 @@
-'use client'
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 
-import Lottie from 'lottie-react';
 
 import spark from "./spark.json";
+import LottieComponent from "@/components/globals/lottie";
 
 const HighlightReel = () => {
   return (
@@ -15,8 +14,8 @@ const HighlightReel = () => {
         nextPage="/trusted-brands"
       />
       <section className="flex flex-grow  items-center justify-center w-full h-full p-4 gap-4 bg-red-500">
-        <Lottie
-          animationData={spark}
+        <LottieComponent
+          asset={spark}
           loop={true}
           className="w-full h-full"
         />
