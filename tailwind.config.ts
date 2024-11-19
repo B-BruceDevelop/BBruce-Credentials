@@ -67,6 +67,20 @@ export default {
         "7xl": "calc(9px + 3.75vw)", // ~81px en 1920px
         "8xl": "calc(10px + 3.95vw)", // ~86px en 1920px
       },
+      fontFamily: {
+        bruceRegular: ['Bruce-Regular', 'sans-serif'],
+        bruceOutline: ['Bruce-RegularOutline', 'sans-serif'],
+        favoritBold: ['Favorit-Bold', 'sans-serif'],
+        favoritBoldItalic: ['Favorit-Bold-Italic', 'sans-serif'],
+        favoritLightItalic: ['Favorit-Light-Italic', 'sans-serif'],
+        favoritRegularMono: ['Favorit-Regular-Mono', 'monospace'],
+        favoritRegularItalic: ['Favorit-Regular-Italic', 'sans-serif'],
+        favoritBoldLining: ['Favorit-Bold-Lining', 'sans-serif'],
+        favoritLightLining: ['Favorit-Light-Lining', 'sans-serif'],
+        favoritMediumLining: ['Favorit-Medium-Lining', 'sans-serif'],
+        favoritRegularLining: ['Favorit-Regular-Lining', 'sans-serif'],
+        favoritMediumItalic: ['Favorit-Medium-Italic', 'sans-serif'],
+      },
       animation: {
         spinSlow: "spin 3s linear infinite",
         ownFade: "fadeInScale 0.5s ease-in-out",
