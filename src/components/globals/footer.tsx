@@ -1,6 +1,7 @@
 import React from "react";
 
 import { cn } from "@/lib/utils";
+import { formatTextWithLineBreaks } from "@/lib/functions";
 
 import BB_red from "@/assets/B—BRUCE_red.svg";
 import BB_white from "@/assets/B—BRUCE.svg";
@@ -16,7 +17,6 @@ type Props = {
 
 const Footer = ({ title, red = false, size = "4xl", width, className }: Props) => {
 
-  console.log(">>>>", size);
   return (
     <footer className="flex w-full items-end justify-between px-4">
      {title && (
@@ -26,11 +26,11 @@ const Footer = ({ title, red = false, size = "4xl", width, className }: Props) =
             size === "sm" && "text-sm",
             size === "4xl" && "text-4xl",
             size === "8xl" && "text-8xl",
-            "leading-none tracking-[-0.1vw] mb-2",
+            "leading-none tracking-[-0.1vw] mb-2 font-favoritMediumLining",
             className
           )}
         >
-          {title}
+          {formatTextWithLineBreaks(title)}
         </p>
       )}
       <Image
