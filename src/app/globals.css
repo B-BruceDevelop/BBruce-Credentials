@@ -78,77 +78,78 @@ body {
 @layer base {
   @font-face {
     font-family: 'Bruce-Regular';
-    src: url('/src/fonts/Bruce-Regular-2.0.otf') format('opentype');
+    src: url('/src/app/fonts/Bruce-Regular-2.0.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'Bruce-RegularOutline';
-    src: url('/src/fonts/Bruce-RegularOutline.otf') format('opentype');
+    src: url('/src/fonts/Bruce-Regular-Outline.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'Favorit-Bold';
-    src: url('/src/fonts/Favorit_Bold.otf') format('opentype');
+    src: url('/src/fonts/Favorit-Bold.otf') format('opentype');
     font-weight: 700;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'Favorit-Bold-Italic';
-    src: url('/src/fonts/Favorit_Bold-Italic.otf') format('opentype');
+    src: url('/src/fonts/Favorit-Bold-Italic.otf') format('opentype');
     font-weight: 700;
     font-style: italic;
   }
   
   @font-face {
     font-family: 'Favorit-Light-Italic';
-    src: url('/src/fonts/Favorit_Light-Italic.otf') format('opentype');
+    src: url('/src/fonts/Favorit-Light-Italic.otf') format('opentype');
     font-weight: 300;
     font-style: italic;
   }
   
   @font-face {
     font-family: 'Favorit-Regular-Mono';
-    src: url('/src/fonts/Favorit_Regular_Mono.otf') format('opentype');
+    src: url('/src/fonts/Favorit-Regular-Mono.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'Favorit-Regular-Italic';
-    src: url('/src/fonts/Favorit_Regular-Italic.otf') format('opentype');
+    src: url('/src/fonts/Favorit-Regular-Italic.otf') format('opentype');
     font-weight: 400;
     font-style: italic;
   }
   
   @font-face {
     font-family: 'Favorit-Bold-Lining';
-    src: url('/src/fonts/Favorit-Bold_Lining.otf') format('opentype');
+    src: url('/src/fonts/Favorit-Bold-Lining.otf') format('opentype');
     font-weight: 700;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'Favorit-Light-Lining';
-    src: url('/src/fonts/Favorit-Light_Lining.otf') format('opentype');
+    src: url('/src/fonts/Favorit-Light-Lining.otf') format('opentype');
     font-weight: 300;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'Favorit-Medium-Lining';
-    src: url('/src/fonts/Favorit-Medium_Lining.otf') format('opentype');
+    /* src: url('/src/fonts/Favorit-Medium-Lining.otf') format('opentype'); */
+    src: url('/src/app/fonts/Favorit-Medium-Lining.otf') format('opentype');
     font-weight: 500;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'Favorit-Regular-Lining';
-    src: url('/src/fonts/Favorit-Regular_Lining.otf') format('opentype');
+    src: url('/src/fonts/Favorit-Regular-Lining.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
   }

@@ -69,7 +69,7 @@ export default {
       },
       fontFamily: {
         bruceRegular: ['Bruce-Regular', 'sans-serif'],
-        bruceOutline: ['Bruce-RegularOutline', 'sans-serif'],
+        bruceOutline: ['Bruce-Regular-Outline', 'sans-serif'],
         favoritBold: ['Favorit-Bold', 'sans-serif'],
         favoritBoldItalic: ['Favorit-Bold-Italic', 'sans-serif'],
         favoritLightItalic: ['Favorit-Light-Italic', 'sans-serif'],
@@ -88,6 +88,8 @@ export default {
         marqueeSlow: "marquee 50s linear infinite",
         accordionDown: "accordionDown 0.2s ease-out",
         accordionUp: "accordionUp 0.2s ease-out",
+        growFromTop: "growFromTop 0.5s ease-in-out forwards",
+        shrinkToBottom: "shrinkToBottom 0.5s ease-in-out forwards",
       },
       keyframes: {
         fadeInScale: {
@@ -99,6 +101,7 @@ export default {
             opacity: "1",
             transform: "scale(1)",
           },
+          
         },
         marquee: {
           "0%": {
@@ -131,6 +134,14 @@ export default {
           to: {
             height: "0",
           },
+        },
+        growFromTop: {
+          "0%": { height: "0" },
+          "100%": { height: "auto" },
+        },
+        shrinkToBottom: {
+          "0%": { height: "auto" },
+          "100%": { height: "0" },
         },
       },
       borderRadius: {

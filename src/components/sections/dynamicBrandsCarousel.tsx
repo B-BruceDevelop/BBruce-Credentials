@@ -4,79 +4,39 @@ import keywordsBlack from "@/assets/keywords_stroke2.svg";
 
 import DynamicBrands from "@/assets/DYNAMIC BRANDS ®.svg";
 
-
 const DynamicBrandsCarousel = () => {
   return (
-    <section className="relative w-full overflow-hidden ">
-      <div className="flex animate-marqueeSlow items-center justify-center  w-[400%] mt-4 ">
+    <section className="relative w-full overflow-hidden">
+    {/* Contenedor 1 */}
+    <div className="flex animate-marqueeSlow items-center justify-center w-[400%] h-[20vh]">
+      {[0, 1, 2, 3].map((number) => (
         <Image
+          key={number}
           src={DynamicBrands}
           alt="DYNAMIC BRANDS ®"
           width={1814}
           height={220}
-          className="w-full h-auto mx-12"
+          className="h-full w-auto mx-12 object-contain"
           priority
         />
+      ))}
+    </div>
+  
+    {/* Contenedor 2 */}
+    <div className="flex animate-marquee items-center justify-center w-[400%] h-[20vh] mt-4">
+      {[0, 1, 2, 3].map((number) => (
         <Image
-          src={DynamicBrands}
-          alt="DYNAMIC BRANDS ®"
-          width={1814}
-          height={220}
-          className="w-full h-auto mx-12 "
-          priority
-        />
-        <Image
-          src={DynamicBrands}
-          alt="DYNAMIC BRANDS ®"
-          width={1814}
-          height={220}
-          className="w-full h-auto mx-12"
-          priority
-        />
-        <Image
-          src={DynamicBrands}
-          alt="DYNAMIC BRANDS ®"
-          width={1814}
-          height={220}
-          className="w-full h-auto mx-12 "
-          priority
-        />
-      </div>
-      <div className="flex animate-marquee items-center justify-center w-[400%] mt-4  ">
-        <Image
+          key={number}
           src={keywordsBlack}
           alt="SIMPLICITY — FLEXIBILITY"
           width={1814}
           height={121}
-          className="w-full h-auto mx-6 object-contain "
+          className="h-full w-auto mx-12 object-contain"
           priority
         />
-        <Image
-          src={keywordsBlack}
-          alt="SIMPLICITY — FLEXIBILITY"
-          width={1814}
-          height={121}
-          className="w-full h-auto mx-6 object-contain "
-          priority
-        />
-        <Image
-          src={keywordsBlack}
-          alt="SIMPLICITY — FLEXIBILITY"
-          width={1814}
-          height={121}
-          className="w-full h-auto mx-6 object-contain "
-          priority
-        />
-        <Image
-          src={keywordsBlack}
-          alt="SIMPLICITY — FLEXIBILITY"
-          width={1814}
-          height={121}
-          className="w-full h-auto mx-6 object-contain "
-          priority
-        />
-      </div>
-    </section>
+      ))}
+    </div>
+  </section>
   );
 };
 

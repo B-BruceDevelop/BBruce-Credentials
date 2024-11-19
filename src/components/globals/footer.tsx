@@ -20,18 +20,18 @@ const Footer = ({ title, red = false, size = "4xl", width, className }: Props) =
   return (
     <footer className="flex w-full items-end justify-between px-4">
      {title && (
-        <p
+        <div
           style={{ width: width || "auto" }}
           className={cn(
             size === "sm" && "text-sm",
             size === "4xl" && "text-4xl",
             size === "8xl" && "text-8xl",
-            "leading-none tracking-[-0.1vw] mb-2 font-favoritMediumLining",
+            "leading-none tracking-[-0.1vw] mb-4 font-favoritMediumLining",
             className
           )}
         >
           {formatTextWithLineBreaks(title)}
-        </p>
+        </div>
       )}
       <Image
         src={red ? BB_red : BB_white}
@@ -40,7 +40,7 @@ const Footer = ({ title, red = false, size = "4xl", width, className }: Props) =
         height={60}
        
         className={cn(
-          "w-[calc(26px+3.9vw)] h-auto mb-3", // Tamaño fijo de 4vw de ancho
+          "w-[calc(26px+3.9vw)] h-auto mb-4", // Tamaño fijo de 4vw de ancho
           !title && "ml-auto"
         )}
         

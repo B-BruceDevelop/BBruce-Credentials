@@ -34,7 +34,7 @@ const Methods: MethodsType[] = [
 
 const ShapelessMethod = () => {
   return (
-    <main className="flex flex-col h-screen  items-center justify-center">
+    <div className="flex flex-col h-screen  items-center justify-center">
       
       <Header
         title="Shapeless Method"
@@ -42,7 +42,7 @@ const ShapelessMethod = () => {
         nextPage="/key-industries-expertise"
         visible={true}
       />
-      <section className="flex flex-1 flex-col items-center justify-center w-full h-full p-4">
+      <main className="flex flex-1 flex-col items-center justify-center w-full h-full p-4">
         <div className="flex flex-col-3 items-center justify-around w-full text-xl pt-8">
           <p className="w-[15%] text-center">Be aware of yourself.</p>
           <p className="w-[30%] text-center">
@@ -101,9 +101,9 @@ const ShapelessMethod = () => {
             ))}
           </div>
         </div>
-      </section>
+      </main>
       <Footer title="Find your own path and make it unique." width="80vw" size="4xl"  />
-    </main>
+    </div>
   );
 };
 

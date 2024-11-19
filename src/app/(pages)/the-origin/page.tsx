@@ -6,22 +6,21 @@ import { Suspense } from "react";
 
 const TheOrigin = () => {
   return (
-    <main className="flex flex-col h-full flex-col items-center justify-center bg-black">
+    <div className="flex flex-col h-full flex-col items-center justify-center bg-black">
       <Header
         title="The Origin"
         prevPage="/self-descrition"
         nextPage="/the-principles"
         visible={true}
       />
-      <section className="flex grow flex-col w-full h-[350px] items-center p-8 ">
-        <div className="w-full rounded-3xl">
+      <main className="flex grow flex-col w-full h-[35vh]] items-center p-4 ">
+        <section className="w-full   rounded-3xl">
           <Suspense fallback={<p>Loading video...</p>}>
             <video
               width="320"
               height="240"
-              controls
-              preload="none"
-              className=" w-full  h-[350px] object-cover  rounded-3xl"
+              autoPlay
+              className=" w-full  h-[35vh] object-cover  rounded-3xl"
             >
               <source
                 src="https://framerusercontent.com/assets/MLWPbW1dUQawJLhhun3dBwpgJak.mp4"
@@ -29,11 +28,13 @@ const TheOrigin = () => {
               />
             </video>
           </Suspense>
+        </section>
+        <section className="flex grow w-full items-center">
           <Timeline />
-        </div>
-      </section>
-      <Footer title="Stages of physical and mental evolution."  red={false} />
-    </main>
+        </section>
+      </main>
+      <Footer title="Stages of physical and mental evolution." red={false} />
+    </div>
   );
 };
 

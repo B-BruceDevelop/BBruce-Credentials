@@ -10,7 +10,7 @@ const page = () => {
         nextPage="/bbruce"
         visible={true}
       />
-      <main className="grow w-full h-full p-4 ">
+      <main className="grow w-full h-full max-h-[95vh] p-4 ">
         <Suspense fallback={<p>Loading video...</p>}>
           <video
             width="320"

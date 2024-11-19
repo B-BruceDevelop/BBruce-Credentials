@@ -6,26 +6,19 @@ import Footer from "@/components/globals/footer";
 import DynamicBrandsCarousel from "@/components/sections/dynamicBrandsCarousel";
 const SelfDescription = () => {
   return (
-    <main className="flex flex-col h-full flex-col items-center justify-between">
+    <div className="flex flex-col h-full flex-col items-center justify-between">
       <Header
         title="Self Description"
         prevPage="/bruceLee"
         nextPage="/the-origin"
         visible={true}
       />
-      <section className="flex flex-1  flex-col items-center justify-start pt-4"> 
+      <main className="flex flex-1 flex-col items-center justify-start pt-4"> 
         <DynamicBrandsCarousel />
-        {/* <h1 className="text-[calc(32px + 2.6vw)]">SHAPELESS BRANDS ® SHAPELESS</h1>
-        <Image
-          src={simplicity}
-          alt="Simplicity"
-          width={400}
-          height={100}
-          className="animate-ownFade"
-        /> */}
-      </section>
-      <Footer title="A Barcelona—based studio where strategy, creativity, and design flow together to reach the next level." width="80vw" size="4xl" red={true} />
-    </main>
+       
+      </main>
+      <Footer title="A Barcelona—based studio where strategy, creativity, and design flow together to reach the next level." width="70vw" size="8xl" red={true} />
+    </div>
   );
 };
 
