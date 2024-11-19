@@ -3,7 +3,7 @@ import BrandSection from "./components/BrandSection";
 
 const MixedBrandArts = () => {
   return (
-    <main className="flex flex-col h-screen items-center justify-center">
+    <div className="flex flex-col w-full h-screen items-center justify-between">
       <Header
         title="Mixed Brand Arts"
         prevPage="/key-industries-expertise"
@@ -11,8 +11,8 @@ const MixedBrandArts = () => {
         visible={true}
       />
         <BrandSection />
-      
-    </main>
+     
+    </div>
   );
 };
 

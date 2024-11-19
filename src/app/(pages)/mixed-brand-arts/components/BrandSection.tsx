@@ -92,8 +92,8 @@ export default function BrandSection() {
     <div className="flex flex-col w-full h-full justify-between">
       <div 
       className={cn(
-        "flex  h-[60vh] w-full  px-[2vw] md:px-[4vw] pt-[2vh] md:pt-[4vh]",
-        expandedId !== null ? "gap-none" : "gap-[2vw]"
+        "flex h-[60vh] w-full  p-[1vw]",
+        expandedId !== null ? "gap-none" : "gap-[1vw]"
       )}>
         {brandData.map((brand) => (
           <BrandCard

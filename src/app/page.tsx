@@ -13,7 +13,7 @@ export default function Home() {
     <main className="flex w-full h-full flex-col items-center justify-center p-4">
       <Header nextPage="/bruceLee" visible={false} />
       <section className="flex w-full items-center justify-between">
-        <h1 className="text-3xl font-bold">Hello</h1>
+        <h1 className="text-3xl font-favoritMediumLining tracking-[-0.3px]">Hello</h1>
         <NikeLogo />
         <Link href={"/bruceLee"}
          className="text-sm flex gap-1" >

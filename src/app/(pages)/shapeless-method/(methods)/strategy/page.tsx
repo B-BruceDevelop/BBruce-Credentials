@@ -16,7 +16,7 @@ function Strategy() {
   return (
     <div className="flex flex-col items-center justify-center w-full h-[100vh]">
       <header className="flex flex-cols-3 w-full h-[4vw]  items-center justify-between border-b border-white">
-        <p className="w-[30vw] text-xs sm:text-base leading-loose ml-4">
+        <p className="w-[30vw] text-xs sm:text-base ml-4">
           Shapeless Method
         </p>
 

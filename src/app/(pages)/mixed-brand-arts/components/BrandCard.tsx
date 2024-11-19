@@ -54,7 +54,7 @@ export default function BrandCard({
                   </ul>
                 )}
               </div>
-              <div className="flex-1 p-4">
+              <div id="video-container" className="flex-1 p-4">
                 {videoUrl && (
                   <video
                     className="w-full h-full object-cover rounded-xl"

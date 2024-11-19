@@ -35,9 +35,9 @@ const Header = ({ title, prevPage, nextPage, visible = true }: Props) => {
 
     if (!visible) return <></>
   return (
-    <header className="flex w-full h-[4vw] items-center justify-between border-b border-white">
-      {title && <p className="text-base leading-loose ml-4">{title}</p>}{" "}
-      <div className="flex text-base leading-loose h-full items-center ">
+    <header className="flex w-full h-[4vw] max-h-[70px] items-center justify-between border-b border-white">
+      {title && <p className="text-base  ml-4">{title}</p>}{" "}
+      <div className="flex text-base h-full items-center ">
         {prevPage ? (
           <Link href={prevPage} className="flex justify-center items-center h-full aspect-square border-l-[0.5px] border-white ">
             <LuArrowLeft />
