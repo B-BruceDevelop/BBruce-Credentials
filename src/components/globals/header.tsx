@@ -4,8 +4,6 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 import Link from "next/link";
-import { LuArrowRight } from "react-icons/lu";
-import { LuArrowLeft } from "react-icons/lu";
 import { PiArrowLeftThin } from "react-icons/pi";
 import { PiArrowRightThin } from "react-icons/pi";
 
