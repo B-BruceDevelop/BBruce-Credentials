@@ -11,7 +11,7 @@ const page = () => {
         visible={true}
       />
       <main className="grow w-full h-full max-h-[95vh] p-4 ">
-        <Suspense fallback={<p>Loading video...</p>}>
+        <Suspense fallback={<p className="text-white" >Loading video...</p>}>
           <video
             width="320"
             height="240"
