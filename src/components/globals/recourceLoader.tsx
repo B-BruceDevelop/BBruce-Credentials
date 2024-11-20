@@ -23,7 +23,6 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({ children }) => {
       )}
       {/* Clona el hijo y agrega el evento onLoad/onLoadingComplete */}
       {React.cloneElement(children, {
-        onLoadingComplete: handleLoad, // Para imágenes de Next.js
         onLoad: handleLoad, // Para imágenes normales
         onLoadedData: handleLoad, // Para videos
       })}

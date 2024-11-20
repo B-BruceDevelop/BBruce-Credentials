@@ -66,7 +66,7 @@ const Timeline = () => {
           {["Desarrollo de la técnica", "Desarrollo del pensamiento"].map((text) => (
               <p
                 key={text}
-                className="text-white text-sm text-center pt-2"
+                className="text-white text-sm text-center pt-2 font-favoritRegularMono"
               >
                 {text}
               </p>
@@ -131,7 +131,7 @@ const Timeline = () => {
           )}
         >
           <p className={cn(
-            "w-[70vw] md:w-[30vw] opacity-100 text-right",
+            "w-[70vw] md:w-[30vw] opacity-100 text-right font-favoritRegularMono",
             activeItem ? `text-${activeItem.align}` : "text-left"
           )}
           >
