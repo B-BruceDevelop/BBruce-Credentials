@@ -1,14 +1,16 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import type { StaticImageData } from 'next/image'
+import Image from "next/image";
+import Link from "next/link";
+import type { StaticImageData } from "next/image";
+import { cn } from "@/lib/utils";
 
 interface CaseProps {
-  link: string
-  backgroundImage?: string | StaticImageData
-  backgroundColor?: string
-  logo?: string | StaticImageData
-  title: string
-  subtitle: string
+  link: string;
+  backgroundImage?: string | StaticImageData;
+  backgroundColor?: string;
+  logo?: string | StaticImageData;
+  title: string;
+  subtitle: string;
+  id: number;
 }
 
 export default function CaseCard({
@@ -17,7 +19,8 @@ export default function CaseCard({
   backgroundColor = "bg-transparent",
   logo,
   title,
-  subtitle
+  subtitle,
+  id,
 }: CaseProps) {
   return (
     <Link href={link} className="block w-full h-full group">
@@ -34,14 +37,21 @@ export default function CaseCard({
             priority
           />
         ) : (
-          <div className={`w-full h-full ${backgroundColor || 'bg-transparent'}`} />
+          <div
+            className={`w-full h-full ${backgroundColor || "bg-transparent"}`}
+          />
         )}
         {/* Overlay oscuro */}
         <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:opacity-0" />
         {/* Logo */}
         {logo && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative w-1/2 h-1/4 transition-transform duration-300 group-hover:scale-110">
+            <div className={cn("relative transition-transform duration-300 group-hover:scale-110",
+            id === 3 ? "w-4/5 h-2/4  " : "w-1/2 h-1/4 "
+
+
+            )}>
+           
               <Image
                 src={logo}
                 alt={`${title} logo`}
@@ -55,10 +65,10 @@ export default function CaseCard({
       </div>
 
       {/* Contenedor de título y subtítulo */}
-      <div className=" flex items-start gap-2 z-10"> 
-        <h2 className="text-sm tracking-tight text-white">{title}</h2>
-        <p className="text-sm text-[#939393]">{subtitle}</p>
+      <div className=" flex flex-wrap w-[25vw] mt-[1vw] items-start gap-2 z-10 leading-none font-favoritRegularLining tracking-[-1.1px]">
+        <h2 className="text-sm tracking-tight text-white truncate">{title}</h2>
+        <p className="text-sm text-[#939393] ">{subtitle}</p>
       </div>
     </Link>
-  )
+  );
 }

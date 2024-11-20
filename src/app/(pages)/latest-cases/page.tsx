@@ -7,8 +7,11 @@ import CaseCard from "./card";
 
 import atrapalo_bg from "./img/Atrapalo_BG.png";
 import atrapalo_Logo from "./img/atrapalo_Logo.svg";
-import motorola_BG from "./img/motorola_BG.png";
-import nutrisport_Logo from "./img/Nutrisport_Logo.svg";
+import motorola_BG from "./img/euroleague_img.png";
+import motorola_logo from "./img/euroleague_Logo_Full.svg";
+import nutrisport_BG from "./img/nutriesport_img.png";
+import nutrisport_Logo from "./img/Nutriesport_logo_white.svg";
+
 
 type Case = {
   id: number;
@@ -31,7 +34,7 @@ const lastCases: Case[] = [
   },
   {
     id: 2,
-    backgroundColor: "bg-nutrisport",
+    backgroundImage: nutrisport_BG,
     logo: nutrisport_Logo,
     link: "latest-cases/nutrisport",
     title: "Nutrisport",
@@ -40,6 +43,7 @@ const lastCases: Case[] = [
   {
     id: 3,
     backgroundImage: motorola_BG,
+    logo: motorola_logo,
     link: "latest-cases/motorola",
     title: "Motorola",
     subtitle: "Creative Campaign",
@@ -49,15 +53,12 @@ const lastCases: Case[] = [
 const MixedBrandArts = () => {
   return (
     <main className="flex flex-col min-h-screen items-center justify-between">
-      
       <Header
         title="Latest Cases"
         prevPage="/mixed-brand-arts"
         nextPage="/highlight-reel"
       />
       <section className="flex flex-grow items-center justify-center w-full h-full p-4 gap-4 ">
-       
-   
         {lastCases.map(
           ({
             id,
@@ -69,20 +70,19 @@ const MixedBrandArts = () => {
             link,
           }) => (
             <div
-            key={id}
-            // className="group flex-grow flex-shrink-0 transition-[flex-grow] duration-300 ease-in-out hover:flex-grow-[3]"
-            className=" flex-grow flex-shrink-0 h-[75vh] transition-[flex-grow] duration-300 ease-in-out hover:flex-grow-[3]"
-            >
-              
-            <CaseCard
               key={id}
-              backgroundImage={backgroundImage}
-              logo={logo}
-              backgroundColor={backgroundColor}
-              title={title}
-              subtitle={subtitle}
-              link={link}
-            />
+              className=" flex-grow flex-shrink-0 h-[75vh] transition-[flex-grow] duration-300 ease-in-out hover:flex-grow-[4]"
+            >
+              <CaseCard
+                key={id}
+                id={id}
+                backgroundImage={backgroundImage}
+                logo={logo}
+                backgroundColor={backgroundColor}
+                title={title}
+                subtitle={subtitle}
+                link={link}
+              />
             </div>
           )
         )}
