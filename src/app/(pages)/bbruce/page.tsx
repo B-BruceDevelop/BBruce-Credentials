@@ -15,7 +15,7 @@ const BBruce = () => {
         alt="B-Bruce"
         width={400}
         height={100}
-        className="animate-ownFade w-[] "
+        className="animate-FadeINScale"
       />
      
     </main>

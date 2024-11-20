@@ -2,16 +2,20 @@
 
 import { Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import React from "react";
+import Image, { StaticImageData } from "next/image";
 
 interface BrandCardProps {
-  title: string;
+  title: React.ReactNode;
   description: string;
   isExpanded: boolean;
   onClick: () => void;
   services?: string[];
   videoUrl?: string;
   anyExpanded: boolean;
-  image?: string;
+  image?: StaticImageData;
+  index: number;
+  footer: string;
 }
 
 export default function BrandCard({
@@ -22,7 +26,9 @@ export default function BrandCard({
   services,
   videoUrl,
   anyExpanded,
-  image
+  image,
+  index,
+  footer,
 }: BrandCardProps) {
   return (
     <div
@@ -32,32 +38,60 @@ export default function BrandCard({
       )}
       onClick={onClick}
     >
-      <div className={cn(
-        "absolute inset-[1px] rounded-[1vw] bg-black",
-        "before:absolute before:inset-0 before:rounded-[1vw] before:border before:border-white/50"
-      )}>
+      <div
+        className={cn(
+          "absolute inset-[1px] rounded-[2vw] bg-black",
+          "before:absolute before:inset-0 before:rounded-[2vw] ",
+          isExpanded
+            ? "flex-[3]"
+            : anyExpanded
+            ? "flex-[0.4]"
+            : "flex-1 before:border before:border-white"
+        )}
+      >
         <div className="h-full flex">
           {isExpanded ? (
             <>
-              <div className="flex flex-[0.4] flex-col max-w-[18vw] p-[2vw] border-r border-white/30 justify-between">
+              <div
+                className={cn(
+                  "flex flex-[0.4] flex-col max-w-[18vw] p-[1.5vw] border-r border-r-white/50 justify-between",
+                  index !== 0 && "border-l border-l-white" // Aplica el borde izquierdo solo si no es la primera
+                )}
+              >
+                {" "}
                 <div className="flex justify-between items-start gap-[1vw]">
-                  <h2 className="text-base font-bold tracking-tight">{title}</h2>
-                  <button className="rounded-full bg-black border-[.5px] border-white/50 p-[1vh]">
+                  <h2 className="text-base font-favoritMediumLining tracking-tigh leading-none ">
+                    {title}
+                  </h2>
+                  <button className="hidden md:block rounded-[2vw] bg-black border-[.5px] border-white p-[1vh] ">
                     <Minus className="h-[1.2vw] w-[2.6vw] text-white" />
                   </button>
                 </div>
                 {services && (
-                  <ul className="mt-2 space-y-[0.5vh] text-xs text-gray-400">
-                    {services.map((service, index) => (
-                      <li key={index} className="hover:text-white transition-colors">{service}</li>
-                    ))}
-                  </ul>
+                  <div>
+                    <p className="text-xs text-favoritMediumLining underline">
+                      Services
+                    </p>
+                    <ul className="mt-2 space-y-[0.5vh] text-xs text-[#888888] overflow-scroll">
+                      {services.map((service, index) => (
+                        <li
+                          key={index}
+                          className="hover:text-white transition-colors"
+                        >
+                          {service}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
               </div>
-              <div id="video-container" className="flex-1 p-4">
+              <div
+                id="video-container"
+                className="flex flex-1 justify-end p-[1vw] rounded-[2vw] overflow-hidden"
+              >
                 {videoUrl && (
                   <video
-                    className="w-full h-full object-cover rounded-xl"
+                    className=" object-cover rounded-[1vw] aspect-16/9"
                     autoPlay
                     loop
                     muted
@@ -69,27 +103,69 @@ export default function BrandCard({
               </div>
             </>
           ) : (
-            <div className={cn(
-              "  ",
-              anyExpanded ? " flex-col w-full  z-10 " : "p-[2vw] flex flex-col h-full justify-between  "
-            )}>
-              <div className={cn(
-                "flex items-start justify-between",
-                anyExpanded && "flex flex-col-reverse w-full h-full items-center pt-[1vw] z-10 "
-              )}>
-               
-                <h2 className={cn(
-                  " text-base font-bold tracking-tight transition-all duration-500",
-                  anyExpanded && "-rotate-90 origin-top-left translate-x-[6vw] whitespace-nowrap"
-                )}>{title}</h2>
-                 <button className="rounded-full bg-white p-[1vh] ">
+            <div
+              className={cn(
+                anyExpanded
+                  ? index === 0
+                    ? "flex-col w-full z-10" // Si es la primera, no aplica el borde izquierdo
+                    : "flex-col w-full z-10 border-l border-white" // Si no es la primera, aplica el borde izquierdo
+                  : "p-[1.5vw] flex flex-col h-full justify-between"
+              )}
+            >
+              <div
+                className={cn(
+                  "flex items-start justify-between",
+                  anyExpanded &&
+                    "flex flex-col-reverse w-full h-full items-center pt-[1vw] z-10 "
+                )}
+              >
+                <h2
+                  className={cn(
+                    " text-base font-favoritMediumLining tracking-tight transition-all duration-500 leading-none",
+                    anyExpanded &&
+                      "-rotate-90 origin-top-left translate-x-[2.5vw] whitespace-nowrap translate-y-[1.5vw] "
+                  )}
+                >
+                  {title}
+                </h2>
+                <button className="rounded-[2vw] bg-white p-[1vh] ">
                   <Plus className="h-[1.2vw] w-[2.6vw] text-black" />
                 </button>
               </div>
               {!anyExpanded && (
                 <>
-              {image ?  <p className="mt-4 h-full w-full text-base text-gray-400">{image}</p> : <p className="mt-4 text-xs text-gray-400">IMAGE</p>}
-                <p className="mt-4 text-xs text-gray-400">{description}</p>
+                  {image ? (
+                    <div
+                      className={cn(
+                        "flex justify-center items-center mt-[2vw] p-[1vw] h-full w-full bg-[#272727] rounded-[1vw]",
+                        index === 1
+                          ? "overflow-visible relative"
+                          : "overflow-hidden"
+                      )}
+                    >
+                      <Image
+                        src={image}
+                        alt="Brand Image"
+                        width={400}
+                        height={400}
+                        className={cn(
+                          "object-contain animate-fadeInSmall",
+                          index === 1
+                            ? "absolute max-w-none h-[120%] w-[120%]"
+                            : "max-w-full max-h-full",
+                          index === 3 && "rotate-[10deg]"
+                        )}
+                      />
+                    </div>
+                  ) : (
+                    <p className="mt-4 text-xs text-gray-400">IMAGE</p>
+                  )}
+                  <p className="text-sm mt-4 font-favoritRegularLining">
+                    {footer}
+                  </p>
+                  <p className="w-[90%] text-sm text-[#888888] font-favoritRegularLining tracking-wide leading-none">
+                    {description}
+                  </p>
                 </>
               )}
             </div>
@@ -99,4 +175,3 @@ export default function BrandCard({
     </div>
   );
 }
-

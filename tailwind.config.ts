@@ -84,6 +84,7 @@ export default {
       animation: {
         spinSlow: "spin 3s linear infinite",
         ownFade: "fadeInScale 0.5s ease-in-out",
+        fadeInSmall: "fadeOutScale 0.5s ease-in-out", // Nueva animación
         marquee: "marqueeReverse 40s linear infinite",
         marqueeSlow: "marquee 50s linear infinite",
         accordionDown: "accordionDown 0.2s ease-out",
@@ -101,7 +102,16 @@ export default {
             opacity: "1",
             transform: "scale(1)",
           },
-          
+        },
+        fadeOutScale: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
         },
         marquee: {
           "0%": {
