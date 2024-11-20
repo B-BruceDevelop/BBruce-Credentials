@@ -5,7 +5,6 @@ import Image from "next/image";
 import beAwareImg from "@/assets/principles/Be_aware 2.svg";
 import keepUsefulIMG from "@/assets/principles/keep-the-useful.svg";
 import strikeOnceIMG from "@/assets/principles/strike-once.svg";
-import { useEffect, useState } from "react";
 import ResourceLoader from "@/components/globals/recourceLoader";
 
 type Principle = {
