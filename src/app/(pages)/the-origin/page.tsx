@@ -10,7 +10,7 @@ const TheOrigin = () => {
       <Header
         title="The Origin"
         prevPage="/self-descrition"
-        nextPage="/the-principles"
+        nextPage="/meet-us"
         visible={true}
       />
       <main className="flex grow flex-col w-full h-[35vh]] items-center p-4 ">

@@ -1,0 +1,9 @@
+export { default as EstadiOlimpic } from './EstadiOlímpicLluísCompanys.png';
+export { default as TailorMadeProjects } from './TailorMadeProjects.png';
+export { default as TheVenue } from './the_venue.png';
+export { default as TheVenueOffice } from './theVenue_office.png';
+export { default as Working } from './working.png';
+export { default as TargetPulse } from './TargetPulse.svg';
+export { default as BrandIgnition } from './BrandIgnition.svg';
+export { default as ImpactJumpstart } from './ImpactJumpstart.svg';
+export { default as Worldwide } from './worldWide.svg';

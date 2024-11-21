@@ -60,103 +60,98 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
   }
-}
 
-/* FONTS */
-@layer base {
   @font-face {
     font-family: "Bruce-Regular";
-    src: url("/src/app/fonts/Bruce-Regular-2.0.woff") format("woff"),
-      url("/src/app/fonts/Bruce-Regular-2.0.otf") format("opentype");
+    src: url("/fonts/Bruce-Regular-2.0.woff") format("woff"),
+      url("/fonts/Bruce-Regular-2.0.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Bruce-RegularOutline";
-    src: url("/src/app/fonts/Bruce-RegularOutline.woff") format("woff"),
-      url("/src/app/fonts/Bruce-Regular-Outline.otf") format("opentype");
+    src: url("/fonts/Bruce-RegularOutline.woff") format("woff"),
+      url("/fonts/Bruce-Regular-Outline.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Favorit-Bold";
-    src: url('/src/app/fonts/Favorit-Bold.woff') format('woff'),
-    url("/src/app/fonts/Favorit-Bold.otf") format("opentype");
+    src: url('/fonts/Favorit-Bold.woff') format('woff'),
+    url("/fonts/Favorit-Bold.otf") format("opentype");
     font-weight: 700;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Favorit-Bold-Italic";
-    src: url('/src/app/fonts/Favorit-BoldItalic.woff') format('woff'),
-    url("/src/app/fonts/Favorit-Bold-Italic.otf") format("opentype");
+    src: url('/fonts/Favorit-BoldItalic.woff') format('woff'),
+    url("/fonts/Favorit-Bold-Italic.otf") format("opentype");
     font-weight: 700;
     font-style: italic;
   }
 
   @font-face {
     font-family: "Favorit-Light-Italic";
-    src: url('/src/app/fonts/Favorit-LightItalic.woff') format('woff'),
-    url("/src/app/fonts/Favorit-Light-Italic.otf") format("opentype");
+    src: url('/fonts/Favorit-LightItalic.woff') format('woff'),
+    url("/fonts/Favorit-Light-Italic.otf") format("opentype");
     font-weight: 300;
     font-style: italic;
   }
 
   @font-face {
     font-family: "Favorit-Regular-Mono";
-    src: url('/src/app/fonts/Favorit-MonoBeta.woff') format('woff'),
-    url("/src/app/fonts/Favorit-Regular-Mono.otf") format("opentype");
+    src: url('/fonts/Favorit-MonoBeta.woff') format('woff'),
+    url("/fonts/Favorit-Regular-Mono.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Favorit-Regular-Italic";
-    src: url('/src/app/fonts/Favorit-RegularItalic.woff') format('woff'),
-    url("/src/app/fonts/Favorit-Regular-Italic.otf") format("opentype");
+    src: url('/fonts/Favorit-RegularItalic.woff') format('woff'),
+    url("/fonts/Favorit-Regular-Italic.otf") format("opentype");
     font-weight: 400;
     font-style: italic;
   }
 
   @font-face {
     font-family: "Favorit-Bold-Lining";
-    src: url('/src/app/fonts/Favorit-BoldLining.woff') format('woff'),
-    url("/src/app/fonts/Favorit-Bold-Lining.otf") format("opentype");
+    src: url('/fonts/Favorit-BoldLining.woff') format('woff'),
+    url("/fonts/Favorit-Bold-Lining.otf") format("opentype");
     font-weight: 700;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Favorit-Light-Lining";
-    src: url("/src/app/fonts/Favorit-LightLining.woff") format("woff"),
-      url("/src/app/fonts/Favorit-Light-Lining.otf") format("opentype");
+    src: url("/fonts/Favorit-LightLining.woff") format("woff"),
+      url("/fonts/Favorit-Light-Lining.otf") format("opentype");
     font-weight: 300;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Favorit-Medium-Lining";
-    src: url("/src/app/fonts/Favorit-MediumLining.woff") format("woff"),
-      url("/src/app/fonts/Favorit-Medium-Lining.otf") format("opentype");
+    src: url("/fonts/FavoritMediumLining.woff") format("woff"),
+      url("/fonts/FavoritMediumLining.otf") format("opentype");
     font-weight: 500;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Favorit-Regular-Lining";
-    src: url("/src/app/fonts/Favorit-RegularLining.woff") format("woff"),
-      url("/src/app/fonts/Favorit-Regular-Lining.otf") format("opentype");
+    src: url("/fonts/Favorit-RegularLining.woff") format("woff"),
+      url("/fonts/Favorit-Regular-Lining.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
   }
