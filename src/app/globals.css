@@ -155,4 +155,28 @@ body {
     font-weight: 400;
     font-style: normal;
   }
+
+  @font-face {
+    font-family: "Favorit-Light";
+    src: url("/fonts/Favorit_Light.woff") format("woff"),
+         url("/fonts/Favorit_Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Favorit-Medium";
+    src: url("/fonts/Favorit_Medium.woff") format("woff"),
+         url("/fonts/Favorit_Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Favorit-Regular";
+    src: url("/fonts/Favorit_Regular.woff") format("woff"),
+         url("/fonts/Favorit_Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+  }
 }

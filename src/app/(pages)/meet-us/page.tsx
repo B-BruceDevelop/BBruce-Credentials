@@ -182,151 +182,147 @@ function MeetUs() {
 
         {/* Tercera columna */}
         <section
-          id="column-3"
-          className="h-full rounded-[1vw] grid grid-rows-[repeat(5,1fr)] grid-cols-[repeat(2,1fr)] gap-[0.5vw]"
-        >
-          {/* Tailor-Made Projects */}
-          <article
-            id="tailor-made-projects"
-            className="row-span-2 col-span-2 bg-blue-300 rounded-[1vw] relative overflow-hidden"
-          >
-            <Image
-              src={TailorMadeProjects}
-              alt="Tailor—Made Projects"
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover"
-              priority
-            />
-            {/* Texto superpuesto */}
-            <div className="relative z-10 flex items-start justify-center w-full h-full pt-[1vw] bg-black bg-opacity-0 text-black text-center">
-              <p className="text-sm font-favoritMediumLining tracking-[-0.5px]">
-                Tailor—Made Projects
-              </p>
-            </div>
-          </article>
+  id="column-3"
+  className="h-full rounded-[1vw] flex flex-col gap-[0.5vw]"
+>
+  {/* Tailor-Made Projects */}
+  <article
+    id="tailor-made-projects"
+    className="flex-grow bg-blue-300 rounded-[1vw] relative overflow-hidden"
+  >
+    <Image
+      src={TailorMadeProjects}
+      alt="Tailor—Made Projects"
+      fill
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      className="object-cover"
+      priority
+    />
+    {/* Texto superpuesto */}
+    <div className="relative z-10 flex items-start justify-center w-full h-full pt-[1vw] bg-black bg-opacity-0 text-black text-center">
+      <p className="text-sm font-favoritMediumLining tracking-[-0.5px]">
+        Tailor—Made Projects
+      </p>
+    </div>
+  </article>
 
-          {/* Turnover */}
-          <article
-            id="holistic-team"
-            className=" bg-[#F2F2F2] rounded-[1vw] flex flex-col items-center justify-center text-center p-[1vw]"
-          >
-            {/* Subtítulo */}
-            <p className="text-sm font-bold font-favoritMediumLining text-black leading-none">
-              Turnover
-            </p>
-            {/* Título */}
-            <h2 className="text-8xl text-black font-favoritMediumLining leading-none tracking-[-3px] ">
-              1.3M
-            </h2>
-          </article>
-          {/* Brand Ignition */}
-          <article
-            id="brand-ignition"
-            className="bg-[#C9AAFC] rounded-[1vw] flex flex-col justify-between overflow-hidden "
-          >
-            {/* Contenedor de la imagen, crece para ocupar todo el espacio disponible */}
-            <div className="relative flex-grow">
-              <Image
-                src={BrandIgnition}
-                alt="Brand Ignition Icon"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
+  {/* Contenedores inferiores */}
+  <div className="flex flex-wrap gap-[0.5vw]">
+    {/* Turnover */}
+    <article
+      id="turnover"
+      className="aspect-[3/4] w-[calc((100%-1vw)/2)] bg-[#F2F2F2] rounded-[1vw] flex flex-col items-center justify-center text-center p-[1vw]"
+    >
+      <p className="text-sm font-bold font-favoritMediumLining text-black leading-none">
+        Turnover
+      </p>
+      <h2 className="text-8xl text-black font-favoritMediumLining leading-none tracking-[-3px]">
+        1.3M
+      </h2>
+    </article>
 
-            {/* Texto en la parte inferior */}
-            <div className="text-center ">
-              <p className="text-base font-favoritMediumLining text-black pb-[.5vw] ">
-                Brand Ignition<sup>®</sup>
-              </p>
-            </div>
-          </article>
+    {/* Brand Ignition */}
+    <article
+      id="brand-ignition"
+      className="aspect-[3/4] w-[calc((100%-1vw)/2)] bg-[#C9AAFC] rounded-[1vw] flex flex-col justify-between overflow-hidden"
+    >
+      <div className="relative flex-grow">
+        <Image
+          src={BrandIgnition}
+          alt="Brand Ignition Icon"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+      <div className="text-center">
+        <p className="text-base font-favoritMediumLining text-black pb-[.5vw]">
+          Brand Ignition<sup>®</sup>
+        </p>
+      </div>
+    </article>
 
-          {/* Worldwide Clients */}
-          <article
-            id="worldwide-clients"
-            className="row-span-2 bg-[#F2F2F2] rounded-[1vw] flex flex-col justify-between items-center text-center p-[1vw]"
-          >
-            {/* Título */}
-            <p className="text-sm font-bold text-black mb-[0.5vw]">
-              Worldwide Clients
-            </p>
+    {/* Worldwide Clients */}
+    <article
+      id="worldwide-clients"
+      className="aspect-[3/4] w-[calc((100%-1vw)/2)] bg-[#F2F2F2] rounded-[1vw] flex flex-col justify-between items-center text-center p-[1vw]"
+    >
+      <p className="text-sm font-bold text-black mb-[0.5vw]">
+        Worldwide Clients
+      </p>
+      <div className="w-[50%] aspect-square relative mb-[1vw]">
+        <Image
+          src={Worldwide}
+          alt="Worldwide Clients Globe"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+      <div className="w-full flex justify-around">
+        <ul className="text-black text-sm font-favoritMediumLining text-left tracking-[-1.5px]">
+          <li>Spain</li>
+          <li>France</li>
+          <li>England</li>
+          <li>Italy</li>
+        </ul>
+        <ul className="text-black text-sm font-favoritMediumLining text-left tracking-[-1.5px]">
+          <li>Portugal</li>
+          <li>Switzerland</li>
+          <li>Morocco</li>
+          <li>USA</li>
+        </ul>
+      </div>
+    </article>
 
-            {/* Imagen centrada */}
-            <div className="w-[50%] aspect-square relative mb-[1vw]">
-              <Image
-                src={Worldwide} // Reemplaza con la variable de tu imagen del globo
-                alt="Worldwide Clients Globe"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
+    {/* Impact Jumpstart */}
+    <article
+      id="impact-jumpstart"
+      className="aspect-[3/4] w-[calc((100%-1vw)/2)] bg-[#EAFF37] rounded-[1vw] flex flex-col justify-between overflow-hidden"
+    >
+      <div className="relative flex-grow">
+        <Image
+          src={ImpactJumpstart}
+          alt="Impact Jumpstart Icon"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+      <div className="text-center">
+        <p className="text-base font-favoritMediumLining text-black pb-[.5vw]">
+          Impact Jumpstart<sup>®</sup>
+        </p>
+      </div>
+    </article>
 
-            {/* Lista de países en dos columnas */}
-            <div className="w-full flex justify-around">
-              <ul className="text-black text-sm font-favoritMediumLining text-left tracking-[-1.5px]">
-                <li>Spain</li>
-                <li>France</li>
-                <li>England</li>
-                <li>Italy</li>
-              </ul>
-              <ul className="text-black text-sm font-favoritMediumLining text-left tracking-[-1.5px]">
-                <li>Portugal</li>
-                <li>Switzerland</li>
-                <li>Morocco</li>
-                <li>USA</li>
-              </ul>
-            </div>
-          </article>
+    {/* Target Pulse */}
+    <article
+      id="target-pulse"
+      className="aspect-[3/4] w-[calc((100%-1vw)/2)] bg-[#0DF8F8] rounded-[1vw] flex flex-col justify-between overflow-hidden"
+    >
+      <div className="relative flex-grow">
+        <Image
+          src={TargetPulse}
+          alt="Target Pulse Icon"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+      <div className="text-center">
+        <p className="text-base font-favoritMediumLining text-black pb-[.5vw]">
+          Target Pulse<sup>®</sup>
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
 
-          {/* Impact Jumpstart */}
-          <article
-            id="impact-jumpstart"
-            className="bg-[#EAFF37] rounded-[1vw] flex flex-col justify-between overflow-hidden "
-          >
-            {/* Contenedor de la imagen, crece para ocupar todo el espacio disponible */}
-            <div className="relative flex-grow">
-              <Image
-                src={ImpactJumpstart}
-                alt="Impact Jumpstart Icon"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
 
-            {/* Texto en la parte inferior */}
-            <div className="text-center ">
-              <p className="text-base font-favoritMediumLining text-black pb-[.5vw] ">
-                Impact Jumpstart<sup>®</sup>
-              </p>
-            </div>
-          </article>
-          {/* Target Pulse */}
-          <article
-            id="target-pulse"
-            className="bg-[#0DF8F8] rounded-[1vw] flex flex-col justify-between overflow-hidden "
-          >
-            <div className="relative flex-grow">
-              <Image
-                src={TargetPulse}
-                alt="Target Pulse Icon"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-            {/* Texto en la parte inferior */}
-            <div className="text-center ">
-              <p className="text-base font-favoritMediumLining text-black pb-[.5vw] ">
-                Target Pulse<sup>®</sup>
-              </p>
-            </div>
-          </article>
-        </section>
+
+
+
       </main>
 
       <Footer />
