@@ -56,21 +56,21 @@ const ShapelessMethod = () => {
             alt="Union"
             width={400}
             height={100}
-            className="w-[90%] animate-ownFade px-8 absolute"
+            className="w-[90%] animate-fadeInSmall px-8 absolute"
           />
           <Image
             src={Union2Img}
             alt="Union2"
             width={400}
             height={100}
-            className="w-[90%] animate-ownFade py-8 absolute"
+            className="w-[90%] animate-fadeInSmall py-8 absolute"
           />
 
          
           <div className="absolute top-50% left-0 w-full flex items-center justify-center h-[400px] px-8">
             <div className="flex justify-between w-[40vw]  flex items-center justify-center ">
               {["HYPOTESIS", "SOLUTION"].map((word) => (
-                <div key={word} className="flex flex-col items-center justify-center w-[8vw] aspect-square bg-white text-black rounded-full z-10">
+                <div key={word} className="flex flex-col items-center justify-center w-[8vw] aspect-square bg-white text-black rounded-full z-10 ">
                   <p className="text-xs font-favoritRegularMono">
                     {word}
                   </p>
@@ -88,7 +88,7 @@ const ShapelessMethod = () => {
               >
                 <p className="text-sm font-favoritRegularMono">{keywords[0]}</p>
                 <div className="flex flex-col items-center justify-center w-full h-full">
-                  <h2 className="text-xl favorit-favoritMediumLining">{name}</h2>
+                  <h2 className="text-xl favorit-favoritMedium">{name}</h2>
                   <Link
                     href={link}
                     className="w-[5vw] bg-white rounded-full flex items-center justify-center hover:bg-white/50"

@@ -55,8 +55,10 @@ export default {
       },
       fontSize: {
         xs: "calc(2px + 0.68vw)", // ~15px en 1920px
+        xs2: "calc(2px + 0.9vw)" , // 19.28px en 1920px
         sm: "calc(3px + 1.04vw)", // ~23px en 1920px
         base: "calc(4px + 1.30vw)", // ~29px en 1920px
+        md: "calc(4px + 1.49vw)", // ~33px en 1920px
         lg: "calc(5px + 1.67vw)", // ~37px en 1920px
         xl: "calc(5px + 1.93vw)", // ~42px en 1920px
         "2xl": "calc(6px + 2.14vw)", // ~47px en 1920px

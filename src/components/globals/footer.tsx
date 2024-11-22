@@ -26,7 +26,7 @@ const Footer = ({ title, red = false, size = "4xl", width, className }: Props) =
             size === "sm" && "text-sm",
             size === "4xl" && "text-4xl",
             size === "8xl" && "text-8xl",
-            "leading-none tracking-[-0.1vw] mb-4 font-favoritMediumLining",
+            "leading-none tracking-[-0.1vw] mb-4 font-favoritMedium",
             className
           )}
         >

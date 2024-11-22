@@ -70,7 +70,7 @@ function Strategy() {
 
 
 
-    <main className="flex grow flex-col items-center justify-between w-full h-full overflow-scroll ">
+    <main className="flex grow flex-col items-center justify-between w-full h-full  ">
       <div className="flex  flex-col items-center  w-full ">
         <ul className="flex gap-8 text-sm p-8">
           {values.map((value, index) => (

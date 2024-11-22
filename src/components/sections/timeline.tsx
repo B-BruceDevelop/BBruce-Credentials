@@ -52,7 +52,7 @@ const Timeline = () => {
           <div
             key={item.id}
             className={cn(
-              "flex-1 flex flex-col font-favoritRegularLining",
+              "flex-1 flex flex-col font-favoritRegular",
               `items-${item.align}`,
               `text-${item.align}`
             )}
@@ -108,7 +108,7 @@ const Timeline = () => {
             >
               <button
                 className={cn(
-                  "px-4 py-2 border rounded-full w-full font-favoritMediumLining text-sm",
+                  "px-4 py-2 border rounded-full w-full font-favoritMedium text-sm",
                   activeButton === item.id
                     ? "bg-white text-black"
                     : "bg-transparent text-white hover:bg-greyA0/50"
@@ -117,7 +117,7 @@ const Timeline = () => {
               >
                 {item.buttonText}
               </button>
-              <p className="text-sm font-favoritRegularLining">{item.location}</p>
+              <p className="text-sm font-favoritRegular">{item.location}</p>
             </div>
           ))}
         </div>

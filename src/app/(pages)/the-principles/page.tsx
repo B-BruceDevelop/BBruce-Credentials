@@ -61,7 +61,7 @@ const ThePrinciples = () => {
                   </ResourceLoader>
                 </div>
               </div>
-              <h3 className="w-[80%] pb-[1vw] md:pb-[1vw] text-3xl font-favoritMediumLining leading-none">
+              <h3 className="w-[80%] pb-[1vw] md:pb-[1vw] text-3xl font-favoritMedium leading-none">
                 {description}
               </h3>
             </div>

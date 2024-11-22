@@ -60,7 +60,7 @@ export default function BrandCard({
               >
                 {" "}
                 <div className="flex justify-between items-start gap-[1vw]">
-                  <h2 className="text-base font-favoritMediumLining tracking-tigh leading-none ">
+                  <h2 className="text-base font-favoritMedium tracking-tigh leading-none ">
                     {title}
                   </h2>
                   <button className="hidden md:block rounded-[2vw] bg-black border-[.5px] border-white p-[1vh] ">
@@ -69,10 +69,10 @@ export default function BrandCard({
                 </div>
                 {services && (
                   <div>
-                    <p className="text-xs text-favoritMediumLining underline">
+                    <p className="text-xs text-favoritMedium underline">
                       Services
                     </p>
-                    <ul className="mt-2 space-y-[0.5vh] text-xs text-[#888888] overflow-scroll">
+                    <ul className="mt-2 space-y-[0.5vh] text-xs text-[#888888] overflow-y-scroll">
                       {services.map((service, index) => (
                         <li
                           key={index}
@@ -121,7 +121,7 @@ export default function BrandCard({
               >
                 <h2
                   className={cn(
-                    " text-base font-favoritMediumLining tracking-tight transition-all duration-500 leading-none",
+                    " text-base font-favoritMedium tracking-tight transition-all duration-500 leading-none",
                     anyExpanded &&
                       "-rotate-90 origin-top-left translate-x-[2.5vw] whitespace-nowrap translate-y-[1.5vw] "
                   )}
@@ -160,10 +160,10 @@ export default function BrandCard({
                   ) : (
                     <p className="mt-4 text-xs text-gray-400">IMAGE</p>
                   )}
-                  <p className="text-sm mt-4 font-favoritRegularLining">
+                  <p className="text-sm mt-4 font-favoritRegular">
                     {footer}
                   </p>
-                  <p className="w-[90%] text-sm text-[#888888] font-favoritRegularLining tracking-wide leading-none">
+                  <p className="w-[90%] text-sm text-[#888888] font-favoritRegular tracking-wide leading-none">
                     {description}
                   </p>
                 </>

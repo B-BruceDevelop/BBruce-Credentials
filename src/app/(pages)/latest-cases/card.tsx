@@ -25,7 +25,7 @@ export default function CaseCard({
   return (
     <Link href={link} className="block w-full h-full group">
       {/* Contenedor de imagen y logo */}
-      <div className="relative w-full h-full rounded-xl overflow-hidden">
+      <div className="relative w-full h-full rounded-xl">
         {/* Imagen de fondo */}
         {backgroundImage ? (
           <Image
@@ -65,7 +65,7 @@ export default function CaseCard({
       </div>
 
       {/* Contenedor de título y subtítulo */}
-      <div className=" flex flex-wrap w-[25vw] mt-[1vw] items-start gap-2 z-10 leading-none font-favoritRegularLining tracking-[-1.1px]">
+      <div className=" flex flex-wrap w-[25vw] mt-[1vw] items-start gap-2 z-10 leading-none font-favoritRegular tracking-[-1.1px]">
         <h2 className="text-sm tracking-tight text-white truncate">{title}</h2>
         <p className="text-sm text-[#939393] ">{subtitle}</p>
       </div>

@@ -44,13 +44,6 @@ const KeyIndustriesExpertise = () => {
       <main className="flex grow flex-col items-center justify-center w-full p-[1vw] ">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4 w-full max-h-[80vh]  mx-auto px-4">
           {categories.map((category) => (
-            // <Link
-            //   key={category.title}
-            //   href={category.href}
-            //   className="group relative overflow-hidden bg-black "
-            //   style={{ aspectRatio: "3 / 4" }}
-
-            // >
             <div
             key={category.title}
             className="group relative overflow-hidden bg-black grayscale hover:grayscale-0 rounded-3xl transition-all duration-300 ease-in-out transform "
@@ -73,12 +66,11 @@ const KeyIndustriesExpertise = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 transition-opacity duration-300" />
             <div className="absolute bottom-0 left-0 right-0 py-4">
-              <h2 className="text-white text-sm md:text-base font-favorite-favoritMediumLining tracking-wider text-center">
+              <h2 className="text-white text-sm md:text-base font-favorite-favoritMedium tracking-wider text-center">
                 • {category.title} •
               </h2>
             </div>
           </div>
-            // </Link>
           ))}
         </div>
       </main>
