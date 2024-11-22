@@ -1,29 +1,44 @@
-
-import Image from "next/image";
-
-import prevIcon from "@/assets/Polygon_left.svg";
-import nextIcon from "@/assets/Polygon_right.svg";
-import NikeLogo from "@/components/nikeLogo";
-import Link from "next/link";
+import { headers } from "next/headers";
 import Header from "@/components/globals/header";
 
-export default function Home() {
+export default async function Home() {
+  // Manejar las cabeceras como promesa
+  const headersList = await headers(); // Resolver la promesa
+  const cookieHeader = headersList.get("cookie"); // Obtener las cookies del encabezado
+
+  const cookies = cookieHeader
+    ? Object.fromEntries(
+        cookieHeader.split("; ").map((cookie: string) => {
+          const [key, value] = cookie.split("=");
+          return [key, value];
+        })
+      )
+    : {};
+  const error = cookies.error;
 
   return (
     <main className="flex w-full h-full flex-col items-center justify-center p-4">
-      <Header nextPage="/bruceLee" visible={false} />
-      <section className="flex w-full items-center justify-between">
-        <h1 className="text-3xl font-favoritMedium tracking-[-0.3px]">Hello</h1>
-        <NikeLogo />
-        <Link href={"/bruceLee"}
-         className="text-sm flex gap-1" >
-          Press
-          <Image src={prevIcon} alt="Previous Icon" width={16} height={16} />
-          |
-          <Image src={nextIcon} alt="Next Icon" width={16} height={16} />
-          to navigate
-        </Link>
-      </section>
+      <Header nextPage="/welcome" visible={false} />
+      <form
+        action="/api/login"
+        method="POST"
+        className="flex flex-col items-center space-y-4"
+      >
+        <h1 className="text-2xl font-bold">Introduce el código</h1>
+        <input
+          name="code"
+          type="password"
+          placeholder="Código"
+          className="border border-gray-300 p-2 rounded-md text-black"
+        />
+        {error && <p className="text-red-500">{decodeURIComponent(error)}</p>}
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        >
+          Acceder
+        </button>
+      </form>
     </main>
   );
 }
