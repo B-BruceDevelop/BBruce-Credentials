@@ -1,56 +1,32 @@
-import { StaticImageData } from "next/image";
-// import Link from "next/link";
+// src/app/(pages)/latest-cases/page.tsx
+
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 import Footer from "@/components/globals/footer";
 import Header from "@/components/globals/header";
 import CaseCard from "./card";
 
-import atrapalo_bg from "./img/Atrapalo_BG.png";
-import atrapalo_Logo from "./img/atrapalo_Logo.svg";
-import motorola_BG from "./img/euroleague_img.png";
-import motorola_logo from "./img/euroleague_Logo_Full.svg";
-import nutrisport_BG from "./img/nutriesport_img.png";
-import nutrisport_Logo from "./img/Nutriesport_logo_white.svg";
+import { allProjects } from "@/lib/projects";
+import { validCodes } from "@/lib/authConfig";
 
+const MixedBrandArts = async () => {
+  // Acceder a las cookies en el servidor
+  const cookieStore = await cookies();
+  const code = cookieStore.get("userCode")?.value;
 
-type Case = {
-  id: number;
-  link: string;
-  backgroundImage?: StaticImageData; // Imagen de fondo opcional
-  backgroundColor?: string; // Color de fondo opcional
-  logo?: StaticImageData; // Logo opcional
-  title: string;
-  subtitle: string;
-};
+  // Verificar si el código es válido
+  if (!code || !validCodes[code]) {
+    redirect("/");
+  }
 
-const lastCases: Case[] = [
-  {
-    id: 1,
-    backgroundImage: atrapalo_bg,
-    logo: atrapalo_Logo,
-    link: "latest-cases/atrapalo",
-    title: "Atrápalo",
-    subtitle: "Rebranding + UX/UI",
-  },
-  {
-    id: 2,
-    backgroundImage: nutrisport_BG,
-    logo: nutrisport_Logo,
-    link: "latest-cases/nutrisport",
-    title: "Nutrisport",
-    subtitle: "Rebranding + Campaign + Packaging",
-  },
-  {
-    id: 3,
-    backgroundImage: motorola_BG,
-    logo: motorola_logo,
-    link: "latest-cases/motorola",
-    title: "Motorola",
-    subtitle: "Creative Campaign",
-  },
-];
+  const userConfig = validCodes[code];
 
-const MixedBrandArts = () => {
+  // Filtrar los proyectos que corresponden al usuario usando el título
+  const userProjects = allProjects.filter((project) =>
+    userConfig.projects.includes(project.title)
+  );
+
   return (
     <main className="flex flex-col min-h-screen items-center justify-between">
       <Header
@@ -59,33 +35,23 @@ const MixedBrandArts = () => {
         nextPage="/highlight-reel"
       />
       <section className="flex flex-grow items-center justify-center w-full h-full p-4 gap-4 ">
-        {lastCases.map(
-          ({
-            id,
-            title,
-            subtitle,
-            backgroundImage,
-            logo,
-            backgroundColor,
-            link,
-          }) => (
-            <div
-              key={id}
-              className=" flex-grow flex-shrink-0 h-[75vh] transition-[flex-grow] duration-300 ease-in-out hover:flex-grow-[4]"
-            >
-              <CaseCard
-                key={id}
-                id={id}
-                backgroundImage={backgroundImage}
-                logo={logo}
-                backgroundColor={backgroundColor}
-                title={title}
-                subtitle={subtitle}
-                link={link}
-              />
-            </div>
-          )
-        )}
+        
+        {userProjects.map((project) => (
+          <div
+            key={project.id}
+            className="flex-grow flex-shrink-0 h-[75vh] transition-[flex-grow] duration-300 ease-in-out hover:flex-grow-[4]"
+          >
+            <CaseCard
+              id={project.id}
+              backgroundImage={project.backgroundImage}
+              logo={project.logo}
+              backgroundColor={project.backgroundColor}
+              title={project.title}
+              subtitle={project.subtitle}
+              link={project.link}
+            />
+          </div>
+        ))}
       </section>
       <Footer />
     </main>
