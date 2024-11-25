@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import prevIcon from "@/assets/Polygon_left.svg";
 import nextIcon from "@/assets/Polygon_right.svg";
-import NikeLogo from "@/components/nikeLogo";
+import WelcomeImage from "@/components/wellcomeImage";
 import Link from "next/link";
 import Header from "@/components/globals/header";
 
@@ -14,7 +14,7 @@ export default function Home() {
       <Header prevPage="/" nextPage="/bruceLee" visible={false} />
       <section className="flex w-full items-center justify-between">
         <h1 className="text-3xl font-favoritMedium tracking-[-0.3px]">Hello</h1>
-        <NikeLogo />
+        <WelcomeImage />
         <Link href={"/bruceLee"}
          className="text-sm flex gap-1" >
           Press
