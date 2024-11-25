@@ -4,7 +4,7 @@ import theVenue from "@/assets/meetUs/the_venue.png";
 
 import { StaticImageData } from "next/image";
 
-type UserConfig = {
+export type UserConfig = {
   user: string;
   welcomeImage: StaticImageData;
 };

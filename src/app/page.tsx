@@ -1,20 +1,11 @@
-import { headers } from "next/headers";
+// src/app/page.tsx
+
+import { cookies } from "next/headers";
 import Header from "@/components/globals/header";
 
 export default async function Home() {
-  // Manejar las cabeceras como promesa
-  const headersList = await headers(); // Resolver la promesa
-  const cookieHeader = headersList.get("cookie"); // Obtener las cookies del encabezado
-
-  const cookies = cookieHeader
-    ? Object.fromEntries(
-        cookieHeader.split("; ").map((cookie: string) => {
-          const [key, value] = cookie.split("=");
-          return [key, value];
-        })
-      )
-    : {};
-  const error = cookies.error;
+  const cookieStore = await cookies();
+  const error = cookieStore.get("error")?.value;
 
   return (
     <main className="flex w-full h-full flex-col items-center justify-center p-4">

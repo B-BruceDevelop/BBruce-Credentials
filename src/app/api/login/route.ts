@@ -1,3 +1,5 @@
+// src/app/api/login/route.ts
+
 import { NextResponse } from "next/server";
 import { validCodes } from "@/lib/authConfig";
 
@@ -6,17 +8,10 @@ export async function POST(request: Request) {
   const code = body.get("code");
 
   // Validar el código ingresado
-  if (code && validCodes[code as keyof typeof validCodes]) {
-    const userConfig = validCodes[code as keyof typeof validCodes];
-
-    // Configurar cookie con información del usuario
+  if (code && validCodes[code as string]) {
+    // Configurar cookie con el código de usuario (no httpOnly)
     const response = NextResponse.redirect(new URL("/welcome", request.url));
-    response.cookies.set("isAuthenticated", "true", {
-      httpOnly: true,
-      maxAge: 60 * 60 * 24, // 1 día
-    });
-    response.cookies.set("userConfig", JSON.stringify(userConfig.user), {
-      httpOnly: true,
+    response.cookies.set("userCode", code.toString(), {
       maxAge: 60 * 60 * 24, // 1 día
     });
     return response;
