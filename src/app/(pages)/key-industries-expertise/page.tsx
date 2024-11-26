@@ -1,5 +1,5 @@
-import Image from "next/image";
-// import Link from "next/link";
+"use client";
+import React, { useState, useEffect } from "react";
 
 import Footer from "@/components/globals/footer";
 import Header from "@/components/globals/header";
@@ -8,31 +8,113 @@ import food from "@/assets/KeyIndustriesExpertise/food&drinks.png";
 import sports from "@/assets/KeyIndustriesExpertise/sports.png";
 import beauty from "@/assets/KeyIndustriesExpertise/beauty.png";
 import telco from "@/assets/KeyIndustriesExpertise/telco.png";
+import KeyIndustriesCard from "@/components/sections/keyIndustriesCard";
 
 const categories = [
   {
+    id: 1,
     title: "FOOD & DRINKS",
     image: food,
-    href: "#food-drinks",
+    properties: [
+      "Crear conexiones emocionales.",
+      "Reflejar autenticidad.",
+      "Inspirar el descubrimiento.",
+      "Mejorar la experiencia multicanal.",
+    ],
   },
   {
+    id: 2,
     title: "SPORTS",
     image: sports,
-    href: "#sports",
+    properties: [
+      "Alinear creencias.",
+      " Conectar creencias.",
+      "Transmitir dinamismo y espíritu deportivo.",
+      "Mejorar la experiencia.",
+    ],
   },
   {
+    id: 3,
     title: "BEAUTY",
     image: beauty,
-    href: "#beauty",
+    properties: [
+      "Crear conexiones emocionales.",
+      "Reflejar autenticidad.",
+      "Inspirar el descubrimiento.",
+      "Mejorar la experiencia multicanal.",
+    ],
   },
   {
+    id: 4,
     title: "TELCO",
     image: telco,
-    href: "#telco",
+    properties: [
+      "Crear conexiones emocionales.",
+      "Reflejar autenticidad.",
+      "Inspirar el descubrimiento.",
+      "Mejorar la experiencia multicanal.",
+    ],
   },
 ];
-
+// const index: number = 4;
 const KeyIndustriesExpertise = () => {
+  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
+  // const [direction, setDirection] = useState<'increasing' | 'decreasing' | 'none'>('none');
+
+  // // Función para determinar la dirección del cambio
+  // const determineDirection = (newIndex: number | null, oldIndex: number | null): 'increasing' | 'decreasing' | 'none' => {
+  //   if (oldIndex === null) {
+  //     return 'none';
+  //   }
+  //   if (newIndex! > oldIndex) {
+  //     return 'increasing';
+  //   }
+  //   if (newIndex! < oldIndex) {
+  //     return 'decreasing';
+  //   }
+  //   return 'none';
+  // };
+
+  const handleCardClick = (newIndex: number) => {
+    setPrevIndex(currentIndex);
+    setCurrentIndex(newIndex);
+  };
+
+  // useEffect(() => {
+  //   const dir = determineDirection(currentIndex, prevIndex);
+  //   setDirection(dir);
+  // }, [currentIndex, prevIndex]);
+
+  // Agregar manejo de eventos de teclado
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+        setPrevIndex(currentIndex);
+        setCurrentIndex((prev) => {
+          if (prev === null || prev === 1) return categories.length;
+          return prev - 1;
+        });
+      } else if (event.key === "ArrowDown") {
+        event.preventDefault();
+        setPrevIndex(currentIndex);
+        setCurrentIndex((prev) => {
+          if (prev === null || prev === categories.length) return 1;
+          return prev + 1;
+        });
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Limpiar el listener al desmontar el componente
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentIndex]);
+
   return (
     <div className="flex flex-col h-screen items-center justify-center">
       <Header
@@ -44,33 +126,17 @@ const KeyIndustriesExpertise = () => {
       <main className="flex grow flex-col items-center justify-center w-full p-[1vw] ">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4 w-full max-h-[80vh]  mx-auto px-4">
           {categories.map((category) => (
-            <div
-            key={category.title}
-            className="group relative overflow-hidden bg-black grayscale hover:grayscale-0 rounded-3xl transition-all duration-300 ease-in-out transform "
-            style={{
-              aspectRatio: "3 / 4",
-              maxHeight: "70vh", // Restringe el tamaño máximo de las tarjetas
-            }}
-          >
-            <Image
-              src={category.image}
-              alt={`${category.title} category`}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              style={{
-                objectFit: "contain", // Asegura que la imagen se ajuste sin exceder los límites
-                maxWidth: "100%",
-                maxHeight: "100%",
-              }}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            <KeyIndustriesCard
+              key={category.id}
+              id={category.id}
+              title={category.title}
+              image={category.image}
+              properties={category.properties}
+              index={currentIndex}
+              prevIndex={prevIndex}
+              // direction={direction}
+              onClick={() => handleCardClick(category.id)}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 transition-opacity duration-300" />
-            <div className="absolute bottom-0 left-0 right-0 py-4">
-              <h2 className="text-white text-sm md:text-base font-favorite-favoritMedium tracking-wider text-center">
-                • {category.title} •
-              </h2>
-            </div>
-          </div>
           ))}
         </div>
       </main>
