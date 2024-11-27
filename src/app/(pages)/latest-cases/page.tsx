@@ -53,19 +53,29 @@ const lastCases: Case[] = [
 ];
 
 const Swiper = () => {
-  const [currentIndex, setCurrentIndex] = useState(() => {
+  const router = useRouter();
+
+  // Estados para el índice actual y la dirección de navegación
+  const [currentIndex, setCurrentIndex] = useState(() => (0));
+  const [direction, setDirection] = useState(1); // Dirección: 1 (derecha), -1 (izquierda)
+  useEffect(() => {
     const savedIndex = localStorage.getItem("currentIndex");
-    return savedIndex ? parseInt(savedIndex, 10) : 0;
-  });
-  const router = useRouter(); // Hook para redirigir
+    setCurrentIndex(savedIndex ? parseInt(savedIndex, 10) : 0);
+    if (savedIndex ) {
+      const parsedIndex = parseInt(savedIndex, 10);
+      setDirection(parsedIndex > 0 ? -1 : 1);
+    }
+  }, []);
 
   const nextSlide = () => {
+    setDirection(1); // Avanzar
     setCurrentIndex((prevIndex) =>
       prevIndex === lastCases.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
+    setDirection(-1); // Retroceder
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? lastCases.length - 1 : prevIndex - 1
     );
@@ -78,7 +88,7 @@ const Swiper = () => {
         // Si estamos en la última diapositiva, redirigir
         if (currentIndex === lastCases.length - 1) {
           localStorage.setItem("currentIndex", currentIndex.toString());
-          router.push("/highlight-reel"); // Redirigir a la página siguiente
+          router.push("/highlight-reel");
         } else {
           nextSlide();
         }
@@ -86,7 +96,7 @@ const Swiper = () => {
         // Si estamos en la primera diapositiva, redirigir
         if (currentIndex === 0) {
           localStorage.setItem("currentIndex", currentIndex.toString());
-          router.push("/mixed-brand-arts"); // Redirigir a la página anterior
+          router.push("/mixed-brand-arts");
         } else {
           prevSlide();
         }
@@ -100,6 +110,25 @@ const Swiper = () => {
     };
   }, [currentIndex, router]);
 
+  // Variantes dinámicas para personalizar animaciones
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.8,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? -300 : 300,
+      opacity: 0,
+      scale: 0.8,
+    }),
+  };
+
   return (
     <main className="flex flex-col min-h-screen items-center justify-between">
       <Header
@@ -109,17 +138,18 @@ const Swiper = () => {
         disableKeyboardNavigation={true}
       />
       <section className="relative flex items-center justify-center w-full h-full overflow-hidden">
-        {/* Contenedor principal del swiper */}
-        <div className="relative w-full h-[75vh] flex items-center justify-center overflow-hidden">
-          <AnimatePresence>
+        <div className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden">
+          <AnimatePresence custom={direction}>
             {lastCases.map(
               (caseData, index) =>
                 currentIndex === index && (
                   <motion.div
                     key={caseData.id}
-                    initial={{ x: 300, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -300, opacity: 0 }}
+                    custom={direction} // Pasar dirección al componente
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                     className="absolute w-full h-full flex items-center justify-center"
                   >
