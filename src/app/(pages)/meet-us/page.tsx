@@ -68,14 +68,6 @@ const scaleUpVariants = {
   }
 };
 
-const rotateInVariants = {
-  hidden: { rotate: -10, opacity: 0 },
-  visible: { 
-    rotate: 0, 
-    opacity: 1,
-    transition: { type: "spring", stiffness: 100, damping: 10 }
-  }
-};
 
 const slideInVariants = {
   hidden: { x: -50, opacity: 0 },
@@ -161,7 +153,7 @@ function MeetUs() {
               <motion.article
                 id="innovation-zone"
                 className="aspect-[5/3] w-[calc((100%-0.5vw)/2)] bg-white rounded-[1vw] flex flex-col justify-center items-center text-center shadow-md"
-                variants={rotateInVariants}
+                variants={slideInVariants}
               >
                 <h2 className="text-3xl text-black font-favoritMedium leading-none tracking-[-1px]">
                   1.200m<sup>2</sup>
@@ -230,7 +222,7 @@ function MeetUs() {
           <motion.article
             id="sticky-notes"
             className="flex-grow rounded-[1vw] relative overflow-hidden"
-            variants={rotateInVariants}
+            variants={fadeInVariants}
           >
             <Image
               src={Working}
@@ -296,7 +288,7 @@ function MeetUs() {
               <motion.article
                 id="brand-ignition"
                 className="aspect-[3.4/2] bg-[#C9AAFC] rounded-[1vw] flex flex-col justify-between overflow-hidden"
-                variants={rotateInVariants}
+                variants={scaleUpVariants}
               >
                 <div className="relative flex-grow">
                   <Image

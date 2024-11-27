@@ -96,6 +96,18 @@ export default {
         accordionUp: "accordionUp 0.2s ease-out",
         growFromTop: "growFromTop 0.5s ease-in-out forwards",
         shrinkToBottom: "shrinkToBottom 0.5s ease-in-out forwards",
+        fadeIn: "fadeIn 1s ease-in-out",
+        bounceIn: "bounceIn 1s ease-in-out",
+        slideIn: "slideIn 1s ease-in-out",
+        zoomIn: "zoomIn 1s ease-in-out",
+        jump: "jump 1s ease-in-out infinite",
+        ping: "ping 1.5s cubic-bezier(0, 0, 0.2, 1)",
+        shake: "shake 0.8s ease-in-out",
+        tada: "tada 1s ease-in-out",
+        wobble: "wobble 1s ease-in-out",
+        flip: "flip 1s ease-in-out",
+        swing: "swing 1s ease-in-out",
+        rubberBand: "rubberBand 1s ease-in-out",
       },
       keyframes: {
         fadeInScale: {
@@ -158,6 +170,68 @@ export default {
           "0%": { height: "auto" },
           "100%": { height: "0" },
         },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        bounceIn: {
+          "0%": { transform: "scale(0.5)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        slideIn: {
+          "0%": { transform: "translateX(-50%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        zoomIn: {
+          "0%": { transform: "scale(0.8)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        jump: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        shake: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "25%, 75%": { transform: "translateX(-10px)" },
+          "50%": { transform: "translateX(10px)" },
+        },
+        tada: {
+          "0%, 100%": { transform: "scale(1)" },
+          "10%, 20%": { transform: "scale(0.9) rotate(-3deg)" },
+          "30%, 50%, 70%, 90%": { transform: "scale(1.1) rotate(3deg)" },
+          "40%, 60%, 80%": { transform: "scale(1.1) rotate(-3deg)" },
+        },
+        wobble: {
+          "0%": { transform: "translateX(0)" },
+          "15%": { transform: "translateX(-25px) rotate(-5deg)" },
+          "30%": { transform: "translateX(20px) rotate(3deg)" },
+          "45%": { transform: "translateX(-15px) rotate(-3deg)" },
+          "60%": { transform: "translateX(10px) rotate(2deg)" },
+          "75%": { transform: "translateX(-5px) rotate(-1deg)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        flip: {
+          "0%": { transform: "rotateY(0deg)" },
+          "50%": { transform: "rotateY(180deg)" },
+          "100%": { transform: "rotateY(360deg)" },
+        },
+        swing: {
+          "20%": { transform: "rotate(15deg)" },
+          "40%": { transform: "rotate(-10deg)" },
+          "60%": { transform: "rotate(5deg)" },
+          "80%": { transform: "rotate(-5deg)" },
+          "100%": { transform: "rotate(0deg)" },
+        },
+        rubberBand: {
+          "0%": { transform: "scale(1)" },
+          "30%": { transform: "scale(1.25, 0.75)" },
+          "40%": { transform: "scale(0.75, 1.25)" },
+          "50%": { transform: "scale(1.15, 0.85)" },
+          "65%": { transform: "scale(0.95, 1.05)" },
+          "75%": { transform: "scale(1.05, 0.95)" },
+          "100%": { transform: "scale(1)" },
+        },
+
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -166,5 +240,7 @@ export default {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [tailwindcssAnimate,
+    
+  ],
 } satisfies Config;

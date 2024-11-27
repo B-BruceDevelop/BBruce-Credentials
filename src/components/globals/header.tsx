@@ -18,7 +18,9 @@ const Header = ({ title, prevPage, nextPage, visible = true }: Props) => {
   const router = useRouter();
 
   // Estado para manejar el foco del teclado
-  const [focusedButton, setFocusedButton] = useState<"left" | "right" | null>(null);
+  const [focusedButton, setFocusedButton] = useState<"left" | "right" | null>(
+    null
+  );
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -30,21 +32,17 @@ const Header = ({ title, prevPage, nextPage, visible = true }: Props) => {
         router.push(prevPage);
       }
 
-
-    //   if (event.key === "ArrowRight" && nextPage) {
-    //     setFocusedButton("right");
-    //     setTimeout(() => {
-    //       router.push(nextPage);
-    //     }, 50); // 100ms delay (0.1 segundos)
-    //   } else if (event.key === "ArrowLeft" && prevPage) {
-    //     setFocusedButton("left");
-    //     setTimeout(() => {
-    //       router.push(prevPage);
-    //     }, 50); // 100ms delay (0.1 segundos)
-    //   }
-
-
-
+      //   if (event.key === "ArrowRight" && nextPage) {
+      //     setFocusedButton("right");
+      //     setTimeout(() => {
+      //       router.push(nextPage);
+      //     }, 50); // 100ms delay (0.1 segundos)
+      //   } else if (event.key === "ArrowLeft" && prevPage) {
+      //     setFocusedButton("left");
+      //     setTimeout(() => {
+      //       router.push(prevPage);
+      //     }, 50); // 100ms delay (0.1 segundos)
+      //   }
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -65,12 +63,16 @@ const Header = ({ title, prevPage, nextPage, visible = true }: Props) => {
             onFocus={() => setFocusedButton("left")}
             onBlur={() => setFocusedButton(null)}
             className={`group flex justify-center items-center h-full aspect-square border-l-[0.5px] border-white transition-colors ${
-              focusedButton === "left" ? "bg-white text-black" : "hover:bg-white hover:text-black"
+              focusedButton === "left"
+                ? "bg-white text-black"
+                : "hover:bg-white hover:text-black"
             }`}
           >
             <PiArrowLeftThin
               className={`stroke-current transition-transform ${
-                focusedButton === "left" ? "stroke-[6px]" : "group-hover:stroke-[6px]"
+                focusedButton === "left"
+                  ? "stroke-[6px]"
+                  : "group-hover:stroke-[6px]"
               }`}
             />
           </Link>
@@ -84,12 +86,16 @@ const Header = ({ title, prevPage, nextPage, visible = true }: Props) => {
             onFocus={() => setFocusedButton("right")}
             onBlur={() => setFocusedButton(null)}
             className={`group flex justify-center items-center h-full aspect-square border-l-[0.5px] border-white transition-colors ${
-              focusedButton === "right" ? "bg-white text-black" : "hover:bg-white hover:text-black"
+              focusedButton === "right"
+                ? "bg-white text-black"
+                : "hover:bg-white hover:text-black"
             }`}
           >
             <PiArrowRightThin
               className={`stroke-current transition-transform ${
-                focusedButton === "right" ? "stroke-[6px]" : "group-hover:stroke-[6px]"
+                focusedButton === "right"
+                  ? "stroke-[6px]"
+                  : "group-hover:stroke-[6px]"
               }`}
             />
           </Link>

@@ -10,25 +10,10 @@ interface CardProps {
   image: StaticImageData;
   index: number | null;
   prevIndex: number | null;
-//   direction: "increasing" | "decreasing" | "none"; // Añadido
   onClick: () => void;
 }
 
-// const getDirection = (
-//   currentIndex: number | null,
-//   previousIndex: number | null
-// ): "increasing" | "decreasing" | "none" => {
-//   if (previousIndex === null) {
-//     return "none";
-//   }
-//   if (currentIndex! > previousIndex) {
-//     return "increasing";
-//   } else if (currentIndex! < previousIndex) {
-//     return "decreasing";
-//   } else {
-//     return "none";
-//   }
-// };
+
 
 const KeyIndustriesCard: React.FC<CardProps> = ({
   id,
@@ -42,48 +27,8 @@ const KeyIndustriesCard: React.FC<CardProps> = ({
   const isActive = id === index;
   const isPrevActive = id === prevIndex;
 
-  // Obtener la dirección del cambio
-//   const direction = getDirection(index, prevIndex);
 
-  // Ajustar el origen de la transformación basado en la dirección
-//   const transformOrigin =
-//     direction === "increasing"
-//       ? "left center"
-//       : direction === "decreasing"
-//       ? "right center"
-//       : "center center";
 
-  // Determinar el origen de transformación para la salida (inverso)
-//   const exitTransformOrigin =
-//     transformOrigin === "left center"
-//       ? "right center"
-//       : transformOrigin === "right center"
-//       ? "left center"
-//       : "center center";
-
-//   const overlayVariants = {
-//     hidden: {
-//       scaleX: 0,
-//       scaleY: 0,
-//       opacity: 0,
-//       transformOrigin,
-//     //   borderRadius: "9999px",
-//     },
-//     visible: {
-//       scaleX: 1,
-//       scaleY: 1,
-//       opacity: 1,
-//       transformOrigin,
-//     //   borderRadius: "0px",
-//     },
-//     exit: {
-//       scaleX: 0,
-//       scaleY: 0,
-//       opacity: 0,
-//       transformOrigin: exitTransformOrigin,
-//     //   borderRadius: "9999px",
-//     },
-//   };
   return (
     <div
       key={id}
@@ -109,21 +54,6 @@ const KeyIndustriesCard: React.FC<CardProps> = ({
         }}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
       />
-
-      {/* <AnimatePresence> */}
-        {/* {isActive && (
-          <motion.div
-            key={`overlay-${id}`}
-            className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 blur-sm"
-            variants={overlayVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            transition={{ duration: 1, ease: "easeInOut" }}
-            style={{ overflow: "hidden" }}
-          />
-        )} */}
-      {/* </AnimatePresence> */}
 
       <div
         className={`absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black ${
@@ -165,7 +95,7 @@ const KeyIndustriesCard: React.FC<CardProps> = ({
           transition={{ duration: 0.3 }}
           className="text-sm md:text-base font-favorite-favoritMedium tracking-wider text-center leading-tight"
         >
-          • {title} •
+          {title}
         </motion.div>
       </div>
     </div>
