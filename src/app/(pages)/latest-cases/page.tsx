@@ -1,9 +1,11 @@
-import { StaticImageData } from "next/image";
-// import Link from "next/link";
+"use client";
 
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Footer from "@/components/globals/footer";
 import Header from "@/components/globals/header";
 import CaseCard from "./card";
+import { useRouter } from "next/navigation";
 
 import atrapalo_bg from "./img/Atrapalo_BG.png";
 import atrapalo_Logo from "./img/atrapalo_Logo.svg";
@@ -11,7 +13,7 @@ import motorola_BG from "./img/euroleague_img.png";
 import motorola_logo from "./img/euroleague_Logo_Full.svg";
 import nutrisport_BG from "./img/nutriesport_img.png";
 import nutrisport_Logo from "./img/Nutriesport_logo_white.svg";
-
+import { StaticImageData } from "next/image";
 
 type Case = {
   id: number;
@@ -50,46 +52,89 @@ const lastCases: Case[] = [
   },
 ];
 
-const MixedBrandArts = () => {
+const Swiper = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const router = useRouter(); // Hook para redirigir
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === lastCases.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? lastCases.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Navegación con teclado
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowRight") {
+        // Si estamos en la última diapositiva, redirigir
+        if (currentIndex === lastCases.length - 1) {
+          router.push("/highlight-reel"); // Redirigir a la página siguiente
+        } else {
+          nextSlide();
+        }
+      } else if (event.key === "ArrowLeft") {
+        // Si estamos en la primera diapositiva, redirigir
+        if (currentIndex === 0) {
+          router.push("/mixed-brand-arts"); // Redirigir a la página anterior
+        } else {
+          prevSlide();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentIndex, router]);
+
   return (
     <main className="flex flex-col min-h-screen items-center justify-between">
       <Header
         title="Latest Cases"
         prevPage="/mixed-brand-arts"
         nextPage="/highlight-reel"
+        disableKeyboardNavigation={true}
       />
-      <section className="flex flex-grow items-center justify-center w-full h-full p-4 gap-4 ">
-        {lastCases.map(
-          ({
-            id,
-            title,
-            subtitle,
-            backgroundImage,
-            logo,
-            backgroundColor,
-            link,
-          }) => (
-            <div
-              key={id}
-              className=" flex-grow flex-shrink-0 h-[75vh] transition-[flex-grow] duration-300 ease-in-out hover:flex-grow-[4]"
-            >
-              <CaseCard
-                key={id}
-                id={id}
-                backgroundImage={backgroundImage}
-                logo={logo}
-                backgroundColor={backgroundColor}
-                title={title}
-                subtitle={subtitle}
-                link={link}
-              />
-            </div>
-          )
-        )}
+      <section className="relative flex items-center justify-center w-full h-full overflow-hidden">
+        {/* Contenedor principal del swiper */}
+        <div className="relative w-full h-[75vh] flex items-center justify-center overflow-hidden">
+          <AnimatePresence>
+            {lastCases.map((caseData, index) => (
+              currentIndex === index && (
+                <motion.div
+                  key={caseData.id}
+                  initial={{ x: 300, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -300, opacity: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="absolute w-full h-full flex items-center justify-center"
+                >
+                  <CaseCard
+                    id={caseData.id}
+                    backgroundImage={caseData.backgroundImage}
+                    logo={caseData.logo}
+                    backgroundColor={caseData.backgroundColor}
+                    title={caseData.title}
+                    subtitle={caseData.subtitle}
+                    link={caseData.link}
+                  />
+                </motion.div>
+              )
+            ))}
+          </AnimatePresence>
+        </div>
       </section>
       <Footer />
     </main>
   );
 };
 
-export default MixedBrandArts;
+export default Swiper;

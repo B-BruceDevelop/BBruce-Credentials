@@ -4,25 +4,31 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
-import { PiArrowLeftThin } from "react-icons/pi";
-import { PiArrowRightThin } from "react-icons/pi";
+import { PiArrowLeftThin, PiArrowRightThin } from "react-icons/pi";
 
 type Props = {
   title?: string;
   prevPage?: string;
   nextPage?: string;
   visible?: boolean;
+  disableKeyboardNavigation?: boolean; // Nuevo prop
 };
 
-const Header = ({ title, prevPage, nextPage, visible = true }: Props) => {
+const Header = ({
+  title,
+  prevPage,
+  nextPage,
+  visible = true,
+  disableKeyboardNavigation = false,
+}: Props) => {
   const router = useRouter();
-
-  // Estado para manejar el foco del teclado
   const [focusedButton, setFocusedButton] = useState<"left" | "right" | null>(
     null
   );
 
   useEffect(() => {
+    if (disableKeyboardNavigation) return; // No agregar listener si está desactivado
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight" && nextPage) {
         setFocusedButton("right");
@@ -31,18 +37,6 @@ const Header = ({ title, prevPage, nextPage, visible = true }: Props) => {
         setFocusedButton("left");
         router.push(prevPage);
       }
-
-      //   if (event.key === "ArrowRight" && nextPage) {
-      //     setFocusedButton("right");
-      //     setTimeout(() => {
-      //       router.push(nextPage);
-      //     }, 50); // 100ms delay (0.1 segundos)
-      //   } else if (event.key === "ArrowLeft" && prevPage) {
-      //     setFocusedButton("left");
-      //     setTimeout(() => {
-      //       router.push(prevPage);
-      //     }, 50); // 100ms delay (0.1 segundos)
-      //   }
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -50,9 +44,10 @@ const Header = ({ title, prevPage, nextPage, visible = true }: Props) => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [router, prevPage, nextPage]);
+  }, [router, prevPage, nextPage, disableKeyboardNavigation]);
 
-  if (!visible) return <></>;
+  if (!visible) return null;
+
   return (
     <header className="flex w-full h-[4vw] max-h-[70px] items-center justify-between border-b border-white">
       {title && <p className="text-base ml-4">{title}</p>}
