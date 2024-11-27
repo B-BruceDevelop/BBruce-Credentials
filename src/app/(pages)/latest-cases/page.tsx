@@ -53,7 +53,10 @@ const lastCases: Case[] = [
 ];
 
 const Swiper = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(() => {
+    const savedIndex = localStorage.getItem("currentIndex");
+    return savedIndex ? parseInt(savedIndex, 10) : 0;
+  });
   const router = useRouter(); // Hook para redirigir
 
   const nextSlide = () => {
@@ -74,6 +77,7 @@ const Swiper = () => {
       if (event.key === "ArrowRight") {
         // Si estamos en la última diapositiva, redirigir
         if (currentIndex === lastCases.length - 1) {
+          localStorage.setItem("currentIndex", currentIndex.toString());
           router.push("/highlight-reel"); // Redirigir a la página siguiente
         } else {
           nextSlide();
@@ -81,6 +85,7 @@ const Swiper = () => {
       } else if (event.key === "ArrowLeft") {
         // Si estamos en la primera diapositiva, redirigir
         if (currentIndex === 0) {
+          localStorage.setItem("currentIndex", currentIndex.toString());
           router.push("/mixed-brand-arts"); // Redirigir a la página anterior
         } else {
           prevSlide();
@@ -107,28 +112,29 @@ const Swiper = () => {
         {/* Contenedor principal del swiper */}
         <div className="relative w-full h-[75vh] flex items-center justify-center overflow-hidden">
           <AnimatePresence>
-            {lastCases.map((caseData, index) => (
-              currentIndex === index && (
-                <motion.div
-                  key={caseData.id}
-                  initial={{ x: 300, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: -300, opacity: 0 }}
-                  transition={{ duration: 0.8, ease: "easeInOut" }}
-                  className="absolute w-full h-full flex items-center justify-center"
-                >
-                  <CaseCard
-                    id={caseData.id}
-                    backgroundImage={caseData.backgroundImage}
-                    logo={caseData.logo}
-                    backgroundColor={caseData.backgroundColor}
-                    title={caseData.title}
-                    subtitle={caseData.subtitle}
-                    link={caseData.link}
-                  />
-                </motion.div>
-              )
-            ))}
+            {lastCases.map(
+              (caseData, index) =>
+                currentIndex === index && (
+                  <motion.div
+                    key={caseData.id}
+                    initial={{ x: 300, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -300, opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="absolute w-full h-full flex items-center justify-center"
+                  >
+                    <CaseCard
+                      id={caseData.id}
+                      backgroundImage={caseData.backgroundImage}
+                      logo={caseData.logo}
+                      backgroundColor={caseData.backgroundColor}
+                      title={caseData.title}
+                      subtitle={caseData.subtitle}
+                      link={caseData.link}
+                    />
+                  </motion.div>
+                )
+            )}
           </AnimatePresence>
         </div>
       </section>

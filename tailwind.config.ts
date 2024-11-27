@@ -101,7 +101,7 @@ export default {
         slideIn: "slideIn 1s ease-in-out",
         zoomIn: "zoomIn 1s ease-in-out",
         jump: "jump 1s ease-in-out infinite",
-        ping: "ping 1.5s cubic-bezier(0, 0, 0.2, 1)",
+        ping: "ping 1s cubic-bezier(0, 0, 0.2, 1)",
         shake: "shake 0.8s ease-in-out",
         tada: "tada 1s ease-in-out",
         wobble: "wobble 1s ease-in-out",
