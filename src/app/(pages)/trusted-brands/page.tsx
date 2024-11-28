@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"; // Importación de la función cn
 const animations = [
   "animate-fadeIn",
   "animate-bounceIn",
-  // "animate-slideIn",
+  // "animate-slideIn10",
   "animate-zoomIn",
   // "animate-flip", // Nueva animación de volteo
   // "animate-swing", // Nueva animación tipo columpio

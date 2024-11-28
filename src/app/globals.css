@@ -86,48 +86,48 @@ body {
 
   @font-face {
     font-family: "Favorit-Bold";
-    src: url('/fonts/Favorit-Bold.woff') format('woff'),
-    url("/fonts/Favorit-Bold.otf") format("opentype");
+    src: url("/fonts/Favorit-Bold.woff") format("woff"),
+      url("/fonts/Favorit-Bold.otf") format("opentype");
     font-weight: 700;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Favorit-Bold-Italic";
-    src: url('/fonts/Favorit-BoldItalic.woff') format('woff'),
-    url("/fonts/Favorit-Bold-Italic.otf") format("opentype");
+    src: url("/fonts/Favorit-BoldItalic.woff") format("woff"),
+      url("/fonts/Favorit-Bold-Italic.otf") format("opentype");
     font-weight: 700;
     font-style: italic;
   }
 
   @font-face {
     font-family: "Favorit-Light-Italic";
-    src: url('/fonts/Favorit-LightItalic.woff') format('woff'),
-    url("/fonts/Favorit-Light-Italic.otf") format("opentype");
+    src: url("/fonts/Favorit-LightItalic.woff") format("woff"),
+      url("/fonts/Favorit-Light-Italic.otf") format("opentype");
     font-weight: 300;
     font-style: italic;
   }
 
   @font-face {
     font-family: "Favorit-Regular-Mono";
-    src: url('/fonts/Favorit-MonoBeta.woff') format('woff'),
-    url("/fonts/Favorit-Regular-Mono.otf") format("opentype");
+    src: url("/fonts/Favorit-MonoBeta.woff") format("woff"),
+      url("/fonts/Favorit-Regular-Mono.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Favorit-Regular-Italic";
-    src: url('/fonts/Favorit-RegularItalic.woff') format('woff'),
-    url("/fonts/Favorit-Regular-Italic.otf") format("opentype");
+    src: url("/fonts/Favorit-RegularItalic.woff") format("woff"),
+      url("/fonts/Favorit-Regular-Italic.otf") format("opentype");
     font-weight: 400;
     font-style: italic;
   }
 
   @font-face {
     font-family: "Favorit-Bold-Lining";
-    src: url('/fonts/Favorit-BoldLining.woff') format('woff'),
-    url("/fonts/Favorit-Bold-Lining.otf") format("opentype");
+    src: url("/fonts/Favorit-BoldLining.woff") format("woff"),
+      url("/fonts/Favorit-Bold-Lining.otf") format("opentype");
     font-weight: 700;
     font-style: normal;
   }
@@ -159,24 +159,32 @@ body {
   @font-face {
     font-family: "Favorit-Light";
     src: url("/fonts/Favorit_Light.woff") format("woff"),
-         url("/fonts/Favorit_Light.otf") format("opentype");
+      url("/fonts/Favorit_Light.otf") format("opentype");
     font-weight: 300;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: "Favorit-Medium";
     src: url("/fonts/Favorit_Medium.woff") format("woff"),
-         url("/fonts/Favorit_Medium.otf") format("opentype");
+      url("/fonts/Favorit_Medium.otf") format("opentype");
     font-weight: 500;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: "Favorit-Regular";
     src: url("/fonts/Favorit_Regular.woff") format("woff"),
-         url("/fonts/Favorit_Regular.otf") format("opentype");
+      url("/fonts/Favorit_Regular.otf") format("opentype");
     font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "StagBold_nutrisport";
+    src: url("/fonts/StagBold_nutrisport.woff") format("woff");
+
+    font-weight: 700;
     font-style: normal;
   }
 }

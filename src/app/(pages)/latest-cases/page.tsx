@@ -1,56 +1,34 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Footer from "@/components/globals/footer";
-import Header from "@/components/globals/header";
-import CaseCard from "./card";
 import { useRouter } from "next/navigation";
 
-import atrapalo_bg from "./img/Atrapalo_BG.png";
-import atrapalo_Logo from "./img/atrapalo_Logo.svg";
-import motorola_BG from "./img/euroleague_img.png";
-import motorola_logo from "./img/euroleague_Logo_Full.svg";
-import nutrisport_BG from "./img/nutriesport_img.png";
-import nutrisport_Logo from "./img/Nutriesport_logo_white.svg";
-import { StaticImageData } from "next/image";
+import Footer from "@/components/globals/footer";
+import Header from "@/components/globals/header";
+import {  Project } from "@/types/types";
+import { motion, AnimatePresence } from "framer-motion";
 
-type Case = {
-  id: number;
-  link: string;
-  backgroundImage?: StaticImageData; // Imagen de fondo opcional
-  backgroundColor?: string; // Color de fondo opcional
-  logo?: StaticImageData; // Logo opcional
-  title: string;
-  subtitle: string;
-};
+import Nutrisport from "./(cases)/nutrisport/page";
+import Motorola from "./(cases)/motorola/page";
 
-const lastCases: Case[] = [
+
+const lastCases: Project[] = [
   {
     id: 1,
-    backgroundImage: atrapalo_bg,
-    logo: atrapalo_Logo,
-    link: "latest-cases/atrapalo",
-    title: "Atrápalo",
-    subtitle: "Rebranding + UX/UI",
+    name: "atrapalo",
+    page: <Motorola />
   },
   {
     id: 2,
-    backgroundImage: nutrisport_BG,
-    logo: nutrisport_Logo,
-    link: "latest-cases/nutrisport",
-    title: "Nutrisport",
-    subtitle: "Rebranding + Campaign + Packaging",
+    name: "nutrisport",
+    page: <Nutrisport />
   },
   {
     id: 3,
-    backgroundImage: motorola_BG,
-    logo: motorola_logo,
-    link: "latest-cases/motorola",
-    title: "Motorola",
-    subtitle: "Creative Campaign",
-  },
-];
+    name: "motorola",
+    page: <Motorola />
+  }
+]
 
 const Swiper = () => {
   const router = useRouter();
@@ -139,13 +117,15 @@ const Swiper = () => {
       />
       <section className="relative flex items-center justify-center w-full h-full overflow-hidden">
         <div className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden">
-          <AnimatePresence custom={direction}>
+          <AnimatePresence 
+            custom={-1} 
+          >
             {lastCases.map(
               (caseData, index) =>
                 currentIndex === index && (
                   <motion.div
                     key={caseData.id}
-                    custom={direction} // Pasar dirección al componente
+                    custom={-1} // Pasar dirección al componente
                     variants={slideVariants}
                     initial="enter"
                     animate="center"
@@ -153,15 +133,11 @@ const Swiper = () => {
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                     className="absolute w-full h-full flex items-center justify-center"
                   >
-                    <CaseCard
-                      id={caseData.id}
-                      backgroundImage={caseData.backgroundImage}
-                      logo={caseData.logo}
-                      backgroundColor={caseData.backgroundColor}
-                      title={caseData.title}
-                      subtitle={caseData.subtitle}
-                      link={caseData.link}
-                    />
+                    <div key={caseData.id} className="flex w-full h-full flex items-center justify-center">
+
+                    {caseData.page} 
+                    </div>
+                   
                   </motion.div>
                 )
             )}

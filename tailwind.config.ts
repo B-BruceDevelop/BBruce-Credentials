@@ -85,6 +85,7 @@ export default {
         favoritMedium: ["Favorit-Medium", "sans-serif"],
         favoritLight: ["Favorit-Light", "sans-serif"],
         favoritRegular: ["Favorit-Regular", "sans-serif"],
+        stagBoldNutrisport: ["StagBold_nutrisport", "sans-serif"],
       },
       animation: {
         spinSlow: "spin 3s linear infinite",
@@ -94,11 +95,14 @@ export default {
         marqueeSlow: "marquee 50s linear infinite",
         accordionDown: "accordionDown 0.2s ease-out",
         accordionUp: "accordionUp 0.2s ease-out",
-        growFromTop: "growFromTop 0.5s ease-in-out forwards",
+        growFromTop: "growFromTop 1.5s ease-in-out ",
         shrinkToBottom: "shrinkToBottom 0.5s ease-in-out forwards",
         fadeIn: "fadeIn 1s ease-in-out",
         bounceIn: "bounceIn 1s ease-in-out",
-        slideIn: "slideIn 1s ease-in-out",
+        slideIn5: "slideIn .5s ease-in-out",
+        slideIn8: "slideIn 0.8s ease-in-out",
+        slideIn10: "slideIn 1s ease-in-out",
+        slideIn12: "slideIn 1.2s ease-in-out",
         zoomIn: "zoomIn 1s ease-in-out",
         jump: "jump 1s ease-in-out infinite",
         ping: "ping 1s cubic-bezier(0, 0, 0.2, 1)",
@@ -182,6 +186,7 @@ export default {
           "0%": { transform: "translateX(-50%)", opacity: "0" },
           "100%": { transform: "translateX(0)", opacity: "1" },
         },
+
         zoomIn: {
           "0%": { transform: "scale(0.8)", opacity: "0" },
           "100%": { transform: "scale(1)", opacity: "1" },
