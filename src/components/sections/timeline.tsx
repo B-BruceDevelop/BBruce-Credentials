@@ -1,6 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+
+interface TimelineProps {
+  index: number;
+}
 
 const timelineData = [
   {
@@ -35,8 +39,18 @@ const timelineData = [
   },
 ];
 
-const Timeline = () => {
+const Timeline = ({ index }: TimelineProps) => {
   const [activeButton, setActiveButton] = useState<string | null>(null);
+
+  // Relacionar índice con timelineData
+  useEffect(() => {
+    if (index === 0) {
+      setActiveButton(null); // Ninguno seleccionado
+    } else {
+      const selectedItem = timelineData[index - 1]; // Ajustar índice (0 no selecciona nada)
+      setActiveButton(selectedItem ? selectedItem.id : null);
+    }
+  }, [index]);
 
   const handleClick = (id: string) => {
     setActiveButton(id === activeButton ? null : id);
@@ -64,13 +78,13 @@ const Timeline = () => {
         {/* Contenedor superpuesto con textos */}
         <div className="absolute inset-0 flex items-center justify-around w-full pointer-events-none">
           {["Desarrollo de la técnica", "Desarrollo del pensamiento"].map((text) => (
-              <p
-                key={text}
-                className="text-white text-sm text-center pt-2 font-favoritRegularMono"
-              >
-                {text}
-              </p>
-            ))}
+            <p
+              key={text}
+              className="text-white text-sm text-center pt-2 font-favoritRegularMono"
+            >
+              {text}
+            </p>
+          ))}
         </div>
       </div>
 
@@ -130,14 +144,16 @@ const Timeline = () => {
               : "justify-center"
           )}
         >
-          <p className={cn(
-            "w-[70vw] md:w-[30vw] opacity-100 text-right font-favoritRegularMono",
-            activeItem ? `text-${activeItem.align}` : "text-left"
-          )}
+          <p
+            className={cn(
+              "w-[70vw] md:w-[30vw] opacity-100 text-right font-favoritRegularMono",
+              activeItem ? `text-${activeItem.align}` : "text-left"
+            )}
           >
             {activeItem ? activeItem.details : ""}
           </p>
         </div>
+        
       </div>
     </section>
   );
