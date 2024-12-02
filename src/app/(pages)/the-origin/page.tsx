@@ -24,7 +24,7 @@ const TheOrigin = () => {
     // Definir handleKeyDown dentro del useEffect
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") {
-        if (currentIndex === 0 || currentIndex === 1) {
+        if (currentIndex === 0 ) {
           router.push("/self-descrition");
         } else {
           const newIndex = currentIndex - 1;
@@ -60,7 +60,7 @@ const TheOrigin = () => {
         visible={true}
         disableKeyboardNavigation={true}
       />
-      <main className="flex grow flex-col w-full h-[35vh] items-center p-4 ">
+      <main className="flex grow flex-col w-full h-[35vh]  p-4 ">
         <section className="w-full rounded-3xl">
           <Suspense fallback={<p>Loading video...</p>}>
             <video
@@ -76,7 +76,7 @@ const TheOrigin = () => {
             </video>
           </Suspense>
         </section>
-        <section className="flex grow w-full items-center">
+        <section className="flex grow w-full items-start pt-[2vw]">
           <Timeline index={currentIndex} />
         </section>
       </main>

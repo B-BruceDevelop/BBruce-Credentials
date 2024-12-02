@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
+import { motion, AnimatePresence } from "framer-motion";
+
 interface TimelineProps {
   index: number;
 }
@@ -56,104 +58,246 @@ const Timeline = ({ index }: TimelineProps) => {
     setActiveButton(id === activeButton ? null : id);
   };
 
-  const activeItem = timelineData.find((item) => item.id === activeButton);
+  // const activeItem = timelineData.find((item) => item.id === activeButton);
 
   return (
     <section className="flex flex-col w-full items-center justify-center text-sm">
       {/* Años */}
       <div className="relative flex w-[77vw] text-white mb-4">
-        {timelineData.map((item) => (
-          <div
-            key={item.id}
-            className={cn(
-              "flex-1 flex flex-col font-favoritRegular",
-              `items-${item.align}`,
-              `text-${item.align}`
-            )}
-          >
-            <p>{item.year}</p>
-          </div>
-        ))}
+        {timelineData.map((item, idx) => {
+          const isVisible = idx <= index - 1; // El índice activo o mayor es visible
+
+          return (
+            <motion.div
+              key={item.id}
+              className={cn(
+                "flex-1 flex flex-col font-favoritRegular",
+                `items-${item.align}`,
+                `text-${item.align}`
+              )}
+              initial={{ opacity: 0.2 }} // Comienza casi oculto
+              animate={{ opacity: isVisible ? 1 : 0.2 }} // Cambia la opacidad según la visibilidad
+              transition={{ duration: 0.3, ease: "easeInOut" }} // Transición suave
+            >
+              <p>{item.year}</p>
+            </motion.div>
+          );
+        })}
+
+
+
+
 
         {/* Contenedor superpuesto con textos */}
-        <div className="absolute inset-0 flex items-center justify-around w-full pointer-events-none">
-          {["Desarrollo de la técnica", "Desarrollo del pensamiento"].map((text) => (
-            <p
-              key={text}
-              className="text-white text-sm text-center pt-2 font-favoritRegularMono"
-            >
-              {text}
-            </p>
-          ))}
-        </div>
+
+      <div className="absolute inset-0 flex w-full pointer-events-none">
+  {/* Primera columna */}
+  <div className="flex-1 flex items-center justify-center">
+    <div className="text-white text-sm text-left font-favoritRegularMono">
+      {index >= 2 && // Visible si el índice es 2 o más
+        Array.from("Desarrollo de la técnica").map((letter, letterIndex) => (
+          <motion.span
+            key={letterIndex}
+            initial={{ opacity: 0, x: 10 }} // Comienza invisible y desplazada hacia la derecha
+            animate={{ opacity: 1, x: 0 }} // Aparece y se posiciona correctamente
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+              delay: letterIndex * 0.02, // Retraso incremental por letra
+            }}
+            className="inline-block"
+          >
+            {letter === " " ? "\u00A0" : letter} {/* Aseguramos espacios visibles */}
+          </motion.span>
+        ))}
+    </div>
+  </div>
+
+  {/* Segunda columna */}
+  <div className="flex-1 flex items-center justify-center">
+    <div className="text-white text-sm text-right font-favoritRegularMono">
+      {index === 3 && // Visible solo si el índice es exactamente 3
+        Array.from("Desarrollo del pensamiento").map((letter, letterIndex) => (
+          <motion.span
+            key={letterIndex}
+            initial={{ opacity: 0, x: 10 }} // Comienza invisible y desplazada hacia la derecha
+            animate={{ opacity: 1, x: 0 }} // Aparece y se posiciona correctamente
+            transition={{
+              duration: 0.3,
+              ease: "easeOut",
+              delay: letterIndex * 0.02, // Retraso incremental por letra
+            }}
+            className="inline-block"
+          >
+            {letter === " " ? "\u00A0" : letter} {/* Aseguramos espacios visibles */}
+          </motion.span>
+        ))}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
       </div>
 
       {/* Línea y círculos */}
       <div className="relative flex items-center justify-between w-[75vw] bg-black">
-        <div
+        <motion.div
           className="absolute flex items-center left-0 right-0"
           style={{ height: "20px" }}
         >
-          <div className="w-full h-0.5 bg-white"></div>
-        </div>
-        {timelineData.map((item) => (
-          <div
-            key={item.id}
-            className="flex items-center justify-center w-5 h-5 bg-black border-2 border-white rounded-full z-10"
-            style={{ width: "20px", height: "20px" }}
-          >
-            {activeButton === item.id && (
-              <div className="w-3 h-3 bg-white border-white rounded-full z-10"></div>
-            )}
-          </div>
-        ))}
+          <motion.div
+            className="h-0.5 bg-white"
+            initial={{ width: 0 }} // Comienza con la línea invisible
+            animate={{
+              width:
+                index === 0 || index === 1
+                  ? "0%"
+                  : index === 2
+                  ? "50%"
+                  : "100%", // Crece según el índice
+            }}
+            transition={{ duration: 0.5, ease: "easeInOut" }} // Transición suave
+          />
+        </motion.div>
+
+        {timelineData.map((item, idx) => {
+          const isActive = activeButton === item.id;
+          const delay =
+            index === 3 && idx === 2 ? 0.5 : index === 2 && idx === 1 ? 0.5 : 0;
+
+          return (
+            <motion.div
+              key={item.id}
+              className="flex items-center justify-center w-5 h-5 bg-black border-2 border-white rounded-full z-10"
+              style={{ width: "20px", height: "20px" }}
+              animate={{
+                scale: isActive ? [1, 1.2, 1] : 1, // Pulso si está activo
+              }}
+              transition={{
+                duration: isActive ? 0.6 : 0, // Duración del pulso
+                repeat: isActive ? Infinity : 0, // Repetir si está activo
+                delay: isActive ? delay : 0, // Esperar a que la línea termine
+                ease: "easeInOut",
+              }}
+            >
+              {isActive && (
+                <motion.div
+                  className="w-3 h-3 bg-white rounded-full z-10"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, ease: "easeInOut", delay }}
+                />
+              )}
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Botones y detalles */}
       <div className="flex flex-col items-center w-[94%] pt-4 space-y-4">
         <div className="flex justify-between w-full">
-          {timelineData.map((item) => (
-            <div
-              key={item.id}
-              className={cn(
-                "flex flex-col justify-start items-center min-w-[18vw] gap-4",
-                `text-${item.align}`
-              )}
-            >
-              <button
+          {timelineData.map((item, idx) => {
+            const isVisible = idx <= index - 1; // Visible si el índice es activo o mayor
+
+            return (
+              <div
+                key={item.id}
                 className={cn(
-                  "px-4 py-2 border rounded-full w-full font-favoritMedium text-sm",
-                  activeButton === item.id
-                    ? "bg-white text-black"
-                    : "bg-transparent text-white hover:bg-greyA0/50"
+                  "flex flex-col justify-start items-center min-w-[18vw] gap-4",
+                  `text-${item.align}`
                 )}
-                onClick={() => handleClick(item.id)}
               >
-                {item.buttonText}
-              </button>
-              <p className="text-sm font-favoritRegular">{item.location}</p>
-            </div>
-          ))}
+                <button
+                  className={cn(
+                    "px-4 py-2 border rounded-full w-full font-favoritMedium text-sm",
+                    activeButton === item.id
+                      ? "bg-white text-black"
+                      : "bg-transparent text-white hover:bg-greyA0/50"
+                  )}
+                  onClick={() => handleClick(item.id)}
+                >
+                  {item.buttonText}
+                </button>
+
+                {/* Animación de Location */}
+                <motion.p
+                  className="text-sm font-favoritRegular"
+                  initial={{ opacity: 0.2 }} // Opacidad inicial baja
+                  animate={{ opacity: isVisible ? 1 : 0.2 }} // Cambia según visibilidad
+                  transition={{ duration: 0.3, ease: "easeInOut" }} // Transición suave
+                >
+                  {item.location}
+                </motion.p>
+              </div>
+            );
+          })}
         </div>
 
-        <div
-          className={cn(
-            "flex w-full text-xs text-[#888888]",
-            activeItem
-              ? `justify-${activeItem.justify}  `
-              : "justify-center"
-          )}
-        >
-          <p
-            className={cn(
-              "w-[70vw] md:w-[30vw] opacity-100 text-right font-favoritRegularMono",
-              activeItem ? `text-${activeItem.align}` : "text-left"
-            )}
-          >
-            {activeItem ? activeItem.details : ""}
-          </p>
+        <div className="flex flex-col items-center w-full ">
+          {/* Contenedor de Savia */}
+          <AnimatePresence>
+            <div className="flex w-full">
+              {activeButton === "savia" && (
+                <motion.div
+                  key="savia"
+                  initial={{ height: 0, opacity: 0 }} // Comienza con altura y opacidad cero
+                  animate={{ height: "auto", opacity: 1 }} // Crece a la altura completa y aparece
+                  exit={{ height: 0, opacity: 0 }} // Se encoge y desaparece
+                  transition={{ duration: 0.5, ease: "easeInOut" }} // Transición suave
+                  style={{ overflow: "hidden" }} // Oculta el contenido cuando la altura es cero
+                  className="flex flex-col items-start w-[70vw] md:w-[30vw] font-favoritRegularMono text-left text-xs text-[#888888]"
+                >
+                  {timelineData[0].details}
+                </motion.div>
+              )}
+            </div>
+          </AnimatePresence>
+
+          {/* Contenedor de Logic */}
+          <AnimatePresence>
+            <div className="flex w-full justify-center">
+              {activeButton === "logic" && (
+                <motion.div
+                  key="logic"
+                  initial={{ height: 0, opacity: 0 }} // Comienza con altura y opacidad cero
+                  animate={{ height: "auto", opacity: 1 }} // Crece a la altura completa y aparece
+                  exit={{ height: 0, opacity: 0 }} // Se encoge y desaparece
+                  transition={{ duration: 0.5, ease: "easeInOut" }} // Transición suave
+                  style={{ overflow: "hidden" }} // Oculta el contenido cuando la altura es cero
+                  className="flex flex-col items-center w-[70vw] md:w-[30vw] font-favoritRegularMono text-center text-xs text-[#888888]"
+                >
+                  {timelineData[1].details}
+                </motion.div>
+              )}
+            </div>
+          </AnimatePresence>
+
+          {/* Contenedor de B-Bruce */}
+          <AnimatePresence>
+            <div className="flex w-full justify-end">
+              {activeButton === "bbruce" && (
+                <motion.div
+                  key="bbruce"
+                  initial={{ height: 0, opacity: 0 }} // Comienza con altura y opacidad cero
+                  animate={{ height: "auto", opacity: 1 }} // Crece a la altura completa y aparece
+                  exit={{ height: 0, opacity: 0 }} // Se encoge y desaparece
+                  transition={{ duration: 0.5, ease: "easeInOut" }} // Transición suave
+                  style={{ overflow: "hidden" }} // Oculta el contenido cuando la altura es cero
+                  className="flex flex-col items-end w-[70vw] md:w-[30vw] font-favoritRegularMono text-right text-xs text-[#888888]"
+                >
+                  {timelineData[2].details}
+                </motion.div>
+              )}
+            </div>
+          </AnimatePresence>
         </div>
-        
       </div>
     </section>
   );
