@@ -36,8 +36,9 @@ const Swiper = () => {
   // Estados para el índice actual y la dirección de navegación
   const [currentIndex, setCurrentIndex] = useState(() => (0));
   const [direction, setDirection] = useState(1); // Dirección: 1 (derecha), -1 (izquierda)
+  
   useEffect(() => {
-    const savedIndex = localStorage.getItem("currentIndex");
+    const savedIndex = sessionStorage.getItem("caseIndex");
     setCurrentIndex(savedIndex ? parseInt(savedIndex, 10) : 0);
     if (savedIndex ) {
       const parsedIndex = parseInt(savedIndex, 10);
@@ -65,7 +66,7 @@ const Swiper = () => {
       if (event.key === "ArrowRight") {
         // Si estamos en la última diapositiva, redirigir
         if (currentIndex === lastCases.length - 1) {
-          localStorage.setItem("currentIndex", currentIndex.toString());
+          sessionStorage.setItem("caseIndex", currentIndex.toString());
           router.push("/highlight-reel");
         } else {
           nextSlide();
@@ -73,7 +74,7 @@ const Swiper = () => {
       } else if (event.key === "ArrowLeft") {
         // Si estamos en la primera diapositiva, redirigir
         if (currentIndex === 0) {
-          localStorage.setItem("currentIndex", currentIndex.toString());
+          sessionStorage.setItem("caseIndex", currentIndex.toString());
           router.push("/mixed-brand-arts");
         } else {
           prevSlide();
@@ -125,7 +126,7 @@ const Swiper = () => {
                 currentIndex === index && (
                   <motion.div
                     key={caseData.id}
-                    custom={-1} // Pasar dirección al componente
+                    custom={direction} // Pasar dirección al componente
                     variants={slideVariants}
                     initial="enter"
                     animate="center"

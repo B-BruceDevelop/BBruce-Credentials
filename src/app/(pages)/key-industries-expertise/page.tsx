@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import Footer from "@/components/globals/footer";
 import Header from "@/components/globals/header";
@@ -56,49 +57,55 @@ const categories = [
     ],
   },
 ];
-// const index: number = 4;
+
 const KeyIndustriesExpertise = () => {
+  const router = useRouter();
+
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
-  // const [direction, setDirection] = useState<'increasing' | 'decreasing' | 'none'>('none');
-
-  // // Función para determinar la dirección del cambio
-  // const determineDirection = (newIndex: number | null, oldIndex: number | null): 'increasing' | 'decreasing' | 'none' => {
-  //   if (oldIndex === null) {
-  //     return 'none';
-  //   }
-  //   if (newIndex! > oldIndex) {
-  //     return 'increasing';
-  //   }
-  //   if (newIndex! < oldIndex) {
-  //     return 'decreasing';
-  //   }
-  //   return 'none';
-  // };
 
   const handleCardClick = (newIndex: number) => {
     setPrevIndex(currentIndex);
     setCurrentIndex(newIndex);
   };
+  // Recuperar el índice al montar el componente
+  useEffect(() => {
+    const savedIndex = sessionStorage.getItem("industriesIndex");
+    if (savedIndex !== null) {
+      setCurrentIndex(parseInt(savedIndex, 10));
+    } else {
+      setCurrentIndex(0); // Valor inicial si no existe en sessionStorage
+    }
+  }, []);
 
-  // useEffect(() => {
-  //   const dir = determineDirection(currentIndex, prevIndex);
-  //   setDirection(dir);
-  // }, [currentIndex, prevIndex]);
-
-  // Agregar manejo de eventos de teclado
+  // Guardar el índice en sessionStorage cada vez que cambie
+  useEffect(() => {
+    if (currentIndex !== null) {
+      sessionStorage.setItem("industriesIndex", currentIndex.toString());
+    }
+  }, [currentIndex]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowUp") {
+      if (event.key === "ArrowLeft") {
         event.preventDefault();
+        if (currentIndex === 1) {
+          // Navegación a la página anterior
+          router.push("/shapeless-method");
+          return;
+        }
         setPrevIndex(currentIndex);
         setCurrentIndex((prev) => {
           if (prev === null || prev === 1) return categories.length;
           return prev - 1;
         });
-      } else if (event.key === "ArrowDown") {
+      } else if (event.key === "ArrowRight") {
         event.preventDefault();
+        if (currentIndex === categories.length) {
+          // Navegación a la página siguiente
+          router.push("/mixed-brand-arts");
+          return;
+        }
         setPrevIndex(currentIndex);
         setCurrentIndex((prev) => {
           if (prev === null || prev === categories.length) return 1;
@@ -109,11 +116,10 @@ const KeyIndustriesExpertise = () => {
 
     window.addEventListener("keydown", handleKeyDown);
 
-    // Limpiar el listener al desmontar el componente
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentIndex]);
+  }, [currentIndex, router]);
 
   return (
     <div className="flex flex-col h-screen items-center justify-center">
@@ -122,6 +128,7 @@ const KeyIndustriesExpertise = () => {
         prevPage="/shapeless-method"
         nextPage="/mixed-brand-arts"
         visible={true}
+        disableKeyboardNavigation={true}
       />
       <main className="flex grow flex-col items-center justify-center w-full p-[1vw] ">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4 w-full max-h-[80vh]  mx-auto px-4">
@@ -134,7 +141,6 @@ const KeyIndustriesExpertise = () => {
               properties={category.properties}
               index={currentIndex}
               prevIndex={prevIndex}
-              // direction={direction}
               onClick={() => handleCardClick(category.id)}
             />
           ))}
