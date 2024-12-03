@@ -67,6 +67,7 @@ const TheOrigin = () => {
               width="320"
               height="240"
               autoPlay
+              loop
               className="w-full h-[35vh] object-cover rounded-3xl animate-fadeInSmall"
             >
               <source

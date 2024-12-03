@@ -9,7 +9,10 @@ const NikeLogo = () => {
       alt="Nike Logo"
       width={200}
       height={200}
-      className="animate-ownFade"    
+      style={{ width: "15vw", height: "auto" }} // Ajusta automáticamente el otro valor
+
+      className="object-contain  animate-ownFade"
+      priority
     />
   );
 };

@@ -112,8 +112,26 @@ export default {
         flip: "flip 1s ease-in-out",
         swing: "swing 1s ease-in-out",
         rubberBand: "rubberBand 1s ease-in-out",
+        bounceInFromRight: "bounceInFromRight .8s ease-out",
+
       },
       keyframes: {
+        bounceInFromRight: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(80%) scale(0.6)",
+          },
+          "80%": {
+            opacity: "1",
+            transform: "translateX(-5%) scale(1)",
+          },
+          "90%": {
+            transform: "translateX(0%) scale(1)",
+          },
+          "100%": {
+            transform: "translateX(0%) scale(1)",
+          },
+        },
         fadeInScale: {
           "0%": {
             opacity: "0",
@@ -183,7 +201,7 @@ export default {
           "100%": { transform: "scale(1)", opacity: "1" },
         },
         slideIn: {
-          "0%": { transform: "translateX(-50%)", opacity: "0" },
+          "0%": { transform: "translateX(50%)", opacity: "0" },
           "100%": { transform: "translateX(0)", opacity: "1" },
         },
 

@@ -89,14 +89,16 @@ const KeyIndustriesExpertise = () => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowLeft") {
         event.preventDefault();
-        if (currentIndex === 1) {
+        if (currentIndex === 0) {
           // Navegación a la página anterior
+          // setCurrentIndex(0);
           router.push("/shapeless-method");
           return;
         }
         setPrevIndex(currentIndex);
         setCurrentIndex((prev) => {
-          if (prev === null || prev === 1) return categories.length;
+          // if (prev === null || prev === 1) return categories.length;
+          if (prev === null ) return 0;
           return prev - 1;
         });
       } else if (event.key === "ArrowRight") {
