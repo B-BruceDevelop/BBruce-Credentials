@@ -99,6 +99,7 @@ export default {
         shrinkToBottom: "shrinkToBottom 0.5s ease-in-out forwards",
         fadeIn: "fadeIn 1s ease-in-out",
         bounceIn: "bounceIn 1s ease-in-out",
+        smallSlideIn: "smallSlideIn .5s ease-in-out",
         slideIn5: "slideIn .5s ease-in-out",
         slideIn8: "slideIn 0.8s ease-in-out",
         slideIn10: "slideIn 1s ease-in-out",
@@ -203,6 +204,10 @@ export default {
         slideIn: {
           "0%": { transform: "translateX(50%)", opacity: "0" },
           "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        smallSlideIn: {
+          "0%": { transform: "translateX(10%)", opacity: "0", scale: "0.9" },
+          "100%": { transform: "translateX(0)", opacity: "1", scale: "1" },
         },
 
         zoomIn: {

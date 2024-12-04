@@ -6,6 +6,8 @@ import Footer from "@/components/globals/footer";
 import Header from "@/components/globals/header";
 import ImageCarousel from "@/components/sections/imageCarousel";
 
+import {teamMatesImages} from "@/assets/team/index";
+
 import {
   EstadiOlimpic,
   TailorMadeProjects,
@@ -22,25 +24,6 @@ import {
 } from "@/assets/meetUs";
 import BarProgress from "@/components/sections/progressBar";
 
-const teamImages = [
-  EstadiOlimpic,
-  TailorMadeProjects,
-  TheVenue,
-  Working,
-  TheVenueOffice,
-  TargetPulse,
-  BrandIgnition,
-  ImpactJumpstart,
-  Worldwide,
-  TargetPulse,
-  BrandIgnition,
-  ImpactJumpstart,
-  Worldwide,
-  TargetPulse,
-  BrandIgnition,
-  ImpactJumpstart,
-  Worldwide,
-];
 
 const teamCollaborationData = [
   { label: "Strategy", percentage: 15 },
@@ -236,7 +219,7 @@ function MeetUs() {
 
           {/* Team Photos */}
           <article id="team-photos" className="flex rounded-[1vw]">
-            <ImageCarousel images={teamImages} />
+            <ImageCarousel images={teamMatesImages} />
           </article>
         </motion.section>
 

@@ -9,6 +9,7 @@ type CarouselProps = {
 
 const ImageCarousel: React.FC<CarouselProps> = ({ images }) => {
   const [visibleImages, setVisibleImages] = useState<StaticImageData[]>([]);
+  const [fadeIndex, setFadeIndex] = useState<number | null>(null);
 
   useEffect(() => {
     // Inicializa las primeras 5 imágenes visibles
@@ -16,10 +17,19 @@ const ImageCarousel: React.FC<CarouselProps> = ({ images }) => {
 
     const interval = setInterval(() => {
       setVisibleImages((prevImages) => {
-        // Remueve la primera imagen y añade la siguiente al final
         const nextIndex =
           (images.indexOf(prevImages[prevImages.length - 1]) + 1) % images.length;
-        return [...prevImages.slice(1), images[nextIndex]];
+
+        // Activa la animación fadeIn en la última imagen nueva
+        setFadeIndex(4);
+
+        // Remueve la primera imagen y añade la siguiente al final
+        const updatedImages = [...prevImages.slice(1), images[nextIndex]];
+
+        // Desactiva la animación después de un tiempo corto
+        setTimeout(() => setFadeIndex(null), 500);
+
+        return updatedImages;
       });
     }, 1500); // Intervalo de 1.5 segundos
 
@@ -27,11 +37,13 @@ const ImageCarousel: React.FC<CarouselProps> = ({ images }) => {
   }, [images]);
 
   return (
-    <div className="relative flex overflow-hidden w-full  justify-between">
+    <div className="relative flex overflow-hidden w-full justify-between ">
       {visibleImages.map((image, index) => (
         <div
           key={index}
-          className="bg-white rounded-[0.5vw] aspect-[3/4] w-[calc((100%-2vw)/5)] flex-shrink-0 transition-transform duration-500 ease-in-out"
+          className={`bg-white rounded-[0.5vw] aspect-[3/4] w-[calc((100%-2vw)/5)] flex-shrink-0 transition-transform duration-500 ease-in-out 
+            ${ fadeIndex === index ? "animate-smallSlideIn" : ""  }`
+          }
         >
           <Image
             src={image}
