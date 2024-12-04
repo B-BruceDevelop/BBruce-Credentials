@@ -27,7 +27,7 @@ const ImageCarousel: React.FC<CarouselProps> = ({ images }) => {
         const updatedImages = [...prevImages.slice(1), images[nextIndex]];
 
         // Desactiva la animación después de un tiempo corto
-        setTimeout(() => setFadeIndex(null), 500);
+        setTimeout(() => setFadeIndex(null), 1500);
 
         return updatedImages;
       });
@@ -42,7 +42,7 @@ const ImageCarousel: React.FC<CarouselProps> = ({ images }) => {
         <div
           key={index}
           className={`bg-white rounded-[0.5vw] aspect-[3/4] w-[calc((100%-2vw)/5)] flex-shrink-0 transition-transform duration-500 ease-in-out 
-            ${ fadeIndex === index ? "animate-smallSlideIn" : ""  }`
+            ${ fadeIndex === index ? "animate-" : ""  }`
           }
         >
           <Image
