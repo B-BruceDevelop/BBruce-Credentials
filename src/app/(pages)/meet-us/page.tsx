@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -6,7 +6,7 @@ import Footer from "@/components/globals/footer";
 import Header from "@/components/globals/header";
 import ImageCarousel from "@/components/sections/imageCarousel";
 
-import {teamMatesImages} from "@/assets/team/index";
+import { teamMatesImages } from "@/assets/team/index";
 
 import {
   EstadiOlimpic,
@@ -24,7 +24,6 @@ import {
 } from "@/assets/meetUs";
 import BarProgress from "@/components/sections/progressBar";
 
-
 const teamCollaborationData = [
   { label: "Strategy", percentage: 15 },
   { label: "Creative", percentage: 20 },
@@ -36,41 +35,40 @@ const teamCollaborationData = [
 // Definir múltiples variantes de animación
 const fadeInVariants = {
   hidden: { opacity: 0 },
-  visible: { 
+  visible: {
     opacity: 1,
-    transition: { duration: 0.5 }
-  }
+    transition: { duration: 0.5 },
+  },
 };
 
 const scaleUpVariants = {
   hidden: { scale: 0.8, opacity: 0 },
-  visible: { 
-    scale: 1, 
+  visible: {
+    scale: 1,
     opacity: 1,
-    transition: { type: "spring", stiffness: 300, damping: 10 }
-  }
+    transition: { type: "spring", stiffness: 300, damping: 10 },
+  },
 };
-
 
 const slideInVariants = {
   hidden: { x: -50, opacity: 0 },
-  visible: { 
-    x: 0, 
+  visible: {
+    x: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 100, damping: 10 }
-  }
+    transition: { type: "spring", stiffness: 100, damping: 10 },
+  },
 };
 
 // Variante para el contenedor principal para escalonar las animaciones de los hijos
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: { 
+  visible: {
     opacity: 1,
-    transition: { 
+    transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.3
-    }
-  }
+      delayChildren: 0.3,
+    },
+  },
 };
 
 function MeetUs() {
@@ -82,7 +80,7 @@ function MeetUs() {
         nextPage="/the-principles"
         visible={true}
       />
-      <motion.main 
+      <motion.main
         className="grid grow grid-cols-3 h-full w-full gap-[0.5vw] p-[1vw]"
         variants={containerVariants}
         initial="hidden"
@@ -115,8 +113,14 @@ function MeetUs() {
             </div>
           </motion.article>
           {/* Parte inferior con subdivisiones */}
-          <motion.div className="h-[calc(50%-0.25vw)] rounded-[1vw] flex flex-col gap-[0.5vw]" variants={containerVariants}>
-            <motion.div className="flex gap-[0.5vw]" variants={containerVariants}>
+          <motion.div
+            className="h-[calc(50%-0.25vw)] rounded-[1vw] flex flex-col gap-[0.5vw]"
+            variants={containerVariants}
+          >
+            <motion.div
+              className="flex gap-[0.5vw]"
+              variants={containerVariants}
+            >
               {/* The Venue BCN */}
               <motion.article
                 id="venue-bcn"
@@ -251,8 +255,14 @@ function MeetUs() {
           </motion.article>
 
           {/* Contenedores inferiores */}
-          <motion.div className="flex flex-col gap-[0.5vw]" variants={containerVariants}>
-            <motion.div className="grid grid-cols-2 gap-[0.5vw]" variants={containerVariants}>
+          <motion.div
+            className="flex flex-col gap-[0.5vw]"
+            variants={containerVariants}
+          >
+            <motion.div
+              className="grid grid-cols-2 gap-[0.5vw]"
+              variants={containerVariants}
+            >
               {/* Turnover */}
               <motion.article
                 id="turnover"
@@ -290,9 +300,12 @@ function MeetUs() {
               </motion.article>
             </motion.div>
 
-            <motion.div className="grid grid-cols-2 gap-[0.5vw]" variants={containerVariants}>
+            <motion.div
+              className="grid grid-cols-2 gap-[0.5vw]"
+              variants={containerVariants}
+            >
               {/* Worldwide Clients */}
-              <motion.article 
+              <motion.article
                 className="bg-[#F2F2F2] rounded-[1vw] flex flex-col justify-between items-center text-center p-[1vw]"
                 variants={fadeInVariants}
               >
@@ -324,9 +337,12 @@ function MeetUs() {
                 </div>
               </motion.article>
 
-              <motion.div className="flex flex-col gap-[0.5vw]" variants={containerVariants}>
+              <motion.div
+                className="flex flex-col gap-[0.5vw]"
+                // variants={containerVariants}
+              >
                 {/* Impact Jumpstart */}
-                <motion.article 
+                <motion.article
                   className="aspect-[3.4/2] bg-[#EAFF37] rounded-[1vw] flex flex-col justify-between overflow-hidden"
                   variants={scaleUpVariants}
                 >
@@ -340,17 +356,18 @@ function MeetUs() {
                     />
                   </div>
                   <div className="text-center">
-                    <p className="text-base font-favoritMedium text-black pb-[.5
-vw]">
+                    <p
+                      className="text-base font-favoritMedium text-black pb-[.5vw]"
+                    >
                       Impact Jumpstart<sup>®</sup>
                     </p>
                   </div>
                 </motion.article>
 
                 {/* Target Pulse */}
-                <motion.article 
+                <motion.article
                   className="aspect-[3.4/2] bg-[#0DF8F8] rounded-[1vw] flex flex-col justify-between overflow-hidden"
-                  variants={slideInVariants}
+                  variants={scaleUpVariants}
                 >
                   <div className="relative flex-grow">
                     <Image
@@ -379,4 +396,3 @@ vw]">
 }
 
 export default MeetUs;
-

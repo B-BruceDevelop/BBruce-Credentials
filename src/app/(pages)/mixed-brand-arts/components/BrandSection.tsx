@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BrandCard from "./BrandCard";
 import Footer from "@/components/globals/footer";
 import { cn } from "@/lib/utils";
@@ -92,11 +92,28 @@ const brandData = [
   },
 ];
 
-export default function BrandSection() {
+interface BrandSectionProps {
+  index: number;
+}
+
+export default function BrandSection({index}: BrandSectionProps) {
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [footerText, setFooterText] = useState<string>(
-    "Blending strategy, creativity & design for brands that leave a profund mark."
+    "Blending strategy, creativity & design for brands that leave a profound mark."
   );
+
+  // Activar la tarjeta correspondiente al cargar el componente
+  useEffect(() => {
+    if (index > 0 && index <= brandData.length) {
+      setExpandedId(index); // Activar la tarjeta correspondiente
+      setFooterText(brandData[index - 1].footer); // Cambiar el texto del footer
+    } else {
+      setExpandedId(null); // No activar ninguna tarjeta si el índice es 0
+      setFooterText(
+        "Blending strategy, creativity & design for brands that leave a profound mark."
+      );
+    }
+  }, [index]);
 
   return (
     <div className="flex flex-col w-[98vw] h-full justify-between items-center">
