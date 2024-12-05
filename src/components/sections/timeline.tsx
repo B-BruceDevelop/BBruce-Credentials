@@ -58,7 +58,6 @@ const Timeline = ({ index }: TimelineProps) => {
     setActiveButton(id === activeButton ? null : id);
   };
 
-  // const activeItem = timelineData.find((item) => item.id === activeButton);
 
   return (
     <section className="flex flex-col w-full items-center justify-center text-sm">
@@ -69,81 +68,81 @@ const Timeline = ({ index }: TimelineProps) => {
 
           return (
             <motion.div
-              key={item.id}
-              className={cn(
-                "flex-1 flex flex-col font-favoritRegular",
-                `items-${item.align}`,
-                `text-${item.align}`
-              )}
-              initial={{ opacity: 0.2 }} // Comienza casi oculto
-              animate={{ opacity: isVisible ? 1 : 0.2 }} // Cambia la opacidad según la visibilidad
-              transition={{ duration: 0.3, ease: "easeInOut" }} // Transición suave
-            >
-              <p>{item.year}</p>
-            </motion.div>
+            key={item.id}
+            className={cn(
+              "flex-1 flex flex-col font-favoritRegular",
+              `items-${item.align}`,
+              `text-${item.align}`
+            )}
+            initial={{ opacity: 0, y: -20, scale: 0.5 }} // Comienza invisible y desplazado hacia arriba
+            animate={{
+              opacity: isVisible ? 1 : 0, // Cambia la opacidad según la visibilidad
+              y: isVisible ? 0 : -20, // Mueve hacia la posición original si es visible
+              scale: isVisible ? 1 : 0.5, // Escala a tamaño normal si es visible
+            }}
+            transition={{
+              duration: 0.5, // Duración de la animación
+              ease: "easeInOut", // Transición suave
+            }}
+          >
+            <p>{item.year}</p>
+          </motion.div>
           );
         })}
 
-
-
-
-
         {/* Contenedor superpuesto con textos */}
 
-      <div className="absolute inset-0 flex w-full pointer-events-none">
-  {/* Primera columna */}
-  <div className="flex-1 flex items-center justify-center">
-    <div className="text-white text-sm text-left font-favoritRegularMono">
-      {index >= 2 && // Visible si el índice es 2 o más
-        Array.from("Desarrollo de la técnica").map((letter, letterIndex) => (
-          <motion.span
-            key={letterIndex}
-            initial={{ opacity: 0, x: 10 }} // Comienza invisible y desplazada hacia la derecha
-            animate={{ opacity: 1, x: 0 }} // Aparece y se posiciona correctamente
-            transition={{
-              duration: 0.3,
-              ease: "easeOut",
-              delay: letterIndex * 0.02, // Retraso incremental por letra
-            }}
-            className="inline-block"
-          >
-            {letter === " " ? "\u00A0" : letter} {/* Aseguramos espacios visibles */}
-          </motion.span>
-        ))}
-    </div>
-  </div>
+        <div className="absolute inset-0 flex w-full pointer-events-none">
+          {/* Primera columna */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="text-white text-sm text-left font-favoritRegularMono">
+              {index >= 2 && // Visible si el índice es 2 o más
+                Array.from("Desarrollo de la técnica").map(
+                  (letter, letterIndex) => (
+                    <motion.span
+                      key={letterIndex}
+                      initial={{ opacity: 0, x: 10 }} // Comienza invisible y desplazada hacia la derecha
+                      animate={{ opacity: 1, x: 0 }} // Aparece y se posiciona correctamente
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeOut",
+                        delay: letterIndex * 0.02, // Retraso incremental por letra
+                      }}
+                      className="inline-block"
+                    >
+                      {letter === " " ? "\u00A0" : letter}{" "}
+                      {/* Aseguramos espacios visibles */}
+                    </motion.span>
+                  )
+                )}
+            </div>
+          </div>
 
-  {/* Segunda columna */}
-  <div className="flex-1 flex items-center justify-center">
-    <div className="text-white text-sm text-right font-favoritRegularMono">
-      {index === 3 && // Visible solo si el índice es exactamente 3
-        Array.from("Desarrollo del pensamiento").map((letter, letterIndex) => (
-          <motion.span
-            key={letterIndex}
-            initial={{ opacity: 0, x: 10 }} // Comienza invisible y desplazada hacia la derecha
-            animate={{ opacity: 1, x: 0 }} // Aparece y se posiciona correctamente
-            transition={{
-              duration: 0.3,
-              ease: "easeOut",
-              delay: letterIndex * 0.02, // Retraso incremental por letra
-            }}
-            className="inline-block"
-          >
-            {letter === " " ? "\u00A0" : letter} {/* Aseguramos espacios visibles */}
-          </motion.span>
-        ))}
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
+          {/* Segunda columna */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="text-white text-sm text-right font-favoritRegularMono">
+              {index === 3 && // Visible solo si el índice es exactamente 3
+                Array.from("Desarrollo del pensamiento").map(
+                  (letter, letterIndex) => (
+                    <motion.span
+                      key={letterIndex}
+                      initial={{ opacity: 0, x: 10 }} // Comienza invisible y desplazada hacia la derecha
+                      animate={{ opacity: 1, x: 0 }} // Aparece y se posiciona correctamente
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeOut",
+                        delay: letterIndex * 0.02, // Retraso incremental por letra
+                      }}
+                      className="inline-block"
+                    >
+                      {letter === " " ? "\u00A0" : letter}{" "}
+                      {/* Aseguramos espacios visibles */}
+                    </motion.span>
+                  )
+                )}
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Línea y círculos */}
@@ -167,38 +166,47 @@ const Timeline = ({ index }: TimelineProps) => {
           />
         </motion.div>
 
-        {timelineData.map((item, idx) => {
-          const isActive = activeButton === item.id;
-          const delay =
-            index === 3 && idx === 2 ? 0.5 : index === 2 && idx === 1 ? 0.5 : 0;
+    {/* Bolitas */}
+  {timelineData.map((item, idx) => {
+    const isActive = idx === index - 1; // Bolita activa
+    const isVisible = idx < index; // Bolitas visibles si su índice es menor al índice actual
 
-          return (
-            <motion.div
-              key={item.id}
-              className="flex items-center justify-center w-5 h-5 bg-black border-2 border-white rounded-full z-10"
-              style={{ width: "20px", height: "20px" }}
-              animate={{
-                scale: isActive ? [1, 1.2, 1] : 1, // Pulso si está activo
-              }}
-              transition={{
-                duration: isActive ? 0.6 : 0, // Duración del pulso
-                repeat: isActive ? Infinity : 0, // Repetir si está activo
-                delay: isActive ? delay : 0, // Esperar a que la línea termine
-                ease: "easeInOut",
-              }}
-            >
-              {isActive && (
-                <motion.div
-                  className="w-3 h-3 bg-white rounded-full z-10"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, ease: "easeInOut", delay }}
-                />
-              )}
-            </motion.div>
-          );
-        })}
-      </div>
+    return (
+      <motion.div
+        key={item.id}
+        className={`flex items-center justify-center w-5 h-5 bg-black border-2 border-white rounded-full z-10`}
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{
+          opacity: isVisible ? 1 : 0, // Visible si el índice es menor al índice actual
+          scale: isVisible ? 1 : 0, // Escala a tamaño normal si es visible
+        }}
+        transition={{
+          duration: 0.5,
+          ease: "easeInOut",
+        }}
+        style={{ width: "20px", height: "20px" }}
+      >
+        {/* Bolita interior para la activa */}
+        {isActive && (
+  <motion.div
+    className="w-3 h-3 bg-white rounded-full z-10"
+    initial={{ opacity: 1, scale: 1 }}
+    animate={{
+      opacity: 10,
+      scale: [1.2, 1, 0.8, 1, 1.2], // Efecto bounce
+    }}
+    transition={{
+      duration: 0.5, // Duración del rebote
+      ease: "easeInOut",
+      repeat: Infinity, // Rebote continuo
+      repeatType: "loop", // Forma de repetición
+    }}
+  />
+)}
+      </motion.div>
+    );
+  })}
+</div>
 
       {/* Botones y detalles */}
       <div className="flex flex-col items-center w-[94%] pt-4 space-y-4">
@@ -214,7 +222,10 @@ const Timeline = ({ index }: TimelineProps) => {
                   `text-${item.align}`
                 )}
               >
-                <button
+                <motion.button
+                  initial={{ scale: 0 }}
+                  animate={{ scale: isVisible ? [0.5, 1.2, 1] : 0 }}
+                  transition={{ duration: 0.7, ease: "easeInOut" }}
                   className={cn(
                     "px-4 py-2 border rounded-full w-full font-favoritMedium text-sm",
                     activeButton === item.id
@@ -224,13 +235,13 @@ const Timeline = ({ index }: TimelineProps) => {
                   onClick={() => handleClick(item.id)}
                 >
                   {item.buttonText}
-                </button>
+                </motion.button>
 
                 {/* Animación de Location */}
                 <motion.p
                   className="text-sm font-favoritRegular"
-                  initial={{ opacity: 0.2 }} // Opacidad inicial baja
-                  animate={{ opacity: isVisible ? 1 : 0.2 }} // Cambia según visibilidad
+                  initial={{ opacity: 0 }} // Opacidad inicial baja
+                  animate={{ opacity: isVisible ? 1 : 0 }} // Cambia según visibilidad
                   transition={{ duration: 0.3, ease: "easeInOut" }} // Transición suave
                 >
                   {item.location}
@@ -250,7 +261,7 @@ const Timeline = ({ index }: TimelineProps) => {
                   initial={{ height: 0, opacity: 0 }} // Comienza con altura y opacidad cero
                   animate={{ height: "auto", opacity: 1 }} // Crece a la altura completa y aparece
                   exit={{ height: 0, opacity: 0 }} // Se encoge y desaparece
-                  transition={{ duration: 0.5, ease: "easeInOut" }} // Transición suave
+                  transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }} // Transición suave
                   style={{ overflow: "hidden" }} // Oculta el contenido cuando la altura es cero
                   className="flex flex-col items-start w-[70vw] md:w-[30vw] font-favoritRegularMono text-left text-xs text-[#888888]"
                 >
@@ -269,7 +280,7 @@ const Timeline = ({ index }: TimelineProps) => {
                   initial={{ height: 0, opacity: 0 }} // Comienza con altura y opacidad cero
                   animate={{ height: "auto", opacity: 1 }} // Crece a la altura completa y aparece
                   exit={{ height: 0, opacity: 0 }} // Se encoge y desaparece
-                  transition={{ duration: 0.5, ease: "easeInOut" }} // Transición suave
+                  transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }} // Transición suave
                   style={{ overflow: "hidden" }} // Oculta el contenido cuando la altura es cero
                   className="flex flex-col items-center w-[70vw] md:w-[30vw] font-favoritRegularMono text-center text-xs text-[#888888]"
                 >
@@ -288,7 +299,7 @@ const Timeline = ({ index }: TimelineProps) => {
                   initial={{ height: 0, opacity: 0 }} // Comienza con altura y opacidad cero
                   animate={{ height: "auto", opacity: 1 }} // Crece a la altura completa y aparece
                   exit={{ height: 0, opacity: 0 }} // Se encoge y desaparece
-                  transition={{ duration: 0.5, ease: "easeInOut" }} // Transición suave
+                  transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }} // Transición suave
                   style={{ overflow: "hidden" }} // Oculta el contenido cuando la altura es cero
                   className="flex flex-col items-end w-[70vw] md:w-[30vw] font-favoritRegularMono text-right text-xs text-[#888888]"
                 >
