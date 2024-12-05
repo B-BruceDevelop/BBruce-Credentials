@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -38,33 +38,37 @@ const principles: Principle[] = [
 
 const ThePrinciples = () => {
   const router = useRouter();
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [isFirstRender, setIsFirstRender] = useState(true);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  // Leer el índice desde sessionStorage solo en el cliente
   useEffect(() => {
+    // Leer el índice desde sessionStorage solo en el cliente
     const storedIndex = sessionStorage.getItem("principleIndex");
-    if (storedIndex) {
+    if (storedIndex !== null) {
       setActiveIndex(parseInt(storedIndex, 10));
+    } else {
+      setActiveIndex(0); // Valor por defecto si no hay índice guardado
     }
-    setIsFirstRender(false); // Cambiar después de la primera renderización
   }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (activeIndex === null) return;
+
       if (event.key === "ArrowRight") {
-        if (activeIndex === principles.length ) {
+        if (activeIndex === principles.length) {
           router.push("/shapeless-method"); // Navegar a la página siguiente
         } else {
-          setActiveIndex((prevIndex) =>
-            Math.min(prevIndex + 1, principles.length )
-          );
+          const newIndex = Math.min(activeIndex + 1, principles.length);
+          setActiveIndex(newIndex);
+          sessionStorage.setItem("principleIndex", newIndex.toString());
         }
       } else if (event.key === "ArrowLeft") {
         if (activeIndex === 0) {
           router.push("/meet-us"); // Navegar a la página anterior
         } else {
-          setActiveIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+          const newIndex = Math.max(activeIndex - 1, 0);
+          setActiveIndex(newIndex);
+          sessionStorage.setItem("principleIndex", newIndex.toString());
         }
       }
     };
@@ -75,10 +79,6 @@ const ThePrinciples = () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [activeIndex, router]);
-
-  useEffect(() => {
-    sessionStorage.setItem("principleIndex", activeIndex.toString());
-  }, [activeIndex]);
 
   return (
     <div className="flex flex-col h-screen w-full items-center justify-center ">
@@ -91,45 +91,55 @@ const ThePrinciples = () => {
       />
       <main className="grow flex items-center justify-center w-full p-[2vw] md:p-[4vw] ">
         <article className="grid grid-cols-3 w-full rounded-xl border divide-x">
-          {principles.map(({ id, description, icon }, index) => {
-            const isCovered = index >= activeIndex;
+          {activeIndex !== null &&
+            principles.map(({ id, description, icon }, index) => {
+              const isCovered = index >= activeIndex;
 
-            return (
-              <div
-                key={id}
-                className="relative flex flex-col items-center justify-between w-full"
-              >
-                <AnimatePresence>
-                  {isCovered && (
-                    <motion.div
-                      initial={isFirstRender ? false : { opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.8 }}
-                      className="absolute inset-0 bg-black bg-opacity-100 z-10 rounded-xl"
-                    ></motion.div>
-                  )}
+              return (
+                <AnimatePresence key={id}>
+                  <motion.div
+                    key={id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                    
+                    className="relative flex flex-col items-center justify-between w-full"
+                  >
+                    {/* Animar la capa negra */}
+                    <AnimatePresence>
+                      {isCovered && (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.8 }}
+                          className="absolute inset-0 bg-black bg-opacity-100 z-10 rounded-xl"
+                        ></motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    <div className="w-full p-[1vw] items-center justify-center">
+                      <p className="text-base">{id}.</p>
+                      <div className="flex items-center w-full justify-center">
+                        <ResourceLoader>
+                          <Image
+                            src={icon}
+                            alt="icon"
+                            width={100}
+                            height={100}
+                            className="w-full aspect-square max-h-[25vh]"
+                          />
+                        </ResourceLoader>
+                      </div>
+                    </div>
+                    <h3 className="w-[80%] pb-[1vw] md:pb-[1vw] text-3xl font-favoritMedium leading-none">
+                      {description}
+                    </h3>
+                  </motion.div>
                 </AnimatePresence>
-                <div className="w-full p-[1vw] items-center justify-center">
-                  <p className="text-base">{id}.</p>
-                  <div className="flex items-center w-full justify-center">
-                    <ResourceLoader>
-                      <Image
-                        src={icon}
-                        alt="icon"
-                        width={100}
-                        height={100}
-                        className="w-full aspect-square max-h-[25vh]"
-                      />
-                    </ResourceLoader>
-                  </div>
-                </div>
-                <h3 className="w-[80%] pb-[1vw] md:pb-[1vw] text-3xl font-favoritMedium leading-none">
-                  {description}
-                </h3>
-              </div>
-            );
-          })}
+              );
+            })}
         </article>
       </main>
       <Footer />
