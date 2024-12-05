@@ -1,59 +1,64 @@
-import Link from "next/link";
+import Image from "next/image";
 
-import { MdClose } from "react-icons/md";
-import Footer from "@/components/globals/footer";
+import Atrapalo_04 from "./Atrapalo_04.png";
+import tipo_Atrapalo from "./tipografi_atrapalo.svg";
 
 function Atrapalo() {
   return (
-    <div className="flex flex-col items-center justify-center w-full h-[100vh]">
-      <header className="flex flex-cols-3 w-full h-[4vw]  items-center justify-between border-b border-white">
-        <p className="w-[20vw] text-xs sm:text-base ml-4">
-          Last Cases
-        </p>
-
-        <ul className="flex w-full items-center justify-center text-xs md:text-sm gap-4">
-          <Link href={"/latest-cases/atrapalo"} className="text-white">
-            ATRÁPALO
-          </Link>
-          <Link
-            href={"/latest-cases/nutrisport"}
-            className="text-greyA0 hover:text-white"
-          >
-            NUTRISPORT
-          </Link>
-          <Link
-            href={"/latest-cases/motorola"}
-            className="text-greyA0 hover:text-white"
-          >
-            MOTOROLA
-          </Link>
-        </ul>
-
-        <div className="flex w-[20vw] items-center justify-end">
-          <Link
-            href="/latest-cases"
-            className="flex items-center justify-center w-[4vw] bg-white rounded-full  mr-4"
-          >
-            <p className="text-sm md:text-md text-black py-[0.4vw]">
-              <MdClose />
-            </p>
-          </Link>
+    <div className="flex gap-[1vw] h-full w-full p-[1vw]">
+      {/* Columna izquierda */}
+      <section className="flex flex-col gap-[1vw] w-1/4 ">
+        <article className="aspect-[9/5] bg-red-100 rounded-xl"></article>
+        <article className="flex-grow bg-red-400 rounded-xl"></article>
+      </section>
+      {/* Contenedor 1 */}
+      <section className="flex flex-col gap-[1vw] w-2/4">
+        <div className="flex flex-row h-1/2 gap-[1vw]">
+        <article className="flex-grow w-2/3 bg-white rounded-[1vw] relative overflow-hidden">
+  <Image
+    src={tipo_Atrapalo}
+    alt="Tipografia Atrapalo"
+    fill
+    className="h-full object-cover object-left py-[1vw] pl-[1vw]"
+    priority
+  />
+</article>
+          <article className="w-1/3 bg-blue-400 rounded-xl"></article>
         </div>
-      </header>
-
-        <main className="grid grow grid-cols-4 grid-rows-4 h-full w-full gap-[1vw] p-4">
-          <div className="bg-red-500 rounded-lg">1</div>
-          <div className="row-span-3 col-start-1 row-start-2 bg-white rounded-lg">2</div>
-          <div className="col-span-3 row-span-4 col-start-2 row-start-1 bg-red-500 rounded-lg">3</div>
-        </main>
-      
-
-      <Footer
-        title="Our goal was to revitalize the brand with a cohesive design system and tone of voice to better engage its millions of daily users."
-        width="35vw"
-        size="sm"
-        className="text-[#939393]"
-      />
+        <div className="flex flex-row h-1/2 gap-[1vw]">
+          <article className="flex flex-col w-1/3 gap-[1vw] rounded-xl">
+            <article className="flex grow bg-[#FF002D] rounded-xl justify-center items-center">
+              <p className="text-xs2 font-favoritRegular tracking-tight">
+                Rojo Atrapalo
+              </p>
+            </article>
+            <article className="h-1/4 flex bg-[#05A15B] rounded-xl justify-center items-center">
+              <p className="text-xs2 font-favoritRegular tracking-tight">
+                Verde Floresta
+              </p>
+            </article>
+            <article className="h-1/4 flex bg-[#FDCA06] rounded-xl justify-center items-center">
+              <p className="text-xs2 font-favoritRegular tracking-tight text-[#191919]">
+                Amarillo Supernova
+              </p>
+            </article>
+          </article>
+          <article className="w-2/3 bg-blue-300 rounded-xl"></article>
+        </div>
+      </section>
+      <section className="flex flex-col gap-[1vw] w-1/4 ">
+        <article className="flex-grow rounded-[1vw] relative overflow-hidden ">
+          <Image
+            src={Atrapalo_04}
+            alt="Atrapalo img"
+            fill
+            className="object-cover"
+            // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority
+          />
+        </article>
+        <article className="aspect-[9/5] bg-green-100 rounded-xl"></article>
+      </section>
     </div>
   );
 }

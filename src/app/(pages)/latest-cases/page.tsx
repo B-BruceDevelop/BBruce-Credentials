@@ -8,6 +8,7 @@ import Header from "@/components/globals/header";
 import {  Project } from "@/types/types";
 import { motion, AnimatePresence } from "framer-motion";
 
+import Atrapalo from "./(cases)/atrapalo/page";
 import Nutrisport from "./(cases)/nutrisport/page";
 import Motorola from "./(cases)/motorola/page";
 
@@ -16,7 +17,7 @@ const lastCases: Project[] = [
   {
     id: 1,
     name: "atrapalo",
-    page: <Motorola />
+    page: <Atrapalo />
   },
   {
     id: 2,
@@ -117,7 +118,7 @@ const Swiper = () => {
         disableKeyboardNavigation={true}
       />
       <section className="relative flex items-center justify-center w-full h-full overflow-hidden">
-        <div className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full h-[87vh] flex items-center justify-center overflow-hidden">
           <AnimatePresence 
             custom={-1} 
           >

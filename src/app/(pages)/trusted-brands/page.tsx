@@ -28,6 +28,7 @@ const delays = [
 ];
 
 const TrustedBrands = () => {
+  console.log(trustedBrandLogos);
   return (
     <main className="flex flex-col min-h-screen items-center justify-between">
       <Header title="Trusted Brands" prevPage="/highlight-reel" />
@@ -39,6 +40,7 @@ const TrustedBrands = () => {
           const randomDelayIndex = Math.floor(Math.random() * delays.length); // Selección aleatoria de delay
 
           return (
+           
             <Image
               key={index}
               src={logo}
@@ -47,12 +49,12 @@ const TrustedBrands = () => {
               height={100}
               className={cn(
                 "w-[25vw] md:w-[14vw] h-[10vh] max-h-[6vh] md:max-h-[10vh] object-contain px-[1vw] ",
-
+                
                 animations[randomAnimationIndex], // Animación aleatoria
                 delays[randomDelayIndex] // Delay aleatorio
-
+                
               )}
-            />
+              />
           );
         })}
       </section>
