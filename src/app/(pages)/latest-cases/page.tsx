@@ -91,22 +91,25 @@ const Swiper = () => {
   }, [currentIndex, router]);
 
   // Variantes dinámicas para personalizar animaciones
+  // const slideVariants = {
+  //   enter: (direction: number) => ({
+  //     x: direction > 0 ? 300 : -300,
+  //     opacity: 0,
+  //     scale: 0.8,
+  //   }),
+  //   center: {
+  //     x: 0,
+  //     opacity: 1,
+  //     scale: 1,
+  //   },
+  //   exit: (direction: number) => ({
+  //     x: direction > 0 ? -300 : 300,
+  //     opacity: 0,
+  //     scale: 0.8,
+  //   }),
+  // };
   const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0,
-      scale: 0.8,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction > 0 ? -300 : 300,
-      opacity: 0,
-      scale: 0.8,
-    }),
+  
   };
 
   return (

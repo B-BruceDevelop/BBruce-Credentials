@@ -8,13 +8,16 @@ import nutrisport_package from "./nutrisport_packaging.png";
 import nutrisport_streetWall from "./nutrisport_streetWall.png";
 import { cn } from "@/lib/utils";
 
+import LottieComponent from "@/components/globals/lottie";
+import nutri_1 from "./Nutri1.json";
+import nutri_2 from "./nutri2.json"; 
+import nutri_3 from "./nutri3.json";
+import spark from "@/assets/lotties/spark.json";
+
 // const primaryColor = "[#FF002D]";
 // const secondaryColor = "[#F8F7EF]";
 
-
-
 const Nutrisport = () => {
-
   return (
     <div className="flex gap-[1vw] h-full w-full p-[1vw]">
       {/* Columna izquierda */}
@@ -23,8 +26,9 @@ const Nutrisport = () => {
           <div className="flex flex-col w-[20vw] gap-[1vw] max-w-[16vw]">
             {/* Contenedor 1 */}
             <article
-              className={cn(`max-h-[35vh] aspect-[9/10] bg-[#FF002D] flex items-center justify-center rounded-xl animate-slideIn12 `,
-                "animate-fadeIn",
+              className={cn(
+                `max-h-[35vh] aspect-[9/10] bg-[#FF002D] flex items-center justify-center rounded-xl animate-slideIn12 `,
+                "animate-fadeIn"
               )}
             >
               <Image
@@ -71,7 +75,9 @@ const Nutrisport = () => {
             priority
           />
           <div className="absolute inset-0 flex items-center justify-left ">
-            <p className={`font-stagBoldNutrisport text-4xl px-[3vw] text-center text-[#F8F7EF] animate-slideIn5 `}>
+            <p
+              className={`font-stagBoldNutrisport text-4xl px-[3vw] text-center text-[#F8F7EF] animate-slideIn5 `}
+            >
               Es lo que sientes.
             </p>
           </div>
@@ -81,27 +87,31 @@ const Nutrisport = () => {
       {/* Columna derecha */}
       <section className="flex flex-col gap-[1vw] w-1/4">
         {/* Contenedor 5 */}
-        <article className="flex-grow rounded-[1vw] relative overflow-hidden ">
+        <article className="flex-grow rounded-[1vw] relative overflow-hidden animate-slideIn12">
           <Image
             src={nutrisport_package}
             alt="Nutriesport packaging"
             fill
             className="object-cover"
-
             // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority
           />
         </article>
 
         {/* Contenedor 6 */}
-        <article className="flex-grow rounded-[1vw] relative overflow-hidden animate-slideIn10">
-          <Image
+        <article className="flex-grow rounded-[1vw] relative overflow-hidden animate-slideIn12">
+          {/* <Image
             src={nutrisport_mockup}
             alt="Nutriesport mockup"
             fill
             className="object-cover"
             // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority
+          /> */}
+          <LottieComponent
+            asset={nutri_1}
+            loop={true}
+            className="w-full h-full"
           />
         </article>
       </section>
