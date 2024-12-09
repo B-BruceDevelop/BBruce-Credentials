@@ -33,7 +33,7 @@ const brandData = [
       "Brand Guidelines",
     ],
     videoUrl:
-      "https://framerusercontent.com/assets/MLWPbW1dUQawJLhhun3dBwpgJak.mp4",
+      "https://video.wixstatic.com/video/4cd4b0_3b73053045c54aacb68b7836c7486be1/1080p/mp4/file.mp4",
     footer: "Brands with Clarity & Flow.",
   },
   {
@@ -52,7 +52,7 @@ const brandData = [
       "Sponsorship Integration",
     ],
     videoUrl:
-      "https://framerusercontent.com/assets/MLWPbW1dUQawJLhhun3dBwpgJak.mp4",
+      "https://video.wixstatic.com/video/4cd4b0_32df797a6a3a4d99a3b0854e12c58a87/1080p/mp4/file.mp4",
     footer: "Stories that Resonate & Move.",
   },
   {
@@ -70,7 +70,7 @@ const brandData = [
       "Interactive Experiences",
     ],
     videoUrl:
-      "https://framerusercontent.com/assets/MLWPbW1dUQawJLhhun3dBwpgJak.mp4",
+      "https://video.wixstatic.com/video/4cd4b0_1bb78dcc3f894c3593a52651ada84642/1080p/mp4/file.mp4",
     footer: "Flows with Friendly Connections.",
   },
   {
@@ -87,7 +87,7 @@ const brandData = [
       "Production Management",
     ],
     videoUrl:
-      "https://framerusercontent.com/assets/MLWPbW1dUQawJLhhun3dBwpgJak.mp4",
+      "https://video.wixstatic.com/video/4cd4b0_fbf0cc40b8654e1ea0db7fdb627e1b24/1080p/mp4/file.mp4",
     footer: "Products that Entice the Sense.",
   },
 ];
@@ -119,7 +119,7 @@ export default function BrandSection({index}: BrandSectionProps) {
     <div className="flex flex-col w-[98vw] h-full justify-between items-center">
       <div 
       className={cn(
-        "flex h-[60vh] w-full  m-[1vw] rounded-[2vw] overflow-hidden",
+        "flex h-[50vh] max-h-[30vw] w-full  m-[1vw] rounded-[2vw] overflow-hidden",
         expandedId !== null ? "gap-none border border-white" : "gap-[1vw] "
       )}>
         {brandData.map(({ id, title, description, services, videoUrl, footer, image }, index) => (

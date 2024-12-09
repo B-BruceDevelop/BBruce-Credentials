@@ -72,7 +72,7 @@ const TheOrigin = () => {
               className="w-full h-[35vh] object-cover rounded-3xl animate-fadeInSmall"
             >
               <source
-                src="https://framerusercontent.com/assets/MLWPbW1dUQawJLhhun3dBwpgJak.mp4"
+                src="https://video.wixstatic.com/video/4cd4b0_f2bd70d9aa5b42979e7b52b914f85716/720p/mp4/file.mp4"
                 type="video/mp4"
               />
             </video>

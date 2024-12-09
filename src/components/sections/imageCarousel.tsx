@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 
 type CarouselProps = {
@@ -31,26 +32,30 @@ const ImageCarousel: React.FC<CarouselProps> = ({ images }) => {
 
         return updatedImages;
       });
-    }, 1500); // Intervalo de 1.5 segundos
+    }, 1500); // Intervalo de 3 segundos
 
     return () => clearInterval(interval); // Limpia el intervalo al desmontar
   }, [images]);
 
   return (
-    <div className="relative flex overflow-hidden w-full justify-between ">
+    <div className="relative flex overflow-hidden w-full justify-between">
       {visibleImages.map((image, index) => (
-        <div
+        <motion.div
           key={index}
-          className={`bg-white rounded-[0.5vw] aspect-[3/4] w-[calc((100%-2vw)/5)] flex-shrink-0 transition-transform duration-500 ease-in-out 
-            ${ fadeIndex === index ? "animate-" : ""  }`
-          }
+          className={`bg-white rounded-[0.5vw] aspect-[3/4] w-[calc((100%-2vw)/5)] flex-shrink-0 border border-[#191919]`}
+          initial={fadeIndex === index ? { opacity: 0, scale: 0.8, y: 50 } : false}
+          animate={fadeIndex === index ? { opacity: 1, scale: 1, y: 0 } : {}}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+          }}
         >
           <Image
             src={image}
             alt={`Carousel Image ${index}`}
-            className="object-cover w-full h-full rounded-[0.5vw]"
+            className="object-cover w-full h-full rounded-[0.5vw] scale-[1.01]"
           />
-        </div>
+        </motion.div>
       ))}
     </div>
   );

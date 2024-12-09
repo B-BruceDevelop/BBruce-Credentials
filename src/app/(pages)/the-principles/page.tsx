@@ -12,8 +12,6 @@ import beAwareImg from "@/assets/principles/Be_aware 2.svg";
 import keepUsefulIMG from "@/assets/principles/keep-the-useful.svg";
 import strikeOnceIMG from "@/assets/principles/strike-once.svg";
 
-
-
 type Principle = {
   id: string;
   description: string;
@@ -27,7 +25,8 @@ const principles: Principle[] = [
     id: "01",
     description: "Be aware of yourself.",
     icon: beAwareImg,
-    video: "https://video.wixstatic.com/video/4cd4b0_350d5d0c2c3945e99a2977b5e57faad0/1080p/mp4/file.mp4", // Ruta del video
+    video:
+      "https://video.wixstatic.com/video/4cd4b0_24ba3b0d143a47bda0e63498ef1e5d0c/1080p/mp4/file.mp4", // Ruta del video
 
     principle: "B-AUTHENTIC",
   },
@@ -35,14 +34,16 @@ const principles: Principle[] = [
     id: "02",
     description: "Keep the useful, reject the useless and add your uniqueness.",
     icon: keepUsefulIMG,
-    video: "https://video.wixstatic.com/video/4cd4b0_55480b1e883e405c87bbe48badc50fe4/1080p/mp4/file.mp4", // Ruta del video
+    video:
+      "https://video.wixstatic.com/video/4cd4b0_41888bfd5313408ca65eba57734f1a37/1080p/mp4/file.mp4", // Ruta del video
     principle: "B—FLEXIBLE",
   },
   {
     id: "03",
     description: "Strike once, reach many.",
     icon: strikeOnceIMG,
-    video: "https://video.wixstatic.com/video/4cd4b0_bf835ab343a94631a412f6f5807ef739/1080p/mp4/file.mp4", // Ruta del video
+    video:
+      "https://video.wixstatic.com/video/4cd4b0_52bdad86e1c4430ca0ceec97509e9156/1080p/mp4/file.mp4", // Ruta del video
     principle: "B—LIMITLESS",
   },
 ];
@@ -113,7 +114,7 @@ const ThePrinciples = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
+                    transition={{ duration: 1, delay: 0.8}}
                     className="relative flex flex-col items-center justify-between w-full"
                   >
                     {/* Animar la capa negra */}
@@ -131,59 +132,65 @@ const ThePrinciples = () => {
 
                     <div className="w-full p-[1vw] items-center justify-center">
                       <p className="text-base">{id}.</p>
-                      <div className="flex items-center w-full justify-center">
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1, duration: 0.8 }}
+                        className="flex items-center w-full justify-center"
+                      >
                         <ResourceLoader>
-                        <video
-                    src={video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full aspect-square max-h-[35vh] rounded-[2vw]"
-                  />
+                          <video
+                            src={video}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full aspect-square max-h-[35vh] rounded-[2vw]"
+                          />
                         </ResourceLoader>
-                      </div>
+                      </motion.div>
                     </div>
-                    <h3 className="w-[80%] pb-[1vw] md:pb-[1vw] text-3xl font-favoritMedium leading-none">
+                    <motion.h3
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1, duration: 0.8 }}
+                      className="w-[80%] pb-[1vw] md:pb-[1vw] text-3xl font-favoritMedium leading-none"
+                    >
                       {description}
-                    </h3>
+                    </motion.h3>
                   </motion.div>
                 </AnimatePresence>
               );
             })}
         </article>
 
-
-    {/* Contenedor para los subtítulos */}
-<div className="grid grid-cols-3 gap-[1vw] w-full mt-[1vw] text-3xl font-favoritMedium">
-  {principles.map(({ principle }, index) => (
-    <div key={index} className="flex overflow-hidden">
-      {principle.split("").map((letter, letterIndex) => (
-        <motion.span
-          key={letterIndex}
-          initial={{ x: 50, opacity: 0 }} // Las letras empiezan desplazadas hacia la derecha
-          animate={{
-            x: (activeIndex ?? 0) >= index +1 ? 0 : 50, // Si activeIndex es null, se asume 0
-            opacity: (activeIndex ?? 0) >= index +1 ? 1 : 0, // Solo visible si activeIndex es igual o mayor
-          }}
-          exit={{ opacity: 0 }} // Desaparece instantáneamente
-
-          transition={{
-            duration: 0.4,
-            delay: letterIndex * 0.05, // Retraso progresivo para cada letra
-          }}
-          className="inline-block"
-        >
-          {letter}
-        </motion.span>
-      ))}
-    </div>
-  ))}
-</div>
-
+        {/* Contenedor para los subtítulos */}
+        <div className="grid grid-cols-3 gap-[1vw] w-full mt-[1vw] text-3xl font-favoritMedium">
+          {principles.map(({ principle }, index) => (
+            <div key={index} className="flex overflow-hidden pl-[1vw]">
+              {principle.split("").map((letter, letterIndex) => (
+                <motion.span
+                  key={letterIndex}
+                  initial={{ x: 50, opacity: 0 }} // Las letras empiezan desplazadas hacia la derecha
+                  animate={{
+                    x: (activeIndex ?? 0) >= index + 1 ? 0 : 50, // Si activeIndex es null, se asume 0
+                    opacity: (activeIndex ?? 0) >= index + 1 ? 1 : 0, // Solo visible si activeIndex es igual o mayor
+                  }}
+                  exit={{ opacity: 0 }} // Desaparece instantáneamente
+                  transition={{
+                    duration: 0.4,
+                    delay: letterIndex * 0.05, // Retraso progresivo para cada letra
+                  }}
+                  className="inline-block "
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
+          ))}
+        </div>
       </main>
 
-     
       <Footer />
     </div>
   );

@@ -96,7 +96,7 @@ export default {
         accordionDown: "accordionDown 0.2s ease-out",
         accordionUp: "accordionUp 0.2s ease-out",
         growFromTop: "growFromTop 1.5s ease-in-out ",
-        shrinkToBottom: "shrinkToBottom 0.5s ease-in-out forwards",
+        shrinkToBottom: "shrinkToBottom 0.1s ease-in-out forwards",
         fadeIn: "fadeIn 1s ease-in-out",
         bounceIn: "bounceIn 1s ease-in-out",
         smallSlideIn: "smallSlideIn .5s ease-in-out",

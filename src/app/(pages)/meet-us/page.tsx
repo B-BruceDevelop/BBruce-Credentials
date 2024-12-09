@@ -10,7 +10,6 @@ import { teamMatesImages } from "@/assets/team/index";
 
 import {
   EstadiOlimpic,
-  TailorMadeProjects,
   TheVenue,
   Working,
   TheVenueOffice,
@@ -237,13 +236,12 @@ function MeetUs() {
             className="flex-grow bg-blue-300 rounded-[1vw] relative overflow-hidden"
             variants={slideInVariants}
           >
-            <Image
-              src={TailorMadeProjects}
-              alt="Tailor—Made Projects"
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover"
-              priority
+            <video
+              src="https://video.wixstatic.com/video/4cd4b0_ece2a0322eb344cf96d775f99dae8564/1080p/mp4/file.mp4"
+              autoPlay
+              loop
+              muted
+              className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="relative z-10 flex items-start justify-center w-full h-full pt-[1vw] bg-background bg-opacity-0 text-background text-center">
               <p className="text-sm font-favoritMedium tracking-[-0.5px]">
