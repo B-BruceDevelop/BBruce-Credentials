@@ -146,7 +146,7 @@ const Timeline = ({ index }: TimelineProps) => {
       </div>
 
       {/* Línea y círculos */}
-      <div className="relative flex items-center justify-between w-[75vw] bg-black">
+      <div className="relative flex items-center justify-between w-[75vw] bg-background">
         <motion.div
           className="absolute flex items-center left-0 right-0"
           style={{ height: "20px" }}
@@ -174,7 +174,7 @@ const Timeline = ({ index }: TimelineProps) => {
     return (
       <motion.div
         key={item.id}
-        className={`flex items-center justify-center w-5 h-5 bg-black border-2 border-white rounded-full z-10`}
+        className={`flex items-center justify-center w-5 h-5 bg-background border-2 border-white rounded-full z-10`}
         initial={{ scale: 0, opacity: 0 }}
         animate={{
           opacity: isVisible ? 1 : 0, // Visible si el índice es menor al índice actual
@@ -229,7 +229,7 @@ const Timeline = ({ index }: TimelineProps) => {
                   className={cn(
                     "px-4 py-2 border rounded-full w-full font-favoritMedium text-sm",
                     activeButton === item.id
-                      ? "bg-white text-black"
+                      ? "bg-white text-background"
                       : "bg-transparent text-white hover:bg-greyA0/50"
                   )}
                   onClick={() => handleClick(item.id)}

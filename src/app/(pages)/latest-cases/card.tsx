@@ -42,7 +42,7 @@ export default function CaseCard({
           />
         )}
         {/* Overlay oscuro */}
-        <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:opacity-0" />
+        <div className="absolute inset-0 bg-background/40 transition-opacity duration-300 group-hover:opacity-0" />
         {/* Logo */}
         {logo && (
           <div className="absolute inset-0 flex items-center justify-center">

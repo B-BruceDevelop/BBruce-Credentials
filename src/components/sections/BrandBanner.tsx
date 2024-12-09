@@ -26,7 +26,7 @@ export default function BrandBanner({  texts }: CurvedBannerProps) {
         {texts.map((text, index) => (
           <div key={index} className="flex items-center justify-around">
             <span
-              className={`w-[60%] text-black text-sm font-bold text-center leading-none`}
+              className={`w-[60%] text-background text-sm font-bold text-center leading-none`}
             >
               {text}
             </span>

@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Suspense } from "react";
 
+
 const TheOrigin = () => {
   const router = useRouter();
   const maxIndex = 3; // Número máximo de posiciones
@@ -52,7 +53,7 @@ const TheOrigin = () => {
   }, [currentIndex, maxIndex, router]);
 
   return (
-    <div className="flex flex-col h-full flex-col items-center justify-center bg-black">
+    <div className="flex flex-col h-full flex-col items-center justify-center bg-background">
       <Header
         title="The Origin"
         prevPage="/self-descrition"

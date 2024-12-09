@@ -41,7 +41,7 @@ export default function BrandCard({
     >
       <div
         className={cn(
-          "absolute inset-[1px] rounded-[2vw] bg-black",
+          "absolute inset-[1px] rounded-[2vw] bg-background",
           "before:absolute before:inset-0 before:rounded-[2vw] ",
           isExpanded
             ? "flex-[3]"
@@ -64,7 +64,7 @@ export default function BrandCard({
                   <h2 className="text-base font-favoritMedium tracking-tigh leading-none ">
                     {title}
                   </h2>
-                  <button className="hidden md:block rounded-[2vw] bg-black border-[.5px] border-white p-[1vh] ">
+                  <button className="hidden md:block rounded-[2vw] bg-background border-[.5px] border-white p-[1vh] ">
                     <Minus className="h-[1.2vw] w-[2.6vw] text-white" />
                   </button>
                 </div>
@@ -130,7 +130,7 @@ export default function BrandCard({
                   {title}
                 </h2>
                 <button className="rounded-[2vw] bg-white p-[1vh] ">
-                  <Plus className="h-[1.2vw] w-[2.6vw] text-black" />
+                  <Plus className="h-[1.2vw] w-[2.6vw] text-background" />
                 </button>
               </div>
               {!anyExpanded && (

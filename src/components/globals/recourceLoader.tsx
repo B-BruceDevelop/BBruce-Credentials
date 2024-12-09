@@ -17,7 +17,7 @@ const ResourceLoader: React.FC<ResourceLoaderProps> = ({ children }) => {
     <div className="relative w-full h-full">
       {/* Loader que aparece solo mientras isLoading es true */}
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300">
+        <div className="absolute inset-0 flex items-center justify-center bg-background bg-opacity-50 transition-opacity duration-300">
           <p className="text-white">Loading...</p> {/* O un spinner personalizado */}
         </div>
       )}

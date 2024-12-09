@@ -59,8 +59,8 @@ const Header = ({
             onBlur={() => setFocusedButton(null)}
             className={`group flex justify-center items-center h-full aspect-square border-l border-white transition-colors ${
               focusedButton === "left"
-                ? "bg-white text-black"
-                : "hover:bg-white hover:text-black"
+                ? "bg-white text-background"
+                : "hover:bg-white hover:text-background"
             }`}
           >
             <PiArrowLeftThin
@@ -82,8 +82,8 @@ const Header = ({
             onBlur={() => setFocusedButton(null)}
             className={`group flex justify-center items-center h-full aspect-square border-l border-white transition-colors ${
               focusedButton === "right"
-                ? "bg-white text-black"
-                : "hover:bg-white hover:text-black"
+                ? "bg-white text-background"
+                : "hover:bg-white hover:text-background"
             }`}
           >
             <PiArrowRightThin

@@ -32,31 +32,34 @@ const KeyIndustriesCard: React.FC<CardProps> = ({
   return (
     <div
       key={id}
-      className="relative overflow-hidden bg-black rounded-3xl cursor-pointer"
+      className="relative overflow-hidden bg-background rounded-3xl cursor-pointer"
       style={{
         aspectRatio: "3 / 4",
         maxHeight: "70vh",
       }}
       onClick={onClick}
     >
-      <Image
-        src={image}
-        alt={`${title} category`}
-        fill
-        // className={`object-cover transition-opacity duration-300 `}
-        className={`object-cover transition-opacity duration-300 ${
-          isActive ? "opacity-40 " : isPrevActive ? "opacity-70" : "opacity-100"
-        }`}
-        style={{
-          objectFit: "contain",
-          maxWidth: "100%",
-          maxHeight: "100%",
-        }}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-      />
+   <Image
+  src={image}
+  alt={`${title} category`}
+  fill
+  className={`object-cover transition-opacity duration-300 ${
+    isActive ? "opacity-40 " : isPrevActive ? "opacity-70" : "opacity-100"
+  }`}
+  style={{
+    objectFit: "contain",
+    maxWidth: "100%",
+    maxHeight: "100%",
+  }}
+  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+/>
+{/* Nueva capa para degradado */}
+<div
+  className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/90 pointer-events-none"
+/>
 
       <div
-        className={`absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black ${
+        className={`absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-text-background ${
           isActive ? "opacity-100" : "opacity-90"
         }`}
       />

@@ -43,7 +43,7 @@ function Strategy() {
             href="/shapeless-method"
             className="flex items-center justify-center w-[4vw] bg-white rounded-full  mr-4"
           >
-            <p className="text-sm md:text-md text-black py-[0.4vw]">
+            <p className="text-sm md:text-md text-background py-[0.4vw]">
               <MdClose />
             </p>
           </Link>

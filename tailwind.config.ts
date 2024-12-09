@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "hsl(var(--background))",
+        background: "#191919",
         foreground: "hsl(var(--foreground))",
         greyA0: "#A0A0A0",
         nutrisport: "#F8F7EF",

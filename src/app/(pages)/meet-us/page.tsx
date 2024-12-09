@@ -16,12 +16,7 @@ import {
   TheVenueOffice,
 } from "@/assets/meetUs";
 
-import {
-  TargetPulse,
-  BrandIgnition,
-  ImpactJumpstart,
-  Worldwide,
-} from "@/assets/meetUs";
+import { Worldwide } from "@/assets/meetUs";
 import BarProgress from "@/components/sections/progressBar";
 
 const teamCollaborationData = [
@@ -106,7 +101,10 @@ function MeetUs() {
               className="object-cover"
               priority
             />
-            <div className="relative z-10 flex items-start justify-center w-full h-full pt-[1vw] bg-black bg-opacity-0 text-black text-center">
+            <div
+              className="relative z-10 flex items-start justify-center w-full h-full pt-[1vw] bg-opacity-0 text-[#191919]
+             text-center"
+            >
               <p className="text-sm font-favoritMedium tracking-[-0.5px]">
                 Olympic Stadium—Lluís Companys
               </p>
@@ -142,7 +140,7 @@ function MeetUs() {
                 className="aspect-[5/3] w-[calc((100%-0.5vw)/2)] bg-white rounded-[1vw] flex flex-col justify-center items-center text-center shadow-md"
                 variants={slideInVariants}
               >
-                <h2 className="text-3xl text-black font-favoritMedium leading-none tracking-[-1px]">
+                <h2 className="text-3xl text-background font-favoritMedium leading-none tracking-[-1px]">
                   1.200m<sup>2</sup>
                 </h2>
                 <p className="mt-[-6px] text-md font-favoritMedium tracking-[-1px] leading-none bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-purple-500 to-blue-500">
@@ -182,10 +180,10 @@ function MeetUs() {
               className="aspect-[3/2] w-[calc((100%-0.5vw)/2)] bg-[#F2F2F2] rounded-[1vw] flex flex-col items-center justify-center text-center p-[1vw]"
               variants={scaleUpVariants}
             >
-              <h2 className="text-8xl text-black font-favoritMedium leading-none">
+              <h2 className="text-8xl text-background font-favoritMedium leading-none">
                 25
               </h2>
-              <p className="text-sm font-favoritMedium text-black leading-none">
+              <p className="text-sm font-favoritMedium text-background leading-none">
                 Holistic Team
               </p>
             </motion.article>
@@ -247,7 +245,7 @@ function MeetUs() {
               className="object-cover"
               priority
             />
-            <div className="relative z-10 flex items-start justify-center w-full h-full pt-[1vw] bg-black bg-opacity-0 text-black text-center">
+            <div className="relative z-10 flex items-start justify-center w-full h-full pt-[1vw] bg-background bg-opacity-0 text-background text-center">
               <p className="text-sm font-favoritMedium tracking-[-0.5px]">
                 Tailor—Made Projects
               </p>
@@ -269,10 +267,10 @@ function MeetUs() {
                 className="bg-[#F2F2F2] rounded-[1vw] flex flex-col items-center justify-center text-center p-[1vw]"
                 variants={scaleUpVariants}
               >
-                <p className="text-sm font-favoritMedium text-black leading-none">
+                <p className="text-sm font-favoritMedium text-background leading-none">
                   turnover
                 </p>
-                <h2 className="text-8xl text-black font-favoritMedium leading-none tracking-[-3px]">
+                <h2 className="text-8xl text-background font-favoritMedium leading-none tracking-[-3px]">
                   1.3M
                 </h2>
               </motion.article>
@@ -285,15 +283,15 @@ function MeetUs() {
               >
                 <div className="relative flex-grow">
                   <Image
-                    src={BrandIgnition}
+                    src="https://static.wixstatic.com/media/4cd4b0_4b80f356db9b4511aced6a3186ef4af2~mv2.gif"
                     alt="Brand Ignition Icon"
                     fill
-                    className="object-contain"
+                    className="object-contain translate-y-[10%] scale-110"
                     priority
                   />
                 </div>
                 <div className="text-center">
-                  <p className="text-base font-favoritMedium text-black pb-[.5vw]">
+                  <p className="text-base font-favoritMedium text-background pb-[.5vw]">
                     Brand Ignition<sup>®</sup>
                   </p>
                 </div>
@@ -309,7 +307,7 @@ function MeetUs() {
                 className="bg-[#F2F2F2] rounded-[1vw] flex flex-col justify-between items-center text-center p-[1vw]"
                 variants={fadeInVariants}
               >
-                <p className="text-sm2 font-favoritMedium text-black">
+                <p className="text-sm2 font-favoritMedium text-background">
                   Worldwide Clients
                 </p>
                 <div className="grow m-2 aspect-square relative">
@@ -322,13 +320,13 @@ function MeetUs() {
                   />
                 </div>
                 <div className="w-full flex justify-around">
-                  <ul className="text-black text-sm font-favoritMedium text-left tracking-[-1px] leading-tight">
+                  <ul className="text-background text-sm font-favoritMedium text-left tracking-[-1px] leading-tight">
                     <li>Spain</li>
                     <li>France</li>
                     <li>England</li>
                     <li>Italy</li>
                   </ul>
-                  <ul className="text-black text-sm font-favoritMedium text-left tracking-[-1px] leading-tight">
+                  <ul className="text-background text-sm font-favoritMedium text-left tracking-[-1px] leading-tight">
                     <li>Portugal</li>
                     <li>Switzerland</li>
                     <li>Morocco</li>
@@ -348,17 +346,15 @@ function MeetUs() {
                 >
                   <div className="relative flex-grow">
                     <Image
-                      src={ImpactJumpstart}
+                      src="https://static.wixstatic.com/media/4cd4b0_df283ac5736a44789404097bf22da676~mv2.gif"
                       alt="Impact Jumpstart Icon"
                       fill
-                      className="object-contain"
+                      className="object-contain translate-y-[20%] scale-125"
                       priority
                     />
                   </div>
                   <div className="text-center">
-                    <p
-                      className="text-base font-favoritMedium text-black pb-[.5vw]"
-                    >
+                    <p className="text-base font-favoritMedium text-background pb-[.5vw]">
                       Impact Jumpstart<sup>®</sup>
                     </p>
                   </div>
@@ -371,15 +367,15 @@ function MeetUs() {
                 >
                   <div className="relative flex-grow">
                     <Image
-                      src={TargetPulse}
+                      src="https://static.wixstatic.com/media/4cd4b0_412658229df04bf7aff1834778a6f757~mv2.gif"
                       alt="Target Pulse Icon"
                       fill
-                      className="object-contain"
+                      className="object-contain translate-y-[22%] scale-[1.4]"
                       priority
                     />
                   </div>
                   <div className="text-center">
-                    <p className="text-base font-favoritMedium text-black pb-[.5vw]">
+                    <p className="text-base font-favoritMedium text-background pb-[.5vw]">
                       Target Pulse<sup>®</sup>
                     </p>
                   </div>

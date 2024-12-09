@@ -27,33 +27,6 @@ const page = () => {
           />
         </motion.video>
 
-        {/* Capa superpuesta con columnas negras */}
-        {/* <div className="absolute top-0 left-0 w-full h-full pointer-events-none flex">
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: "-100%" }}
-            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
-            className="bg-black w-1/4 h-full"
-          />
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: "100%" }}
-            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
-            className="bg-black w-1/4 h-full"
-          />
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: "-100%" }}
-            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
-            className="bg-black w-1/4 h-full"
-          />
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: "100%" }}
-            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
-            className="bg-black w-1/4 h-full"
-          />
-        </div> */}
       </main>
     </div>
   );
