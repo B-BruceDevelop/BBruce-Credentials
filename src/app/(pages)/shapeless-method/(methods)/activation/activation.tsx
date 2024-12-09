@@ -12,28 +12,29 @@ interface Props {
 function Activation({ values }: Props) {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full ">
-<section className="fixed top-0 left-0 w-full h-[4vw] max-h-[70px] z-50 flex items-center justify-center ">
-  <ul className="flex w-[40%] h-full items-center justify-between text-xs md:text-sm">
-    <Link
-      href={"/shapeless-method/strategy"}
-      className="flex-1 h-[80%] flex items-center justify-center text-greyA0 hover:text-white border-l border-white first:border-l-0 px-4 text-center"
-    >
-      STRATEGY
-    </Link>
-    <Link
-      href={"/shapeless-method/design"}
-      className="flex-1 h-[80%] flex items-center justify-center text-greyA0 hover:text-white border-l border-white px-4 text-center"
-    >
-      DESIGN
-    </Link>
-    <Link
-      href={"/shapeless-method/activation"}
-      className="flex-1 h-[80%] flex items-center justify-center bg-white text-background border-x border-white px-4 text-center"
-    >
-      ACTIVATION
-    </Link>
-  </ul>
-</section>
+      <section className="fixed top-0 left-0 w-full h-[4vw] max-h-[70px] z-50 flex items-center justify-center ">
+        <ul className="flex h-full items-center justify-center text-xs md:text-sm gap-[2vw]">
+          <Link
+            href={"/shapeless-method/strategy"}
+            className="h-full flex items-center justify-center text-greyA0 hover:text-white px-[2vw]"
+          >
+            STRATEGY
+          </Link>
+          <Link
+            href={"/shapeless-method/design"}
+            className="h-full flex items-center justify-center text-greyA0 hover:text-white px-[2vw]"
+          >
+            DESIGN
+          </Link>
+          <Link
+            href={"/shapeless-method/activation"}
+            className="h-full flex items-center justify-center bg-white text-background px-[2vw]"
+
+          >
+            ACTIVATION
+          </Link>
+        </ul>
+      </section>
 
       <section className="flex grow flex-col items-center justify-between w-full h-full  ">
         <div className="flex  flex-col items-center  w-full ">
