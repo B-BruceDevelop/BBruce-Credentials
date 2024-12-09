@@ -7,13 +7,13 @@ import { cn } from "@/lib/utils"; // Importación de la función cn
 
 const animations = [
   "animate-fadeIn",
-  "animate-bounceIn",
+  // "animate-bounceIn",
   // "animate-slideIn10",
   "animate-zoomIn",
   // "animate-flip", // Nueva animación de volteo
   // "animate-swing", // Nueva animación tipo columpio
   // "animate-rubberBand", // Nueva animación de efecto banda elástica
-  "animate-tada", // Nueva animación tipo "tada" o impacto
+  // "animate-tada", // Nueva animación tipo "tada" o impacto
   // "animate-wobble", // Nueva animación ondulante
   "animate-ownFade",
   "animate-fadeInSmall",

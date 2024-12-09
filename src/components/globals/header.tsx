@@ -57,7 +57,7 @@ const Header = ({
             href={prevPage}
             onFocus={() => setFocusedButton("left")}
             onBlur={() => setFocusedButton(null)}
-            className={`group flex justify-center items-center h-full aspect-square border-l-[0.5px] border-white transition-colors ${
+            className={`group flex justify-center items-center h-full aspect-square border-l border-white transition-colors ${
               focusedButton === "left"
                 ? "bg-white text-black"
                 : "hover:bg-white hover:text-black"
@@ -80,7 +80,7 @@ const Header = ({
             href={nextPage}
             onFocus={() => setFocusedButton("right")}
             onBlur={() => setFocusedButton(null)}
-            className={`group flex justify-center items-center h-full aspect-square border-l-[0.5px] border-white transition-colors ${
+            className={`group flex justify-center items-center h-full aspect-square border-l border-white transition-colors ${
               focusedButton === "right"
                 ? "bg-white text-black"
                 : "hover:bg-white hover:text-black"
@@ -95,7 +95,7 @@ const Header = ({
             />
           </Link>
         ) : (
-          <div className="flex justify-center items-center h-full aspect-square border-l-[0.5px] border-white opacity-50">
+          <div className="flex justify-center items-center h-full aspect-square border-l border-white opacity-50">
             <PiArrowRightThin />
           </div>
         )}
