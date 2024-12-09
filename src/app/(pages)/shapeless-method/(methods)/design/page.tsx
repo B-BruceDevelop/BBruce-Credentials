@@ -37,7 +37,7 @@ const assets_dynamic = [
   "TOUCHPOINTS COHERENCE",
 ];
 
-function Strategy() {
+function Design() {
   return (
     <div className="flex flex-col items-center justify-center w-full h-[100vh]">
 
@@ -131,4 +131,4 @@ function Strategy() {
   );
 }
 
-export default Strategy;
+export default Design;

@@ -12,7 +12,7 @@ const values = [
   "Follow up",
 ];
 
-function Strategy() {
+function Activation() {
   return (
     <div className="flex flex-col items-center justify-center w-full h-[100vh]">
       <header className="flex flex-cols-3 w-full h-[4vw]  items-center justify-between border-b border-white">
@@ -81,4 +81,4 @@ function Strategy() {
   );
 }
 
-export default Strategy;
+export default Activation;
