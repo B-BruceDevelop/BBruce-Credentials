@@ -59,7 +59,7 @@ const MainContent = ({ methods }: MainContentProps) => {
           {methods.map(({ name, keywords }) => (
             <article
               key={name}
-              className="flex flex-col justify-between w-1/3 h-[20vw] items-center rounded-lg shadow-md"
+              className="flex flex-col justify-between w-1/3 h-[20vw] items-center rounded-lg "
             >
               <p className="text-sm font-favoritRegularMono">{keywords[0]}</p>
               <div className="flex flex-col items-center justify-center w-full h-full">
