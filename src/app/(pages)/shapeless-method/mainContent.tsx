@@ -2,14 +2,12 @@
 
 import LottieComponent from "@/components/globals/lottie";
 import esquema from "@/assets/lotties/Esquema4.json";
-import Link from "next/link";
 
 import { motion } from "framer-motion";
 
 type MethodsType = {
   name: string;
   keywords: string[];
-  link: string;
 };
 
 type MainContentProps = {
@@ -58,7 +56,7 @@ const MainContent = ({ methods }: MainContentProps) => {
         </div>
 
         <div className="absolute top-50% left-0 w-full flex items-center justify-between h-[400px] px-8">
-          {methods.map(({ name, keywords, link }) => (
+          {methods.map(({ name, keywords }) => (
             <article
               key={name}
               className="flex flex-col justify-between w-1/3 h-[20vw] items-center rounded-lg shadow-md"
@@ -66,12 +64,11 @@ const MainContent = ({ methods }: MainContentProps) => {
               <p className="text-sm font-favoritRegularMono">{keywords[0]}</p>
               <div className="flex flex-col items-center justify-center w-full h-full">
                 <h2 className="text-xl font-favoritMedium">{name}</h2>
-                <Link
-                  href={link}
+                <div
                   className="w-[5vw] bg-white rounded-full flex items-center justify-center hover:bg-white/50"
                 >
                   <p className="text-base text-background">+</p>
-                </Link>
+                </div>
               </div>
               <p className="text-sm font-favoritRegularMono">{keywords[1]}</p>
             </article>
