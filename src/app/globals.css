@@ -4,8 +4,11 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  
 }
-
+.overflow-hidden-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Edge */
+}
 @layer base {
   :root {
     --background: 0 0% 100%;

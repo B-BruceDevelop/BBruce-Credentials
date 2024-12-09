@@ -4,6 +4,7 @@ import { Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import React from "react";
 import Image, { StaticImageData } from "next/image";
+import { motion } from "framer-motion";
 
 interface BrandCardProps {
   title: React.ReactNode;
@@ -72,7 +73,7 @@ export default function BrandCard({
                     <p className="text-xs text-favoritMedium underline">
                       Services
                     </p>
-                    <ul className="mt-2 space-y-[0.5vh] text-xs text-[#888888] overflow-y-scroll">
+                    <ul className="mt-2 space-y-[0.5vh] text-xs text-[#888888] overflow-y-scroll overflow-hidden-scroll">
                       {services.map((service, index) => (
                         <li
                           key={index}
@@ -87,7 +88,7 @@ export default function BrandCard({
               </div>
               <div
                 id="video-container"
-                className="flex flex-1 justify-end p-[1vw] rounded-[2vw] overflow-hidden"
+                className="overflow-hidden-scroll flex flex-1 justify-end p-[1vw] rounded-[2vw] overflow-hidden"
               >
                 {videoUrl && (
                   <video
@@ -135,28 +136,52 @@ export default function BrandCard({
               {!anyExpanded && (
                 <>
                   {image ? (
-                    <div
-                      className={cn(
-                        "flex justify-center items-center mt-[2vw] p-[1vw] h-full w-full bg-[#272727] rounded-[1vw]",
-                        index === 1
-                          ? "overflow-visible relative"
-                          : "overflow-hidden"
-                      )}
-                    >
-                      <Image
-                        src={image}
-                        alt="Brand Image"
-                        width={400}
-                        height={400}
-                        className={cn(
-                          "object-contain animate-fadeInSmall",
-                          index === 1
-                            ? "absolute max-w-none h-[120%] w-[120%]"
-                            : "max-w-full max-h-full",
-                          index === 3 && "rotate-[10deg]"
-                        )}
-                      />
-                    </div>
+
+
+
+
+                 <div
+                 className={cn(
+                   "flex justify-center items-center mt-[2vw] p-[1vw] h-full w-full bg-[#272727] rounded-[1vw]",
+                   index === 1 ? "overflow-visible relative" : "overflow-hidden"
+                 )}
+               >
+                 <motion.div
+                   animate={{
+                     rotate: index === 3 ? 10 : 0, // Rota si el índice es 3, de lo contrario, no rota
+                   }}
+                   transition={{
+                     duration: 0.5, // Duración de la animación
+                     ease: "easeInOut", // Suaviza la transición
+                   }}
+                   className={cn(
+                     "flex w-full h-full justify-center items-center",
+                     index === 1
+                       ? "absolute max-w-none h-[110%] w-[110%]" // Mantén el comportamiento para índice 1
+                       : "max-w-full max-h-full" // Para otros índices
+                   )}
+                 >
+                   <Image
+                     src={image}
+                     alt="Brand Image"
+                     width={400}
+                     height={400}
+                     className={cn(
+                       "object-contain animate-fadeInSmall",
+                       index === 1
+                         ? "absolute max-w-none h-[110%] w-[110%]" // Imagen expandida para índice 1
+                         : "max-w-full max-h-full" // Imagen estándar para otros índices
+                     )}
+                   />
+                 </motion.div>
+               </div>
+
+
+
+
+
+
+
                   ) : (
                     <p className="mt-4 text-xs text-gray-400">IMAGE</p>
                   )}
