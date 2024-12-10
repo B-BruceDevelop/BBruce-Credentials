@@ -95,7 +95,7 @@ const ThePrinciples = () => {
   return (
     <div className="flex flex-col h-screen w-full items-center justify-center ">
       <Header
-        title="The Principles"
+        title="Our Principles"
         prevPage="meet-us"
         nextPage="shapeless-method"
         visible={true}

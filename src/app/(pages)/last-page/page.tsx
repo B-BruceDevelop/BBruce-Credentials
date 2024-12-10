@@ -1,5 +1,4 @@
 import Header from "@/components/globals/header";
-import Footer from "@/components/globals/footer";
 import Image from "next/image";
 import image from "./Bruce.jpg";
 import text from "./Frase+Logo_Nike.svg";

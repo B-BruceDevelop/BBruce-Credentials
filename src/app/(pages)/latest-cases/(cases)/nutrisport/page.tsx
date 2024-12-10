@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import nutrisport_logo from "./Nutriesport_logo_white.svg";
-import nutrisport_Strong_logo from "./nutrisport_strong.svg";
 import nutrisport_mockup from "./Nutrisport_MockupMacBook.png";
 import nutrisport_men from "./nutrisport_men.png";
 import nutrisport_package from "./nutrisport_packaging.png";
@@ -10,14 +9,7 @@ import { cn } from "@/lib/utils";
 
 import nutri_icons from "./NutriIcons.json";
 import LottieComponent from "@/components/globals/lottie";
-// import LottieComponent from "@/components/globals/lottie";
-// import nutri_1 from "./Nutri1.json";
-// import nutri_2 from "./nutri2.json"; 
-// import nutri_3 from "./nutri3.json";
-// import spark from "@/assets/lotties/spark.json";
 
-// const primaryColor = "[#FF002D]";
-// const secondaryColor = "[#F8F7EF]";
 
 const Nutrisport = () => {
   return (

@@ -45,7 +45,7 @@ const MainContent = ({ methods }: MainContentProps) => {
 
         <div className="absolute top-50% left-0 w-full flex items-center justify-center h-[400px] px-8">
           <div className="flex justify-between w-[40vw] items-center">
-            {["HYPOTESIS", "SOLUTION"].map((word) => (
+            {["HYPOTHESIS", "SOLUTION"].map((word) => (
               <div
                 key={word}
                 className="flex flex-col items-center justify-center w-[8vw] aspect-square bg-white text-background rounded-full z-10"
