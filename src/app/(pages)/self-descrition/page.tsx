@@ -9,7 +9,7 @@ const SelfDescription = () => {
     <div className="flex flex-col h-full flex-col items-center justify-between">
       <Header
         title="Self Description"
-        prevPage="/bbruce"
+        prevPage="/bruceLee"
         nextPage="/the-origin"
         visible={true}
       />

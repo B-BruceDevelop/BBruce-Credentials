@@ -8,7 +8,7 @@ const page = () => {
       <Header
         title="Bruce Lee Intro"
         prevPage="/"
-        nextPage="/bbruce"
+        nextPage="/self-descrition"
         visible={true}
       />
       <main className="flex-grow w-full max-h-[93vh] p-4 relative overflow-hidden">
