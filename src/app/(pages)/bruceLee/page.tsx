@@ -1,5 +1,4 @@
 'use client'
-import { motion } from "framer-motion";
 import Header from "@/components/globals/header";
 
 const page = () => {
@@ -11,21 +10,17 @@ const page = () => {
         nextPage="/self-descrition"
         visible={true}
       />
-      <main className="flex-grow w-full max-h-[93vh] p-4 relative overflow-hidden">
+      <main className="flex-grow w-full max-h-[93vh] p-[1vw] relative overflow-hidden">
         {/* Video principal */}
-        <motion.video
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+        <video
           autoPlay
-          className="w-full h-full object-cover rounded-3xl"
+          className="w-full h-full object-cover rounded-3xl animate-fadeIn"
         >
           <source
-            src="https://framerusercontent.com/assets/MLWPbW1dUQawJLhhun3dBwpgJak.mp4"
+            src="https://video.wixstatic.com/video/4cd4b0_e3c418d1d8e14d3fb8d1babf3189ac17/1080p/mp4/file.mp4"
             type="video/mp4"
           />
-        </motion.video>
-
+        </video>
       </main>
     </div>
   );
