@@ -9,9 +9,9 @@ const HighlightReel = () => {
         prevPage="/latest-cases"
         nextPage="/trusted-brands"
       />
-      <main className="flex flex-grow items-center justify-center w-full h-full max-h-[85vw] p-[1vw] ">
+      <main className="flex flex-grow items-center justify-center w-full h-[75vh] p-[1vw] ">
        <video
-          className="w-full h-full object-cover rounded-xl "
+          className="w-full h-[75vh] max-h-[75vh] object-cover rounded-xl "
           autoPlay
           
           playsInline

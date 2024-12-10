@@ -50,7 +50,7 @@ function Motorola() {
         />
       </article>
 
-      <article className="col-span-2 col-start-2 row-start-2 bg-yellow-500 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn10">
+      <article className="col-span-2 col-start-2 row-start-2 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn10 overflow-hidden">
         <video
           className="w-full h-full object-cover rounded-xl scale-[1.01]"
           autoPlay
@@ -75,7 +75,7 @@ function Motorola() {
         />
 
         {/* Imagen Superpuesta */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
           <Image
             src={Logo_2}
             alt="Logos"
@@ -86,7 +86,7 @@ function Motorola() {
         </div>
 
         {/* Imagen Superpuesta en la Esquina Superior Izquierda */}
-        <div className="absolute top-0 left-0 p-[1vw]">
+        <div className="absolute top-0 left-0 p-[1vw] overflow-hidden">
           <Image
             src={turkish_motorola_logos}
             alt="Extra Imagen"
