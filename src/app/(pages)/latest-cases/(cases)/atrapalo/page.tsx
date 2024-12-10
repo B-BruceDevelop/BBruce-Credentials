@@ -41,7 +41,20 @@ function Atrapalo() {
               priority
             />
           </article>
-          <article className="w-1/3 bg-blue-400 rounded-xl animate-slideIn12"></article>
+          <article className="w-1/3 rounded-xl animate-slideIn12">
+            <video
+              className="w-full h-full object-cover rounded-xl scale-[1.01]"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source
+                src="https://video.wixstatic.com/video/4cd4b0_c5dc3077a7e74e19b9b9f310852b4ba7/720p/mp4/file.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </article>
         </div>
 
         <div className="flex flex-row h-1/2 gap-[1vw]">

@@ -25,13 +25,18 @@ const Nutrisport = () => {
                 "animate-fadeIn"
               )}
             >
-              <Image
-                src={nutrisport_logo}
-                alt="Nutriesport"
-                width={100}
-                height={100}
-                className="object-contain w-full h-full px-[4vw] py-[2vw] "
-              />
+             <video
+                className="w-full h-full object-cover rounded-xl scale-[1.01]"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source
+                  src="https://video.wixstatic.com/video/4cd4b0_ef78372e1dd84f19b220fe6377e65681/1080p/mp4/file.mp4"
+                  type="video/mp4"
+                />
+              </video>
             </article>
 
             {/* Contenedor 2 */}

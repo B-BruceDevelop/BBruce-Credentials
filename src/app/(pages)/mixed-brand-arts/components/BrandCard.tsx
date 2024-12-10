@@ -35,7 +35,7 @@ export default function BrandCard({
     <div
       className={cn(
         "relative transition-all duration-500 ease-in-out cursor-pointer",
-        isExpanded ? "flex-[3]" : anyExpanded ? "flex-[0.25]" : "flex-1"
+        isExpanded ? "flex-[3]" : anyExpanded ? "flex-[0.20]" : "flex-1"
       )}
       onClick={onClick}
     >
@@ -136,58 +136,49 @@ export default function BrandCard({
               {!anyExpanded && (
                 <>
                   {image ? (
-
-
-
-
-                 <div
-                 className={cn(
-                   "flex justify-center items-center mt-[2vw] p-[1vw] h-full w-full bg-[#272727] rounded-[1vw]",
-                   index === 1 ? "overflow-visible relative" : "overflow-hidden"
-                 )}
-               >
-                 <motion.div
-                   animate={{
-                     rotate: index === 3 ? 10 : 0, // Rota si el índice es 3, de lo contrario, no rota
-                   }}
-                   transition={{
-                     duration: 0.5, // Duración de la animación
-                     ease: "easeInOut", // Suaviza la transición
-                   }}
-                   className={cn(
-                     "flex w-full h-full justify-center items-center",
-                     index === 1
-                       ? "absolute max-w-none h-[110%] w-[110%]" // Mantén el comportamiento para índice 1
-                       : "max-w-full max-h-full" // Para otros índices
-                   )}
-                 >
-                   <Image
-                     src={image}
-                     alt="Brand Image"
-                     width={400}
-                     height={400}
-                     className={cn(
-                       "object-contain animate-fadeInSmall",
-                       index === 1
-                         ? "absolute max-w-none h-[110%] w-[110%]" // Imagen expandida para índice 1
-                         : "max-w-full max-h-full" // Imagen estándar para otros índices
-                     )}
-                   />
-                 </motion.div>
-               </div>
-
-
-
-
-
-
-
+                    <div
+                      className={cn(
+                        "flex justify-center items-center mt-[2vw] p-[1vw] h-full w-full bg-[#272727] rounded-[1vw]",
+                        index === 1
+                          ? "overflow-visible relative"
+                          : "overflow-hidden",
+                     
+                      )}
+                    >
+                      <motion.div
+                        animate={{
+                          rotate: index === 3 ? 10 : 0, // Rota si el índice es 3, de lo contrario, no rota
+                        }}
+                        transition={{
+                          duration: 0.5, // Duración de la animación
+                          ease: "easeInOut", // Suaviza la transición
+                        }}
+                        className={cn(
+                          "flex w-full h-full justify-center items-center",
+                          index === 1
+                            ? "absolute max-w-none h-[105%] w-[105%]" // Mantén el comportamiento para índice 1
+                            : "max-w-full max-h-full" // Para otros índices
+                        )}
+                      >
+                        <Image
+                          src={image}
+                          alt="Brand Image"
+                          width={400}
+                          height={400}
+                          className={cn(
+                            "object-contain animate-fadeInSmall",
+                            index === 1
+                              ? "absolute max-w-none h-[105%] w-[105%] translate-y-[-3%]" // Imagen expandida para índice 1
+                              : "max-w-full max-h-full", // Imagen estándar para otros índices
+              
+                          )}
+                        />
+                      </motion.div>
+                    </div>
                   ) : (
                     <p className="mt-4 text-xs text-gray-400">IMAGE</p>
                   )}
-                  <p className="text-sm mt-4 font-favoritRegular">
-                    {footer}
-                  </p>
+                  <p className="text-sm mt-4 font-favoritRegular">{footer}</p>
                   <p className="w-[90%] text-sm text-[#888888] font-favoritRegular tracking-wide leading-none">
                     {description}
                   </p>

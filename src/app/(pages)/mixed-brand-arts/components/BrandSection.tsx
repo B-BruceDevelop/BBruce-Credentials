@@ -9,7 +9,7 @@ import { formatTextWithLineBreaks } from "@/lib/functions";
 import tavares_Img from "@/assets/MixedBrandArts/tavares_img.png";
 import cocteleo_img from "@/assets/MixedBrandArts/cocteleo.png";
 import hello_img from "@/assets/MixedBrandArts/HOLA CIAO HELLO NI HAO.png";
-import digitalProducts_img from "@/assets/MixedBrandArts/digital_products.png";
+import digitalProducts_img from "@/assets/MixedBrandArts/b_bruce_MM_WEB-1.jpg";
 
 const brandData = [
   {
@@ -132,11 +132,11 @@ export default function BrandSection({ index }: BrandSectionProps) {
   }, [index]);
 
   return (
-    <div className="flex flex-col w-[98vw] h-full justify-between items-center">
-      <div className="flex grow w-full h-full flex-col items-center justify-center">
+    <div className="flex flex-col w-[98vw] h-full justify-between items-center pt-[2vw]">
+      <div className="flex grow w-full h-full flex-col items-center ">
         <div
           className={cn(
-            "flex h-[70vh] max-h-[70vw] w-full  m-[1vw] rounded-[2vw] overflow-hidden",
+            "flex h-[65vh] max-h-[65vw] w-full  m-[1vw] rounded-[2vw] overflow-hidden",
             expandedId !== null ? "gap-none border border-white" : "gap-[1vw] "
           )}
         >
