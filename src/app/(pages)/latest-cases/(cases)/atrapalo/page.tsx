@@ -1,15 +1,32 @@
 import Image from "next/image";
 
 import Atrapalo_04 from "./Atrapalo_04.png";
+import Atrapalo_gif from "./Atrapalo1.json";
+import Atrapalo_logo from "./Atrapalo2.json";
+import Atrapalo_Hola from "./Atrapalo3_2.json";
+
 import tipo_Atrapalo from "./tipografi_atrapalo.svg";
+import LottieComponent from "@/components/globals/lottie";
 
 function Atrapalo() {
   return (
     <div className="flex gap-[1vw] h-full w-full p-[1vw]">
       {/* Columna izquierda */}
-      <section className="flex flex-col gap-[1vw] w-1/4 ">
-        <article className="aspect-[9/5] bg-red-100 rounded-xl animate-slideIn5"></article>
-        <article className="flex-grow bg-red-400 rounded-xl animate-slideIn8"></article>
+      <section className="flex flex-col gap-[1vw] w-1/4 rounded-[1vw] ">
+        <article className="aspect-[9/5]  rounded-[1vw] animate-slideIn5 overflow-hidden">
+          <LottieComponent
+            asset={Atrapalo_logo}
+            loop={true}
+            className=" rounded-xl "
+          />
+        </article>
+        <article className="flex-grow bg-white rounded-[1vw] animate-slideIn8 bg-[#F2F2F2] overflow-hidden">
+          <LottieComponent
+            asset={Atrapalo_Hola}
+            loop={true}
+            className="w-full h-full rrounded-[1vw]"
+          />
+        </article>
       </section>
 
       {/* Contenedor principal */}
@@ -46,7 +63,16 @@ function Atrapalo() {
             </article>
           </article>
 
-          <article className="w-2/3 bg-blue-300 rounded-xl animate-slideIn12"></article>
+          <article className="w-2/3 rounded-[1vw] animate-slideIn12 overflow-hidden">
+            <video
+              className="w-full h-full object-cover scale-[1.01]"
+              autoPlay
+              loop
+              muted
+              playsInline
+              src="https://video.wixstatic.com/video/4cd4b0_b54571b08db04766ac987e2a7c6976d2/360p/mp4/file.mp4"
+            />
+          </article>
         </div>
       </section>
 
@@ -60,7 +86,13 @@ function Atrapalo() {
             priority
           />
         </article>
-        <article className="aspect-[9/5] bg-green-100 rounded-xl animate-slideIn5"></article>
+        <article className=" bg-green-100 rounded-[1vw] animate-slideIn5 overflow-hidden">
+          <LottieComponent
+            asset={Atrapalo_gif}
+            loop={true}
+            className=" rounded-[1vw] "
+          />
+        </article>
       </section>
     </div>
   );

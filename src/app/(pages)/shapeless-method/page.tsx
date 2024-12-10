@@ -26,7 +26,7 @@ const Methods: MethodsType[] = [
     keywords: ["DISCOVER", "DEFINE"],
     page: <Strategy values={[
       "Kick off Meeting",
-      "Desck Research",
+      "Desk Research",
       "Benchmark & Trends",
       "Consumer Research",
     ]}/>,

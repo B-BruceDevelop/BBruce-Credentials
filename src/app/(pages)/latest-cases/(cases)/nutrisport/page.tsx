@@ -99,7 +99,7 @@ const Nutrisport = () => {
         </article>
 
         {/* Contenedor 6 */}
-        <article className="flex-grow rounded-[1vw] relative overflow-hidden animate-slideIn12">
+        <article className="flex-grow rounded-[1vw] relative overflow-hidden animate-slideIn10">
           <Image
             src={nutrisport_mockup}
             alt="Nutriesport mockup"
