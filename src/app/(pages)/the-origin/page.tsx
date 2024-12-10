@@ -55,7 +55,7 @@ const TheOrigin = () => {
   return (
     <div className="flex flex-col h-full flex-col items-center justify-center bg-background">
       <Header
-        title="The Origin"
+        title="Our Journey"
         prevPage="/self-descrition"
         nextPage="/meet-us"
         visible={true}
@@ -72,13 +72,13 @@ const TheOrigin = () => {
               className="w-full h-[35vh] object-cover rounded-3xl animate-fadeInSmall"
             >
               <source
-                src="https://framerusercontent.com/assets/MLWPbW1dUQawJLhhun3dBwpgJak.mp4"
+                src="https://video.wixstatic.com/video/4cd4b0_f2bd70d9aa5b42979e7b52b914f85716/720p/mp4/file.mp4"
                 type="video/mp4"
               />
             </video>
           </Suspense>
         </section>
-        <section className="flex grow w-full items-start pt-[2vw]">
+        <section className="flex grow w-full items-start pt-[4vw]">
           <Timeline index={currentIndex} />
         </section>
       </main>

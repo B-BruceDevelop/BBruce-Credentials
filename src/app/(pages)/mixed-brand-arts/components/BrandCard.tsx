@@ -88,7 +88,7 @@ export default function BrandCard({
               </div>
               <div
                 id="video-container"
-                className="overflow-hidden-scroll flex flex-1 justify-end p-[1vw] rounded-[2vw] overflow-hidden"
+                className="overflow-hidden-scroll flex flex-1 justify-end items p-[1vw] rounded-[2vw] overflow-hidden"
               >
                 {videoUrl && (
                   <video

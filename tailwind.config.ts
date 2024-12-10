@@ -63,7 +63,7 @@ export default {
         xl: "calc(5px + 1.93vw)", // ~42px en 1920px
         "2xl": "calc(6px + 2.14vw)", // ~47px en 1920px
         "3xl": "calc(6px + 2.40vw)", // ~52px en 1920px
-        "4xl": "calc(7px + 2.81vw)", // ~61px en 1920px
+        "4xl": "calc(7px + 2.77vw)", // ~61px en 1920px
         "5xl": "calc(8px + 3.07vw)", // ~67px en 1920px
         "6xl": "calc(8px + 3.39vw)", // ~73px en 1920px
         "7xl": "calc(9px + 3.75vw)", // ~81px en 1920px
@@ -96,7 +96,7 @@ export default {
         accordionDown: "accordionDown 0.2s ease-out",
         accordionUp: "accordionUp 0.2s ease-out",
         growFromTop: "growFromTop 1.5s ease-in-out ",
-        shrinkToBottom: "shrinkToBottom 0.5s ease-in-out forwards",
+        shrinkToBottom: "shrinkToBottom 0.1s ease-in-out forwards",
         fadeIn: "fadeIn 1s ease-in-out",
         bounceIn: "bounceIn 1s ease-in-out",
         smallSlideIn: "smallSlideIn .5s ease-in-out",

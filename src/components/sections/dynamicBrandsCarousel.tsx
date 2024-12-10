@@ -2,12 +2,13 @@ import Image from "next/image";
 // import DynamicBrands from "@/assets/dynamicBrands_BLACK.svg";
 import keywordsBlack from "@/assets/keywords_stroke2.svg";
 
-import DynamicBrands from "@/assets/DYNAMIC BRANDS ®.svg";
+import DynamicBrands from "@/assets/SHAPELESS_BRANDS.svg";
 
 const DynamicBrandsCarousel = () => {
   return (
     <section className="relative w-full overflow-hidden">
     {/* Contenedor 1 */}
+    
     <div className="flex animate-marqueeSlow items-center justify-center w-[400%] h-[20vh]">
       {[0, 1, 2, 3].map((number) => (
         <Image
