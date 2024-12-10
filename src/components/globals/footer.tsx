@@ -40,7 +40,7 @@ const Footer = ({ title, red = false, size = "4xl", width, className }: Props) =
         height={60}
        
         className={cn(
-          "w-[calc(26px+3.9vw)] h-auto mb-4", // Tamaño fijo de 4vw de ancho
+          "w-[calc(26px+3.9vw)] h-auto mb-6", // Tamaño fijo de 4vw de ancho
           !title && "ml-auto"
         )}
         
