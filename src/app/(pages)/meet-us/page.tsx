@@ -88,14 +88,14 @@ function MeetUs() {
       setCurrentIndex((prevIndex) =>
         prevIndex === workImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 2000); // Cambia cada 3 segundos
+    }, 6000); // Cambia cada 3 segundos
     return () => clearInterval(interval); // Limpia el intervalo
   }, []);
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen">
       <Header
-        title="Meet Us"
+        title="Big Picture"
         prevPage="/the-origin"
         nextPage="/the-principles"
         visible={true}
@@ -209,7 +209,7 @@ function MeetUs() {
             {/* Team Collaboration */}
             <motion.article
               id="team-collaboration"
-              className="flex flex-col justify-between items-center w-[calc((100%-0.5vw)/2)] bg-green-200 rounded-[1vw] p-[.5vw] py-[1.5vw]"
+              className="flex flex-col justify-between items-center w-[calc((100%-0.5vw)/2)] bg-[#F2F2F2] rounded-[1vw] p-[.5vw] py-[1.5vw]"
               variants={fadeInVariants}
             >
               {teamCollaborationData.map((item, index) => (

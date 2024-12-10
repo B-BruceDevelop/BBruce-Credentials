@@ -262,7 +262,7 @@ const Timeline = ({ index }: TimelineProps) => {
                   exit={{ height: 0, opacity: 0 }} // Se encoge y desaparece
                   transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }} // Transición suave
                   style={{ overflow: "hidden" }} // Oculta el contenido cuando la altura es cero
-                  className="flex flex-col items-start w-[70vw] md:w-[30vw] font-favoritRegularMono text-left text-xs text-[#888888]"
+                  className="flex flex-col items-start w-[70vw] md:w-[33vw] font-favoritRegularMono text-left text-xs text-[#888888]"
                 >
                   {timelineData[0].details}
                 </motion.div>
@@ -281,7 +281,7 @@ const Timeline = ({ index }: TimelineProps) => {
                   exit={{ height: 0, opacity: 0 }} // Se encoge y desaparece
                   transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }} // Transición suave
                   style={{ overflow: "hidden" }} // Oculta el contenido cuando la altura es cero
-                  className="flex flex-col items-center w-[70vw] md:w-[30vw] font-favoritRegularMono text-center text-xs text-[#888888]"
+                  className="flex flex-col items-center w-[70vw] md:w-[33vw] font-favoritRegularMono text-center text-xs text-[#888888]"
                 >
                   {timelineData[1].details}
                 </motion.div>
@@ -300,7 +300,7 @@ const Timeline = ({ index }: TimelineProps) => {
                   exit={{ height: 0, opacity: 0 }} // Se encoge y desaparece
                   transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }} // Transición suave
                   style={{ overflow: "hidden" }} // Oculta el contenido cuando la altura es cero
-                  className="flex flex-col items-end w-[70vw] md:w-[30vw] font-favoritRegularMono text-right text-xs text-[#888888]"
+                  className="flex flex-col items-end w-[70vw] md:w-[33vw] font-favoritRegularMono text-right text-xs text-[#888888]"
                 >
                   {timelineData[2].details}
                 </motion.div>

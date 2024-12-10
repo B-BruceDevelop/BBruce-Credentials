@@ -55,7 +55,7 @@ const TheOrigin = () => {
   return (
     <div className="flex flex-col h-full flex-col items-center justify-center bg-background">
       <Header
-        title="The Origin"
+        title="Our Journey"
         prevPage="/self-descrition"
         nextPage="/meet-us"
         visible={true}

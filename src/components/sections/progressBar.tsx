@@ -33,8 +33,7 @@ const BarProgress = ({ label, percentage }: BarProgressProps) => {
 
         {/* Porcentaje */}
         <span
-          className="text-background text-xs font-favoritRegular leading-none tracking-tight"
-          style={{ alignSelf: "flex-end" }}
+          className="flex item-center text-background text-xs font-favoritRegular tracking-tight "
         >
           {percentage}%
         </span>
