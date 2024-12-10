@@ -1,8 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-
 import Footer from "@/components/globals/footer";
 import Header from "@/components/globals/header";
 import MainContent from "./mainContent";

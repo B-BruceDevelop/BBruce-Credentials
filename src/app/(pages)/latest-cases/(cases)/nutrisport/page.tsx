@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import nutrisport_logo from "./Nutriesport_logo_white.svg";
 import nutrisport_mockup from "./Nutrisport_MockupMacBook.png";
 import nutrisport_men from "./nutrisport_men.png";
 import nutrisport_package from "./nutrisport_packaging.png";

@@ -1,10 +1,6 @@
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
 
-
-import spark from "./spark.json";
-import LottieComponent from "@/components/globals/lottie";
-
 const HighlightReel = () => {
   return (
     <div className="flex flex-col min-h-screen items-center justify-between">
