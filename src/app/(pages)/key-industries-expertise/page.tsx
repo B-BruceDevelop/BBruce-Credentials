@@ -14,46 +14,41 @@ import KeyIndustriesCard from "@/components/sections/keyIndustriesCard";
 const categories = [
   {
     id: 1,
-    title: "FOOD & DRINKS",
+    title: "· FOOD & DRINKS ·",
     image: food,
     properties: [
-      "Crear conexiones emocionales.",
-      "Reflejar autenticidad.",
-      "Inspirar el descubrimiento.",
-      "Mejorar la experiencia multicanal.",
+      "Fueling experiences",
+      "with taste.",
+     
     ],
   },
   {
     id: 2,
-    title: "SPORTS",
+    title: "· SPORT ·",
     image: sports,
     properties: [
-      "Alinear creencias.",
-      " Conectar creencias.",
-      "Transmitir dinamismo y espíritu deportivo.",
-      "Mejorar la experiencia.",
+      "Empowering performance and passion.",
     ],
   },
   {
     id: 3,
-    title: "BEAUTY",
+    title: "· BEAUTY ·",
     image: beauty,
     properties: [
-      "Crear conexiones emocionales.",
-      "Reflejar autenticidad.",
-      "Inspirar el descubrimiento.",
-      "Mejorar la experiencia multicanal.",
+      "Crafting confidence",
+      "and style.",
+
     ],
   },
   {
     id: 4,
-    title: "TELCO",
+    title: "· TELCO ·",
     image: telco,
     properties: [
-      "Crear conexiones emocionales.",
-      "Reflejar autenticidad.",
-      "Inspirar el descubrimiento.",
-      "Mejorar la experiencia multicanal.",
+      "Keeping",
+      "the world",
+      "in sync.",
+
     ],
   },
 ];

@@ -35,7 +35,7 @@ export default function BrandCard({
     <div
       className={cn(
         "relative transition-all duration-500 ease-in-out cursor-pointer",
-        isExpanded ? "flex-[3]" : anyExpanded ? "flex-[0.4]" : "flex-1"
+        isExpanded ? "flex-[3]" : anyExpanded ? "flex-[0.25]" : "flex-1"
       )}
       onClick={onClick}
     >

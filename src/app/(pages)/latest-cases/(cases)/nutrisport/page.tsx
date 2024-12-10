@@ -8,6 +8,8 @@ import nutrisport_package from "./nutrisport_packaging.png";
 import nutrisport_streetWall from "./nutrisport_streetWall.png";
 import { cn } from "@/lib/utils";
 
+import nutri_icons from "./NutriIcons.json";
+import LottieComponent from "@/components/globals/lottie";
 // import LottieComponent from "@/components/globals/lottie";
 // import nutri_1 from "./Nutri1.json";
 // import nutri_2 from "./nutri2.json"; 
@@ -42,15 +44,13 @@ const Nutrisport = () => {
 
             {/* Contenedor 2 */}
             <article
-              className={`max-h-[35vh] aspect-square bg-[#F8F7EF]  flex items-center justify-center rounded-xl animate-slideIn10`}
+              className="max-h-[35vh] aspect-square bg-[#F8F7EF]  flex items-center justify-center rounded-xl animate-slideIn10 overflow-hidden"
             >
-              <Image
-                src={nutrisport_Strong_logo}
-                alt="Nutriesport strong"
-                width={100}
-                height={100}
-                className="object-contain w-full h-full px-[4vw] py-[2vw] "
-              />
+              <LottieComponent
+                asset={nutri_icons}
+                loop={true}
+                className="w-full h-full rounded-xl"
+                />
             </article>
           </div>
           {/* Contenedor 3 */}

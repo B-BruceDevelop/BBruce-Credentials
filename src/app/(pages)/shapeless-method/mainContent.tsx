@@ -1,7 +1,7 @@
 "use client";
 
 import LottieComponent from "@/components/globals/lottie";
-import esquema from "@/assets/lotties/Esquema4.json";
+import esquema from "./Esquema_Normal_v2.json";
 
 import { motion } from "framer-motion";
 
@@ -17,14 +17,15 @@ type MainContentProps = {
 const MainContent = ({ methods }: MainContentProps) => {
   return (
     <>
-      <div className="flex flex-col-3 items-center justify-around w-full text-xl pt-8">
-        <p className="w-[15%] text-center font-favoritRegularMono text-base tracking-tight">
+      <div className="flex flex-col-3 w-[90%] items-start justify-around  text-xl pt-8">
+        <p className="w-[20%] text-center font-favoritRegularMono text-xs2 tracking-tight">
           Be aware of yourself.
         </p>
-        <p className="w-[35%] text-center font-favoritRegularMono text-base tracking-tight">
-          Keep the useful, reject the useless and add your uniqueness.
-        </p>
-        <p className="w-[15%] text-center font-favoritRegularMono text-base tracking-tight">
+        <div className="w-[35%] text-center font-favoritRegularMono text-xs2 tracking-tight">
+          <p>Keep the useful, reject the useless </p>
+          <p> and add your uniqueness. </p>
+        </div>
+        <p className="w-[20%] text-center font-favoritRegularMono text-xs2 tracking-tight">
           Strike once, reach many.
         </p>
       </div>
@@ -37,7 +38,7 @@ const MainContent = ({ methods }: MainContentProps) => {
             duration: 0.5,
             ease: "easeInOut",
           }}
-          className="w-[95%] absolute -mt-10 py-8"
+          className="w-[98%] absolute -mt-10 py-8"
         >
           <LottieComponent asset={esquema} />
         </motion.div>
@@ -49,7 +50,7 @@ const MainContent = ({ methods }: MainContentProps) => {
                 key={word}
                 className="flex flex-col items-center justify-center w-[8vw] aspect-square bg-white text-background rounded-full z-10"
               >
-                <p className="text-xs font-favoritRegularMono">{word}</p>
+                <p className="text-xs2 font-favoritRegularMono">{word}</p>
               </div>
             ))}
           </div>
@@ -61,16 +62,16 @@ const MainContent = ({ methods }: MainContentProps) => {
               key={name}
               className="flex flex-col justify-between w-1/3 h-[20vw] items-center rounded-lg "
             >
-              <p className="text-sm font-favoritRegularMono">{keywords[0]}</p>
+              <p className="text-xs2 font-favoritRegularMono">{keywords[0]}</p>
               <div className="flex flex-col items-center justify-center w-full h-full">
-                <h2 className="text-xl font-favoritMedium">{name}</h2>
-                <div
+                <h2 className="text-lg font-favoritMedium">{name}</h2>
+                {/* <div
                   className="w-[5vw] bg-white rounded-full flex items-center justify-center hover:bg-white/50"
                 >
                   <p className="text-base text-background">+</p>
-                </div>
+                </div> */}
               </div>
-              <p className="text-sm font-favoritRegularMono">{keywords[1]}</p>
+              <p className="text-xs2 font-favoritRegularMono">{keywords[1]}</p>
             </article>
           ))}
         </div>

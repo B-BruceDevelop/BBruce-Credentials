@@ -62,7 +62,10 @@ const MixedBrandArts = () => {
         visible={true}
         disableKeyboardNavigation={true}
       />
+      <div className="flex grow w-full h-full flex-col items-center justify-center">
+
       <BrandSection index={brandArtsIndex} />
+      </div>
     </div>
   );
 };

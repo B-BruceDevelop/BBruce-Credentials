@@ -9,7 +9,7 @@ import Header from "@/components/globals/header";
 const BBruce = () => {
   return (
     <main className="flex w-full h-full flex-col items-center justify-center p-4">
-      <Header prevPage="/bruceLee" nextPage="self-descrition" visible={false} />
+      <Header prevPage="/last-page"  visible={false} />
       <Image
         src={BBruceLogo}
         alt="B-Bruce"

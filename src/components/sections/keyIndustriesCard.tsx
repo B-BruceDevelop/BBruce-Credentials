@@ -73,13 +73,11 @@ const KeyIndustriesCard: React.FC<CardProps> = ({
               transition={{ delay: 0., duration: .5, ease: "easeInOut" }}
               style={{ overflow: "hidden" }}
             >
-              <p className="text-xs md:text-sm font-favoritRegular tracking-wider mb-[2vw]">
-                Ayudamos a:
-              </p>
+             
               {properties.map((property, idx) => (
                 <p
                   key={idx}
-                  className="text-sm md:text-base font-favoritMedium tracking-tight leading-none my-[1vw]"
+                  className="text-sm md:text-3xl font-favoritMedium tracking-tight leading-none"
                 >
                   {property}
                 </p>
@@ -96,7 +94,7 @@ const KeyIndustriesCard: React.FC<CardProps> = ({
             scale: isActive ? 1.1 : 1,
           }}
           transition={{ duration: 0.3 }}
-          className="text-sm md:text-base font-favorite-favoritMedium tracking-wider text-center leading-tight"
+          className="text-sm md:text-base font-favoritMedium tracking-wider text-center leading-tight"
         >
           {title}
         </motion.div>

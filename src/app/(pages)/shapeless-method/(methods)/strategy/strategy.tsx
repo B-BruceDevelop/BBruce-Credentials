@@ -50,7 +50,7 @@ function Strategy({ values }: Props) {
           Brand Ambition Platform
           </h1>
 
-        <section className="flex flex-col items-center justify-center w-[60vw]  ">
+          <section className="flex flex-col items-center justify-center h-[90%] ">
           <Image
             src={StrategicReport}
             alt="Strategic Report"

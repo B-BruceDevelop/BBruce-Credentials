@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import BrandCard from "./BrandCard";
 import Footer from "@/components/globals/footer";
 import { cn } from "@/lib/utils";
-import {formatTextWithLineBreaks} from "@/lib/functions";
+import { formatTextWithLineBreaks } from "@/lib/functions";
 
 import tavares_Img from "@/assets/MixedBrandArts/tavares_img.png";
 import cocteleo_img from "@/assets/MixedBrandArts/cocteleo.png";
-import hello_img from "@/assets/MixedBrandArts/HOLA CIAO HELLO NI HAO.png"; 
+import hello_img from "@/assets/MixedBrandArts/HOLA CIAO HELLO NI HAO.png";
 import digitalProducts_img from "@/assets/MixedBrandArts/digital_products.png";
 
 const brandData = [
@@ -17,14 +17,14 @@ const brandData = [
     title: "DYNAMIC \n BRANDING",
     description:
       "We create flexible branding systems that evolve with your business.",
-      image: hello_img,
+    image: hello_img,
     services: [
       "Brand Positioning",
       "Brand Purpose",
       "Brand Platform",
       "Brand Architecture",
       "Brand Personality",
-      "Naming Generation",  
+      "Naming Generation",
       "Brand Assets Creation",
       "Visual & Verbal Identity",
       "Pictorial Language",
@@ -41,7 +41,7 @@ const brandData = [
     title: "CREATIVE \n CAMPAIGNS",
     description:
       "We craft innovative campaigns activations through sponsorships brands.",
-      image: tavares_Img,
+    image: tavares_Img,
     services: [
       "Campaign Strategy",
       "Creative Direction",
@@ -60,7 +60,7 @@ const brandData = [
     title: "DIGITAL \n PRODUCTS",
     description:
       "We design user-centric digital products that enhance engagement.",
-      image: digitalProducts_img,
+    image: digitalProducts_img,
     services: [
       "UX/UI Design",
       "Web Development",
@@ -78,7 +78,7 @@ const brandData = [
     title: "ICONIC \n PACKAGING",
     description:
       "We design memorable packaging that resonates with your brand and leaves a lasting impact.",
-      image: cocteleo_img,
+    image: cocteleo_img,
     services: [
       "Packaging Design",
       "Structural Design",
@@ -96,7 +96,7 @@ interface BrandSectionProps {
   index: number;
 }
 
-export default function BrandSection({index}: BrandSectionProps) {
+export default function BrandSection({ index }: BrandSectionProps) {
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [footerText, setFooterText] = useState<string>(
     "Blending strategy, creativity & design for brands that leave a profound mark."
@@ -117,32 +117,38 @@ export default function BrandSection({index}: BrandSectionProps) {
 
   return (
     <div className="flex flex-col w-[98vw] h-full justify-between items-center">
-      <div 
-      className={cn(
-        "flex h-[50vh] max-h-[30vw] w-full  m-[1vw] rounded-[2vw] overflow-hidden",
-        expandedId !== null ? "gap-none border border-white" : "gap-[1vw] "
-      )}>
-        {brandData.map(({ id, title, description, services, videoUrl, footer, image }, index) => (
-          <BrandCard
-            key={id}
-            title={formatTextWithLineBreaks(title) }
-
-            description={description}
-            isExpanded={expandedId === id}
-            onClick={() => {
-              setExpandedId(expandedId === id ? null : id);
-              setFooterText(footer);
-            }}
-            services={services}
-            videoUrl={expandedId === id ? videoUrl : undefined}
-            anyExpanded={expandedId !== null}
-            index={index}
-            footer={footer}
-            image={image}
-          />
-        ))}
+      <div className="flex grow w-full h-full flex-col items-center justify-center">
+        <div
+          className={cn(
+            "flex h-[65vh] max-h-[65vw] w-full  m-[1vw] rounded-[2vw] overflow-hidden",
+            expandedId !== null ? "gap-none border border-white" : "gap-[1vw] "
+          )}
+        >
+          {brandData.map(
+            (
+              { id, title, description, services, videoUrl, footer, image },
+              index
+            ) => (
+              <BrandCard
+                key={id}
+                title={formatTextWithLineBreaks(title)}
+                description={description}
+                isExpanded={expandedId === id}
+                onClick={() => {
+                  setExpandedId(expandedId === id ? null : id);
+                  setFooterText(footer);
+                }}
+                services={services}
+                videoUrl={expandedId === id ? videoUrl : undefined}
+                anyExpanded={expandedId !== null}
+                index={index}
+                footer={footer}
+                image={image}
+              />
+            )
+          )}
+        </div>
       </div>
-   
       <Footer
         title={
           expandedId === null

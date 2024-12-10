@@ -1,20 +1,35 @@
 import Header from "@/components/globals/header";
 import Footer from "@/components/globals/footer";
-
+import Image from "next/image";
+import image from "./Bruce.jpg";
+import text from "./Frase+Logo_Nike.svg";
 
 const TrustedBrands = () => {
-
-    return (
+  return (
     <main className="flex flex-col min-h-screen items-center justify-between">
-      <Header title="???????" prevPage="/highlight-reel" />
-      <section className="flex grow items-center justify-center w-full h-full p-[1vw] gap-[2vw] bg-red-300">
-            <h1 className="text-8xl">??????????????????</h1>
+      <Header title="Trusted Brands" prevPage="/highlight-reel" nextPage="bbruce" visible={false} />
+      
+      <section className="flex grow items-center justify-center w-full h-full p-[1vw] relative">
+        {/* Imagen que ocupa toda la sección */}
+        <Image
+          src={image}
+          alt=""
+          fill
+          className="absolute inset-0 object-cover"
+        />
+
+        {/* Imagen centrada y alineada a la izquierda */}
+        <div className="relative z-10 flex justify-start items-center w-full h-full pl-[5vw]">
+          <Image
+            src={text}
+            alt=""
+            width={300}
+            height={300}
+            className="w-[30vw] h-auto"
+          />
+        </div>
       </section>
-      <Footer
-        title="????????????????????????????."
-        width="75vw"
-        size="4xl"
-      />
+
     </main>
   );
 };
