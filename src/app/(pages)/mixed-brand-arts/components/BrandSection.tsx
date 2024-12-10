@@ -80,7 +80,7 @@ const brandData = [
       "Motion & Microinteractions",
     ],
     videoUrl:
-      "https://video.wixstatic.com/video/4cd4b0_1bb78dcc3f894c3593a52651ada84642/1080p/mp4/file.mp4",
+      "https://video.wixstatic.com/video/4cd4b0_64c42c3107c54279a06c8664efb6cc79/1080p/mp4/file.mp4",
     footer: "Flows with Friendly Connections.",
   },
   {

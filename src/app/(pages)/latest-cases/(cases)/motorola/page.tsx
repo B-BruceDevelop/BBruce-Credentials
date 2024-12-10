@@ -4,10 +4,8 @@ import basquetbolShooting from "./basquetbol_shoot.png";
 import tavaresHigh from "./tavares_high.png";
 import Logo_2 from "./euroleague.svg";
 import turkish_motorola_logos from "./turkish_motorola_logos.svg";
-import nutri from "./Atrapalo3.json"
-
+import euroLeague from "./Laptop.png";
 import Image from "next/image";
-import LottieComponent from "@/components/globals/lottie";
 
 function Motorola() {
   return (
@@ -43,17 +41,28 @@ function Motorola() {
       </article>
 
       <article className="col-start-3 row-start-1 bg-purple-500 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn10">
-        <LottieComponent asset={nutri} loop={true} className="w-full h-full" />
-      </article>
-
-      <article className="col-span-2 col-start-2 row-start-2 bg-yellow-500 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn10">
-        <Image
-          src="/images/img5.png"
-          alt="Imagen 5"
+      <Image
+          src={euroLeague}
+          alt="Laptop"
           width={300}
           height={300}
           className="object-cover w-full h-full rounded-[1vw]"
         />
+      </article>
+
+      <article className="col-span-2 col-start-2 row-start-2 bg-yellow-500 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn10">
+        <video
+          className="w-full h-full object-cover rounded-xl scale-[1.01]"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source
+            src="https://video.wixstatic.com/video/4cd4b0_5554d1e451684ac49c0cefe5fc0e400c/720p/mp4/file.mp4"
+            type="video/mp4"
+          />
+        </video>
       </article>
 
       <article className="row-span-2 col-start-4 row-start-1 bg-pink-500 flex items-center justify-center text-white rounded-[1vw] relative animate-slideIn12">
