@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -8,10 +9,23 @@ import ImageCarousel from "@/components/sections/imageCarousel";
 
 import { teamMatesImages } from "@/assets/team/index";
 
+import work1 from "./DSC015931.png"
+import work2 from "./DSC015932.png"
+import work3 from "./DSC015933.png"
+import work4 from "./DSC015934.png"
+import work6 from "./DSC015936.png"
+import work7 from "./DSC015937.png"
+const workImages = [
+  work1,
+  work2,
+  work3,
+  work4,
+  work6,
+  work7,
+];
 import {
   EstadiOlimpic,
   TheVenue,
-  Working,
   TheVenueOffice,
 } from "@/assets/meetUs";
 
@@ -66,6 +80,18 @@ const containerVariants = {
 };
 
 function MeetUs() {
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === workImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 2000); // Cambia cada 3 segundos
+    return () => clearInterval(interval); // Limpia el intervalo
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen">
       <Header
@@ -204,19 +230,28 @@ function MeetUs() {
           </motion.div>
           {/* Sticky Notes */}
           <motion.article
-            id="sticky-notes"
-            className="flex-grow rounded-[1vw] relative overflow-hidden"
-            variants={fadeInVariants}
-          >
-            <Image
-              src={Working}
-              alt="Sticky Notes Collaboration"
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover"
-              priority
-            />
-          </motion.article>
+          id="sticky-notes"
+          className="flex-grow rounded-[1vw] relative overflow-hidden"
+        >
+          <motion.div
+          key={currentIndex}
+          className="absolute inset-0 w-full h-full"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+        >
+          <Image
+            src={workImages[currentIndex]}
+            alt={`Trabajo ${currentIndex + 1}`}
+            fill
+            className="object-cover rounded-[1vw]"
+          />
+        </motion.div>
+        </motion.article>
 
           {/* Team Photos */}
           <article id="team-photos" className="flex rounded-[1vw]">

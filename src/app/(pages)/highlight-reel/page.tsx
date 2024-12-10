@@ -22,7 +22,7 @@ const HighlightReel = () => {
       </main>
       <Footer
         title="We don’t aim to impress; it’s to create lasting impact, aligning each element with the brand’s spirit to resonate deeply with audiences."
-        width="90vw"
+        width="full"
         size="4xl"
       />
     </div>

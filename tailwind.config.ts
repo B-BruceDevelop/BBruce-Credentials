@@ -63,7 +63,7 @@ export default {
         xl: "calc(5px + 1.93vw)", // ~42px en 1920px
         "2xl": "calc(6px + 2.14vw)", // ~47px en 1920px
         "3xl": "calc(6px + 2.40vw)", // ~52px en 1920px
-        "4xl": "calc(7px + 2.81vw)", // ~61px en 1920px
+        "4xl": "calc(7px + 2.77vw)", // ~61px en 1920px
         "5xl": "calc(8px + 3.07vw)", // ~67px en 1920px
         "6xl": "calc(8px + 3.39vw)", // ~73px en 1920px
         "7xl": "calc(9px + 3.75vw)", // ~81px en 1920px

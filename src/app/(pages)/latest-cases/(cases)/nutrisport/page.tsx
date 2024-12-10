@@ -8,11 +8,11 @@ import nutrisport_package from "./nutrisport_packaging.png";
 import nutrisport_streetWall from "./nutrisport_streetWall.png";
 import { cn } from "@/lib/utils";
 
-import LottieComponent from "@/components/globals/lottie";
-import nutri_1 from "./Nutri1.json";
-import nutri_2 from "./nutri2.json"; 
-import nutri_3 from "./nutri3.json";
-import spark from "@/assets/lotties/spark.json";
+// import LottieComponent from "@/components/globals/lottie";
+// import nutri_1 from "./Nutri1.json";
+// import nutri_2 from "./nutri2.json"; 
+// import nutri_3 from "./nutri3.json";
+// import spark from "@/assets/lotties/spark.json";
 
 // const primaryColor = "[#FF002D]";
 // const secondaryColor = "[#F8F7EF]";
@@ -100,19 +100,19 @@ const Nutrisport = () => {
 
         {/* Contenedor 6 */}
         <article className="flex-grow rounded-[1vw] relative overflow-hidden animate-slideIn12">
-          {/* <Image
+          <Image
             src={nutrisport_mockup}
             alt="Nutriesport mockup"
             fill
             className="object-cover"
             // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority
-          /> */}
-          <LottieComponent
+          />
+          {/* <LottieComponent
             asset={nutri_1}
             loop={true}
             className="w-full h-full"
-          />
+          /> */}
         </article>
       </section>
     </div>
