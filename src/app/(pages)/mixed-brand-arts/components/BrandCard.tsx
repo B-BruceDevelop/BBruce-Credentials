@@ -55,7 +55,7 @@ export default function BrandCard({
             <>
               <div
                 className={cn(
-                  "flex flex-[0.4] flex-col max-w-[18vw] p-[1.5vw] border-r border-r-white/50 justify-between",
+                  "flex flex-[0.4] flex-col max-w-[18vw] p-[1.5vw]  justify-between",
                   index !== 0 && "border-l border-l-white" // Aplica el borde izquierdo solo si no es la primera
                 )}
               >
@@ -88,7 +88,7 @@ export default function BrandCard({
               </div>
               <div
                 id="video-container"
-                className="overflow-hidden-scroll flex flex-1 justify-end items p-[1vw] rounded-[2vw] overflow-hidden"
+                className="overflow-hidden-scroll flex flex-1 justify-end items py-[1vw] pr-[1vw] rounded-[2vw] overflow-hidden"
               >
                 {videoUrl && (
                   <video

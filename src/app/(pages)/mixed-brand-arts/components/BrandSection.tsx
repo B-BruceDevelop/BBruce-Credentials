@@ -43,13 +43,18 @@ const brandData = [
       "We craft innovative campaigns activations through sponsorships brands.",
     image: tavares_Img,
     services: [
-      "Campaign Strategy",
-      "Creative Direction",
-      "Content Creation",
-      "Social Media",
-      "Digital Marketing",
-      "Event Activation",
-      "Sponsorship Integration",
+      "Comunication Strategy",
+      "Creative Copywriting",
+      "Creative Activations",
+      "Sponsorship Activation",
+      "OOH Campaigns",
+      "Social Campaigns",
+      "Performance Campaigns",
+      "Influencer Campaigns",
+      "TV Commercials",
+      "Radio Ads",
+      "Live-Action / CGI",
+      "Image Curation",
     ],
     videoUrl:
       "https://video.wixstatic.com/video/4cd4b0_32df797a6a3a4d99a3b0854e12c58a87/1080p/mp4/file.mp4",
@@ -62,12 +67,17 @@ const brandData = [
       "We design user-centric digital products that enhance engagement.",
     image: digitalProducts_img,
     services: [
-      "UX/UI Design",
-      "Web Development",
-      "Mobile Apps",
-      "E-commerce",
-      "Digital Platforms",
-      "Interactive Experiences",
+"      UX Research & Strategy",
+      "UI Design & Guidelines",
+      "Responsive Design",
+      "Interactive Prototyping",
+      "Frontend Development",
+      "Backend Development",
+      "Software Development",
+      "E-commerce Platforms",
+      "Content Management Systems",
+      "User Testing & Optimization",
+      "Motion & Microinteractions",
     ],
     videoUrl:
       "https://video.wixstatic.com/video/4cd4b0_1bb78dcc3f894c3593a52651ada84642/1080p/mp4/file.mp4",
@@ -80,11 +90,17 @@ const brandData = [
       "We design memorable packaging that resonates with your brand and leaves a lasting impact.",
     image: cocteleo_img,
     services: [
-      "Packaging Design",
+      "Packaging Strategy",
       "Structural Design",
-      "Material Selection",
-      "Sustainability",
-      "Production Management",
+      "Graphic Packaging Design",
+      "Sustainable Solutions",
+      "Material Innovation",
+      "Illustration",
+      "Pictorial Language",
+      "Packaging Prototyping",
+      "Packaging Guidelines",
+      "Consumer Testing",
+      "Shelf Impact Testing",
     ],
     videoUrl:
       "https://video.wixstatic.com/video/4cd4b0_fbf0cc40b8654e1ea0db7fdb627e1b24/1080p/mp4/file.mp4",
@@ -120,7 +136,7 @@ export default function BrandSection({ index }: BrandSectionProps) {
       <div className="flex grow w-full h-full flex-col items-center justify-center">
         <div
           className={cn(
-            "flex h-[65vh] max-h-[65vw] w-full  m-[1vw] rounded-[2vw] overflow-hidden",
+            "flex h-[70vh] max-h-[70vw] w-full  m-[1vw] rounded-[2vw] overflow-hidden",
             expandedId !== null ? "gap-none border border-white" : "gap-[1vw] "
           )}
         >
