@@ -14,7 +14,7 @@ import strikeOnceIMG from "@/assets/principles/strike-once.svg";
 
 type Principle = {
   id: string;
-  description: string;
+  description: string[];
   icon: string;
   principle: string;
   video: string;
@@ -23,7 +23,7 @@ type Principle = {
 const principles: Principle[] = [
   {
     id: "01",
-    description: "Be aware of yourself.",
+    description: ["Be aware of yourself."],
     icon: beAwareImg,
     video:
       "https://video.wixstatic.com/video/4cd4b0_24ba3b0d143a47bda0e63498ef1e5d0c/1080p/mp4/file.mp4", // Ruta del video
@@ -32,7 +32,7 @@ const principles: Principle[] = [
   },
   {
     id: "02",
-    description: "Keep the useful, reject the useless and add your uniqueness.",
+    description: ["Keep the useful, reject the useless and add your uniqueness."],
     icon: keepUsefulIMG,
     video:
       "https://video.wixstatic.com/video/4cd4b0_41888bfd5313408ca65eba57734f1a37/1080p/mp4/file.mp4", // Ruta del video
@@ -40,7 +40,7 @@ const principles: Principle[] = [
   },
   {
     id: "03",
-    description: "Strike once, reach many.",
+    description: ["Strike once,", "reach many."],
     icon: strikeOnceIMG,
     video:
       "https://video.wixstatic.com/video/4cd4b0_52bdad86e1c4430ca0ceec97509e9156/1080p/mp4/file.mp4", // Ruta del video
@@ -105,7 +105,7 @@ const ThePrinciples = () => {
         <article className=" grow grid grid-cols-3 w-full rounded-[2vw] border divide-x mt-[2vw]">
           {activeIndex !== null &&
             principles.map(({ id, description, video }, index) => {
-              const isCovered = index >= activeIndex;
+              const isCovered = index - 1 >= activeIndex;
 
               return (
                 <AnimatePresence key={id}>
@@ -114,7 +114,7 @@ const ThePrinciples = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 1, delay: 0.8}}
+                    transition={{ duration: 1, delay: 0.8 }}
                     className="relative flex flex-col items-center justify-between w-full"
                   >
                     {/* Animar la capa negra */}
@@ -154,9 +154,11 @@ const ThePrinciples = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 1, duration: 0.8 }}
-                      className="w-[80%] pb-[1vw] md:pb-[1vw] text-3xl font-favoritMedium leading-none"
+                      className="w-full pb-[1vw] md:pb-[1vw] px-[3vw] text-3xl font-favoritMedium leading-none"
                     >
-                      {description}
+                      {description.map((description, index) => (
+                        <p key={index}>{description}</p>
+                      ))}
                     </motion.h3>
                   </motion.div>
                 </AnimatePresence>
@@ -164,24 +166,26 @@ const ThePrinciples = () => {
             })}
         </article>
 
-        {/* Contenedor para los subtítulos */}
-        <div className="grid grid-cols-3 gap-[1vw] w-full mt-[1vw] text-3xl font-favoritMedium">
+        <div className="grid grid-cols-3 w-full mt-[1vw] text-3xl font-favoritMedium">
           {principles.map(({ principle }, index) => (
-            <div key={index} className="flex overflow-hidden pl-[1vw]">
+            <div key={index} className="flex overflow-hidden px-[3vw]">
               {principle.split("").map((letter, letterIndex) => (
                 <motion.span
                   key={letterIndex}
-                  initial={{ x: 50, opacity: 0 }} // Las letras empiezan desplazadas hacia la derecha
+                  initial={{ x: 50, opacity: 0 }}
                   animate={{
-                    x: (activeIndex ?? 0) >= index + 1 ? 0 : 50, // Si activeIndex es null, se asume 0
-                    opacity: (activeIndex ?? 0) >= index + 1 ? 1 : 0, // Solo visible si activeIndex es igual o mayor
+                    x: (activeIndex ?? 0) >= index ? 0 : 50,
+                    opacity: (activeIndex ?? 0) >= index ? 1 : 0,
                   }}
-                  exit={{ opacity: 0 }} // Desaparece instantáneamente
+                  exit={{ opacity: 0 }}
                   transition={{
-                    duration: 0.4,
-                    delay: letterIndex * 0.05, // Retraso progresivo para cada letra
+                    duration: 0.5,
+                    delay:
+                      index === 0
+                        ? letterIndex * 0.08 + 0.8 // Mayor retraso para el primer texto
+                        : letterIndex * 0.05, // Normal para los demás
                   }}
-                  className="inline-block "
+                  className="inline-block"
                 >
                   {letter}
                 </motion.span>

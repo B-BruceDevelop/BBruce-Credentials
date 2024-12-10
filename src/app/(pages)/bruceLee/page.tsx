@@ -6,7 +6,7 @@ const page = () => {
   return (
     <div className="flex flex-col w-full h-screen">
       <Header
-        title="Bruce Lee Intro"
+        title="Our conviction"
         prevPage="/"
         nextPage="/self-descrition"
         visible={true}
@@ -18,7 +18,6 @@ const page = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           autoPlay
-          loop
           className="w-full h-full object-cover rounded-3xl"
         >
           <source

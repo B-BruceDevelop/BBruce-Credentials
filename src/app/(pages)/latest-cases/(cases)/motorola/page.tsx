@@ -4,8 +4,10 @@ import basquetbolShooting from "./basquetbol_shoot.png";
 import tavaresHigh from "./tavares_high.png";
 import Logo_2 from "./euroleague.svg";
 import turkish_motorola_logos from "./turkish_motorola_logos.svg";
+import nutri from "./Atrapalo3.json"
 
 import Image from "next/image";
+import LottieComponent from "@/components/globals/lottie";
 
 function Motorola() {
   return (
@@ -41,7 +43,7 @@ function Motorola() {
       </article>
 
       <article className="col-start-3 row-start-1 bg-purple-500 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn10">
-        {/* <LottieComponent asset={spark} loop={true} className="w-full h-full" /> */}
+        <LottieComponent asset={nutri} loop={true} className="w-full h-full" />
       </article>
 
       <article className="col-span-2 col-start-2 row-start-2 bg-yellow-500 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn10">

@@ -4,6 +4,7 @@ import React from "react";
 
 import Footer from "@/components/globals/footer";
 import DynamicBrandsCarousel from "@/components/sections/dynamicBrandsCarousel";
+
 const SelfDescription = () => {
   return (
     <div className="flex flex-col h-full flex-col items-center justify-between">
@@ -17,7 +18,7 @@ const SelfDescription = () => {
         <DynamicBrandsCarousel />
        
       </main>
-      <Footer title="A Barcelona—based studio where strategy, creativity, and design flow together to reach the next level." width="70vw" size="8xl" red={true} />
+      <Footer title="A Barcelona—based studio where strategy, creativity, and design flow together to reach the next level." width="70vw" size="8xl"  />
     </div>
   );
 };

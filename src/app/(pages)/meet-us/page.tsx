@@ -126,14 +126,7 @@ function MeetUs() {
               className="object-cover"
               priority
             />
-            <div
-              className="relative z-10 flex items-start justify-center w-full h-full pt-[1vw] bg-opacity-0 text-[#191919]
-             text-center"
-            >
-              <p className="text-sm font-favoritMedium tracking-[-0.5px]">
-                Olympic Stadium—Lluís Companys
-              </p>
-            </div>
+        
           </motion.article>
           {/* Parte inferior con subdivisiones */}
           <motion.div
@@ -278,11 +271,7 @@ function MeetUs() {
               muted
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="relative z-10 flex items-start justify-center w-full h-full pt-[1vw] bg-background bg-opacity-0 text-background text-center">
-              <p className="text-sm font-favoritMedium tracking-[-0.5px]">
-                Tailor—Made Projects
-              </p>
-            </div>
+        
           </motion.article>
 
           {/* Contenedores inferiores */}

@@ -17,7 +17,7 @@ export default function Home() {
   </div>
   <Link
     href={"/bruceLee"}
-    className="text-sm flex items-center justify-end gap-1"
+    className="text-sm flex items-center justify-end gap-1 font-favoritRegular"
   >
     Press
     <PiArrowLeftThin className="stroke-[6px] mx-1" />
