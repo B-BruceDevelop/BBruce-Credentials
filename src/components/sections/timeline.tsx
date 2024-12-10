@@ -15,7 +15,7 @@ const timelineData = [
     buttonText: "SAVIA DESIGN",
     location: "Sant Feliu de Codines",
     details:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae suscipit officia iste excepturi vitae, fuga nobis blanditiis fugiat molestias. Cupiditate eaque ducimus consectetur, possimus incidunt natus ut id dicta accusantium.",
+      "The birth of the agency. After several years of working at various agencies and driven by the conviction to help brands unleash their potential through design, Dani Muñoz founded his own studio in Sant Feliu de Codines. In no time, he brought together family and friends to bring Savia Design to life.",
     justify: "start",
     align: "left",
   },
@@ -25,7 +25,7 @@ const timelineData = [
     buttonText: "LOGIC DESIGN",
     location: "Barcelona / París / Warsaw",
     details:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae suscipit officia iste excepturi vitae, fuga nobis blanditiis fugiat molestias. Cupiditate eaque ducimus consectetur, possimus incidunt natus ut id dicta accusantium.",
+      "A journey of growth and discovery. Partnering with Logic Design gave us the chance to embrace new cultures, explore different ways of working, and shape a methodology of our own. Over eight years, they were a trusted partner on the journey, a presence that inspired us to reflect on our identity and uncover our true essence. This phase prepared us for our next step to reach the next level.",
     justify: "center",
     align: "center",
   },
@@ -35,7 +35,7 @@ const timelineData = [
     buttonText: "B–BRUCE",
     location: "Barcelona",
     details:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae suscipit officia iste excepturi vitae, fuga nobis blanditiis fugiat molestias. Cupiditate eaque ducimus consectetur, possimus incidunt natus ut id dicta accusantium.",
+      "A stage of maturity and introspection. Our drive for improvement pushed us to question traditional agency models and explore new ways of thinking. During this phase, we developed a critical perspective on the limitations of rigid and overly dogmatic approaches. We began experimenting, blending different techniques, and searching for methods that were more effective and fluid. It was at this point that we crafted our own approach—rooted in simplicity, adaptability, and efficiency.",
     justify: "end",
     align: "right",
   },
@@ -58,7 +58,6 @@ const Timeline = ({ index }: TimelineProps) => {
     setActiveButton(id === activeButton ? null : id);
   };
 
-
   return (
     <section className="flex flex-col w-full items-center justify-center text-sm">
       {/* Años */}
@@ -68,25 +67,25 @@ const Timeline = ({ index }: TimelineProps) => {
 
           return (
             <motion.div
-            key={item.id}
-            className={cn(
-              "flex-1 flex flex-col font-favoritRegular",
-              `items-${item.align}`,
-              `text-${item.align}`
-            )}
-            initial={{ opacity: 0, y: -20, scale: 0.5 }} // Comienza invisible y desplazado hacia arriba
-            animate={{
-              opacity: isVisible ? 1 : 0, // Cambia la opacidad según la visibilidad
-              y: isVisible ? 0 : -20, // Mueve hacia la posición original si es visible
-              scale: isVisible ? 1 : 0.5, // Escala a tamaño normal si es visible
-            }}
-            transition={{
-              duration: 0.5, // Duración de la animación
-              ease: "easeInOut", // Transición suave
-            }}
-          >
-            <p>{item.year}</p>
-          </motion.div>
+              key={item.id}
+              className={cn(
+                "flex-1 flex flex-col font-favoritRegular",
+                `items-${item.align}`,
+                `text-${item.align}`
+              )}
+              initial={{ opacity: 0, y: -20, scale: 0.5 }} // Comienza invisible y desplazado hacia arriba
+              animate={{
+                opacity: isVisible ? 1 : 0, // Cambia la opacidad según la visibilidad
+                y: isVisible ? 0 : -20, // Mueve hacia la posición original si es visible
+                scale: isVisible ? 1 : 0.5, // Escala a tamaño normal si es visible
+              }}
+              transition={{
+                duration: 0.5, // Duración de la animación
+                ease: "easeInOut", // Transición suave
+              }}
+            >
+              <p>{item.year}</p>
+            </motion.div>
           );
         })}
 
@@ -97,7 +96,7 @@ const Timeline = ({ index }: TimelineProps) => {
           <div className="flex-1 flex items-center justify-center">
             <div className="text-white text-sm text-left font-favoritRegularMono">
               {index >= 2 && // Visible si el índice es 2 o más
-                Array.from("Desarrollo de la técnica").map(
+                Array.from("Development of technique").map(
                   (letter, letterIndex) => (
                     <motion.span
                       key={letterIndex}
@@ -122,7 +121,7 @@ const Timeline = ({ index }: TimelineProps) => {
           <div className="flex-1 flex items-center justify-center">
             <div className="text-white text-sm text-right font-favoritRegularMono">
               {index === 3 && // Visible solo si el índice es exactamente 3
-                Array.from("Desarrollo del pensamiento").map(
+                Array.from("Development of thought").map(
                   (letter, letterIndex) => (
                     <motion.span
                       key={letterIndex}
@@ -166,47 +165,47 @@ const Timeline = ({ index }: TimelineProps) => {
           />
         </motion.div>
 
-    {/* Bolitas */}
-  {timelineData.map((item, idx) => {
-    const isActive = idx === index - 1; // Bolita activa
-    const isVisible = idx < index; // Bolitas visibles si su índice es menor al índice actual
+        {/* Bolitas */}
+        {timelineData.map((item, idx) => {
+          const isActive = idx === index - 1; // Bolita activa
+          const isVisible = idx < index; // Bolitas visibles si su índice es menor al índice actual
 
-    return (
-      <motion.div
-        key={item.id}
-        className={`flex items-center justify-center w-5 h-5 bg-background border-2 border-white rounded-full z-10`}
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{
-          opacity: isVisible ? 1 : 0, // Visible si el índice es menor al índice actual
-          scale: isVisible ? 1 : 0, // Escala a tamaño normal si es visible
-        }}
-        transition={{
-          duration: 0.5,
-          ease: "easeInOut",
-        }}
-        style={{ width: "20px", height: "20px" }}
-      >
-        {/* Bolita interior para la activa */}
-        {isActive && (
-  <motion.div
-    className="w-3 h-3 bg-white rounded-full z-10"
-    initial={{ opacity: 1, scale: 1 }}
-    animate={{
-      opacity: 10,
-      scale: [1.2, 1, 0.8, 1, 1.2], // Efecto bounce
-    }}
-    transition={{
-      duration: 0.5, // Duración del rebote
-      ease: "easeInOut",
-      repeat: Infinity, // Rebote continuo
-      repeatType: "loop", // Forma de repetición
-    }}
-  />
-)}
-      </motion.div>
-    );
-  })}
-</div>
+          return (
+            <motion.div
+              key={item.id}
+              className={`flex items-center justify-center w-5 h-5 bg-background border-2 border-white rounded-full z-10`}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{
+                opacity: isVisible ? 1 : 0, // Visible si el índice es menor al índice actual
+                scale: isVisible ? 1 : 0, // Escala a tamaño normal si es visible
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeInOut",
+              }}
+              style={{ width: "20px", height: "20px" }}
+            >
+              {/* Bolita interior para la activa */}
+              {isActive && (
+                <motion.div
+                  className="w-3 h-3 bg-white rounded-full z-10"
+                  initial={{ opacity: 1, scale: 1 }}
+                  animate={{
+                    opacity: 10,
+                    scale: [1.2, 1, 0.8, 1, 1.2], // Efecto bounce
+                  }}
+                  transition={{
+                    duration: 0.5, // Duración del rebote
+                    ease: "easeInOut",
+                    repeat: Infinity, // Rebote continuo
+                    repeatType: "loop", // Forma de repetición
+                  }}
+                />
+              )}
+            </motion.div>
+          );
+        })}
+      </div>
 
       {/* Botones y detalles */}
       <div className="flex flex-col items-center w-[94%] pt-4 space-y-4">

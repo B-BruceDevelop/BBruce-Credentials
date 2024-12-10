@@ -78,7 +78,7 @@ const TheOrigin = () => {
             </video>
           </Suspense>
         </section>
-        <section className="flex grow w-full items-start pt-[2vw]">
+        <section className="flex grow w-full items-start pt-[4vw]">
           <Timeline index={currentIndex} />
         </section>
       </main>

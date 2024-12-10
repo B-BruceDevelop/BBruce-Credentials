@@ -18,7 +18,7 @@ type Props = {
 const Footer = ({ title, red = false, size = "4xl", width, className }: Props) => {
 
   return (
-    <footer className="flex w-full items-end justify-between px-[2vw] py-[1vw]">
+    <footer className="flex w-full items-end justify-between px-[2vw] py-[0.7vw]">
      {title && (
         <div
           style={{ width: width || "auto" }}

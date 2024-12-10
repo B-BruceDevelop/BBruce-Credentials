@@ -50,7 +50,7 @@ const Header = ({
 
   return (
     <header className="flex w-full h-[4vw] max-h-[70px] items-center justify-between border-b border-white">
-      {title && <p className="text-base ml-4 font-favoritMedium animate-bounceInFromRight">{title}</p>}
+      {title && <p className="text-base ml-4 font-favoritMedium animate-bounceInFromRight tracking-tighter">{title}</p>}
       <div className="flex text-base h-full items-center">
         {prevPage ? (
           <Link
