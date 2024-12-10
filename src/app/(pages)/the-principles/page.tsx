@@ -131,7 +131,7 @@ const ThePrinciples = () => {
                     </AnimatePresence>
 
                     <div className="w-full p-[1vw] items-center justify-center">
-                      <p className="text-base">{id}.</p>
+                      <p className="text-base pl-[2vw]">{id}.</p>
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
