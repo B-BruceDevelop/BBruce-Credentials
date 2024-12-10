@@ -10,7 +10,7 @@ import Image from "next/image";
 function Motorola() {
   return (
     <div className="grid h-full w-full grid-cols-4 grid-rows-2 gap-[1vw] p-[1vw]">
-      <article className="bg-red-500 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn5">
+      <article className=" flex items-center justify-center text-white  rounded-[1vw] animate-slideIn5">
         <Image
           src={logo}
           alt="Imagen 1"
@@ -20,7 +20,7 @@ function Motorola() {
         />
       </article>
 
-      <article className="col-start-1 row-start-2 bg-blue-500 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn8">
+      <article className="col-start-1 row-start-2  flex items-center justify-center text-white  rounded-[1vw] animate-slideIn8">
         <Image
           src={tavares1}
           alt="Imagen 2"
@@ -30,7 +30,7 @@ function Motorola() {
         />
       </article>
 
-      <article className="col-start-2 row-start-1 bg-green-500 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn8">
+      <article className="col-start-2 row-start-1  flex items-center justify-center text-white  rounded-[1vw] animate-slideIn8">
         <Image
           src={basquetbolShooting}
           alt="Imagen 3"
@@ -40,7 +40,7 @@ function Motorola() {
         />
       </article>
 
-      <article className="col-start-3 row-start-1 bg-purple-500 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn10">
+      <article className="col-start-3 row-start-1 flex items-center justify-center text-white  rounded-[1vw] animate-slideIn10">
       <Image
           src={euroLeague}
           alt="Laptop"
@@ -65,7 +65,7 @@ function Motorola() {
         </video>
       </article>
 
-      <article className="row-span-2 col-start-4 row-start-1 bg-pink-500 flex items-center justify-center text-white rounded-[1vw] relative animate-slideIn12">
+      <article className="row-span-2 col-start-4 row-start-1  flex items-center justify-center text-white rounded-[1vw] relative animate-slideIn12">
         <Image
           src={tavaresHigh}
           alt="Imagen Principal"
