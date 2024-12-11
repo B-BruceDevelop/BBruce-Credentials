@@ -6,7 +6,7 @@ import text from "./Frase+Logo_Nike.svg";
 const TrustedBrands = () => {
   return (
     <main className="flex flex-col min-h-screen items-center justify-between">
-      <Header title="Trusted Brands" prevPage="/highlight-reel" nextPage="bbruce" visible={false} />
+      <Header title="Bruce Quote" prevPage="/trusted-brands" nextPage="bbruce" visible={false} />
       
       <section className="flex grow items-center justify-center w-full h-full p-[1vw] relative">
         {/* Imagen que ocupa toda la sección */}
