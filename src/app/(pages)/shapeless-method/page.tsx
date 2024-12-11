@@ -107,14 +107,15 @@ const ShapelessMethod = () => {
 
   return (
     <div className="flex flex-col h-full items-center justify-betwen">
-      <Header
-        title="Shapeless Method"
-        prevPage="/the-principles"
-        nextPage="/key-industries-expertise"
-        visible={true}
-        disableKeyboardNavigation={true}
-        children={<ShapelessMenu activeIndex={activeIndex} />}
-      />
+     <Header
+  title="Shapeless Method"
+  prevPage="/the-principles"
+  nextPage="/key-industries-expertise"
+  visible={true}
+  disableKeyboardNavigation={true}
+>
+  <ShapelessMenu activeIndex={activeIndex} />
+</Header>
 
       <main className="flex grow flex-col items-center justify-center w-full">
         {activeIndex === 0 && <MainContent methods={Methods} />}
