@@ -55,7 +55,7 @@ export default {
       },
       fontSize: {
         xs: "calc(2px + 0.68vw)", // ~15px en 1920px
-        xs2: "calc(2px + 0.9vw)" , // 19.28px en 1920px
+        xs2: "calc(2px + 0.9vw)", // 19.28px en 1920px
         sm: "calc(3px + 1.04vw)", // ~23px en 1920px
         base: "calc(4px + 1.30vw)", // ~29px en 1920px
         md: "calc(4px + 1.49vw)", // ~33px en 1920px
@@ -105,6 +105,7 @@ export default {
         slideIn10: "slideIn 1s ease-in-out",
         slideIn12: "slideIn 1.2s ease-in-out",
         zoomIn: "zoomIn 1s ease-in-out",
+        zoomInFast: "zoomIn .5s ease-in-out",
         jump: "jump 1s ease-in-out infinite",
         ping: "ping 1s cubic-bezier(0, 0, 0.2, 1)",
         shake: "shake 0.8s ease-in-out",
@@ -114,9 +115,28 @@ export default {
         swing: "swing 1s ease-in-out",
         rubberBand: "rubberBand 1s ease-in-out",
         bounceInFromRight: "bounceInFromRight .8s ease-out",
-
+        slideInFromTop: "slideInFromTop .5s ease-out",
+        slideInfromBottom: "slideInfromBottom .5s ease-out",
+        decreaseTracking: "decreaseTracking .8s ease-in-out forwards",
+        growFromCenter: "growFromCenter 1.5s ease-in-out forwards",
       },
       keyframes: {
+        growFromCenter: {
+          "0%": {
+            clipPath: "inset(38% 0 38% 0)", 
+          },
+          "100%": {
+            clipPath: "inset( 0% 0 0% 0)",
+          },
+        },
+        decreaseTracking: {
+          "0%": {
+            letterSpacing: "0.6em", // Valor inicial
+          },
+          "100%": {
+            letterSpacing: "0em", // Valor final
+          },
+        },
         bounceInFromRight: {
           "0%": {
             opacity: "0",
@@ -209,6 +229,14 @@ export default {
           "0%": { transform: "translateX(10%)", opacity: "0", scale: "0.9" },
           "100%": { transform: "translateX(0)", opacity: "1", scale: "1" },
         },
+        slideInFromTop: {
+          "0%": { transform: "translateY(-30%)", opacity: "0", scale: "0.9" },
+          "100%": { transform: "translateY(0)", opacity: "1", scale: "1" },
+        },
+        slideInfromBottom: {
+          "0%": { transform: "translateY(30%)", opacity: "0", scale: "0.9" },
+          "100%": { transform: "translateY(0)", opacity: "1", scale: "1" },
+        },
 
         zoomIn: {
           "0%": { transform: "scale(0.8)", opacity: "0" },
@@ -259,7 +287,6 @@ export default {
           "75%": { transform: "scale(1.05, 0.95)" },
           "100%": { transform: "scale(1)" },
         },
-
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -268,7 +295,5 @@ export default {
       },
     },
   },
-  plugins: [tailwindcssAnimate,
-    
-  ],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
