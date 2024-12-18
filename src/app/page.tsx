@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useStore } from "@/store/useStore";
+import { codesConfig } from "@/config/codesConfig";
+
 import WelcomeLogo from "@/components/welcomeLogo";
 import Link from "next/link";
 import Header from "@/components/globals/header";
@@ -8,7 +10,7 @@ import { PiArrowLeftThin, PiArrowRightThin } from "react-icons/pi";
 import IntroCodeValidator from "@/components/globals/introCodeValidator";
 
 export default function Home() {
-  const { popupOpen, setCode } = useStore();
+  const { popupOpen, setCode, code } = useStore();
 
   const handleReopenPopup = () => {
     setCode(null);
@@ -30,6 +32,13 @@ export default function Home() {
   }, []);
 
   const [nextPage, setNextPage] = useState<string>("/our-essence");
+  useEffect(() => {
+    if (code && codesConfig[code]?.WelcomeVideoUrl) {
+      setNextPage("/our-conviction");
+    } else {
+      setNextPage("/our-essence");
+    }
+  }, [code]);
 
   return (
     <>
@@ -53,26 +62,23 @@ export default function Home() {
             {/* No mostramos el WelcomeLogo hasta que el popup se haya cerrado */}
             {!popupOpen && <WelcomeLogo />}
           </section>
-
-          <Link
-            href={nextPage}
-            className="text-sm flex items-center justify-end gap-1 font-favoritRegular"
-          >
-            Press
-            <PiArrowLeftThin className="stroke-[6px] mx-1" />
-            |
-            <PiArrowRightThin className="stroke-[6px] mx-1" />
-            to navigate
-          </Link>
+          <section className="flex flex-col justify-center items-end">
+            <Link
+              href={nextPage}
+              className="text-sm flex items-center justify-end gap-1 font-favoritRegular"
+            >
+              Press
+              <PiArrowLeftThin className="stroke-[6px] mx-1" />
+              |
+              <PiArrowRightThin className="stroke-[6px] mx-1" />
+              to navigate
+            </Link>
+            {/* Botón para reabrir el popup cuando se quiera cambiar el código */}
+            <button onClick={handleReopenPopup}>
+              Press space to enter new code
+            </button>
+          </section>
         </main>
-
-        {/* Botón para reabrir el popup cuando se quiera cambiar el código */}
-        <button
-          onClick={handleReopenPopup}
-          className=""
-        >
-          Click to enter new code
-        </button>
       </div>
     </>
   );
