@@ -2,13 +2,13 @@ import type { StaticImageData } from "next/image";
 
 import nikeLogo from "@/assets/nike.svg";
 import bbruceLogo from "@/assets/B-BRUCE_FullName_RED.svg";
-
+import NikeclosingQuote from "@/assets/Frase+Logo_Nike.svg";
 
 export type CodeContent = {
     title?: string;
     image: StaticImageData;
     WelcomeVideoUrl?: string;
-    quote: string;
+    closingQuote?: StaticImageData;
   };
   
   
@@ -16,13 +16,12 @@ export type CodeContent = {
     "": {
         title: "Welcome to",
         image: bbruceLogo,
-        quote: "Este es el contenido especial para el código genérico."
       },
       
     "Nike": {
       image: nikeLogo,
       WelcomeVideoUrl: "https://video.wixstatic.com/video/4cd4b0_d6a747fd0d134564ac8c39e03447b693/1080p/mp4/file.mp4",
-      quote: "Este es el contenido especial para el código Nike."
+      closingQuote: NikeclosingQuote
     },
  
     // Agrega más códigos aquí si lo deseas...

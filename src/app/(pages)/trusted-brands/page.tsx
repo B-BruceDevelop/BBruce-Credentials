@@ -31,7 +31,7 @@ const TrustedBrands = () => {
   console.log(trustedBrandLogos);
   return (
     <main className="flex flex-col min-h-screen items-center justify-between">
-      <Header title="Trusted Brands" prevPage="/highlight-reel" nextPage="/last-page" />
+      <Header title="Trusted Brands" prevPage="/highlight-reel" nextPage="/closing-quote" />
       <section className="flex flex-wrap items-center justify-center w-full h-full p-[1vw] gap-[2vw]">
         {trustedBrandLogos.map((logo, index) => {
           const randomAnimationIndex = Math.floor(
