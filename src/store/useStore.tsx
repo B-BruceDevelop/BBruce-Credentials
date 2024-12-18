@@ -12,7 +12,7 @@ export const useStore = create<AppState>()(
   persist(
     (set) => ({
       code: null,
-      popupOpen: true,
+      popupOpen: false,
       setCode: (newCode) => set({ code: newCode }),
       closePopup: () => set({ popupOpen: false }),
     }),

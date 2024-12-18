@@ -5,7 +5,6 @@ import bbruceLogo from "@/assets/B-BRUCE_FullName_RED.svg";
 import NikeclosingQuote from "@/assets/Frase+Logo_Nike.svg";
 
 export type CodeContent = {
-    title?: string;
     image: StaticImageData;
     WelcomeVideoUrl?: string;
     closingQuote?: StaticImageData;
@@ -14,7 +13,6 @@ export type CodeContent = {
   
   export const codesConfig: Record<string, CodeContent> = {
     "": {
-        title: "Welcome to",
         image: bbruceLogo,
       },
       
