@@ -20,7 +20,7 @@ export default function RootLayout({
       </head>
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        className={`h-screen w-full antialiased bg-[#191919] text-white`}
+        className={`h-screen w-full antialiased bg-background text-white`}
       >
       
         {children}

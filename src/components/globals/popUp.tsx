@@ -25,26 +25,26 @@ const Popup: FC<PopupProps> = ({
       transition={{ duration: 0.4, ease: "easeInOut" }}
     >
       <motion.div
-        className="bg-white p-4 rounded-md shadow-lg max-w-xs w-full text-center"
+        className="bg-background p-[2vw] rounded-md shadow-lg  w-[300px] lg:w-[25vw] max-w-[600px] text-center"
         initial={{ scale: 1, opacity: 1 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
-        <h2 className="text-xl font-bold mb-4">Introduce tu código</h2>
+        <h2 className="text-md font-bold mb-4 font-favoritRegular">Introduce tu código</h2>
         <input
           type="text"
           value={codeValue}
           onChange={(e) => onChangeCode(e.target.value)}
-          className="border w-full p-2 mb-4"
-          placeholder="E.g: A, B..."
+          className="border w-full p-2 mt-[2vw] text-background text-md"
+          placeholder="E.g: B-Bruce..."
         />
         {isValidCode === false && (
-          <p className="text-red-500 mb-2">Código inválido, inténtalo de nuevo.</p>
+          <p className="text-xs text-red-500 mb-[1vw] text-left font-favoritRegular tracking-tight">Código inválido, inténtalo de nuevo.</p>
         )}
         <button
           onClick={onValidate}
-          className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+          className="text-white text-md m-[1.5vw] py-2 px-8 rounded font-favoritRegular border border-white bg-background hover:bg-background/50 rounded-full"
         >
           Validar
         </button>
