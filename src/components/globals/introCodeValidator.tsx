@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { codesConfig } from "@/config/codesConfig";
 import { useStore } from "@/store/useStore";
 import Popup from "./popUp";
@@ -10,6 +10,7 @@ const IntroCodeValidator = () => {
   const [tempCode, setTempCode] = useState("");
   const [isValidCode, setIsValidCode] = useState<boolean | null>(null);
 
+  // Validar código al presionar Enter
   const handleValidate = () => {
     const trimmed = tempCode.trim();
     if (trimmed === "") {
@@ -28,6 +29,26 @@ const IntroCodeValidator = () => {
     }
   };
 
+  // Cerrar popup al presionar Escape
+  const handleClose = () => {
+    closePopup();
+  };
+
+  // Abrir pop-up al presionar Space
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.code === "Space" && !popupOpen) {
+        setCode(null); // Restablece el código si es necesario
+        useStore.setState({ popupOpen: true });
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [popupOpen, setCode]);
+
   return (
     <>
       {popupOpen && (
@@ -40,6 +61,7 @@ const IntroCodeValidator = () => {
             }}
             onValidate={handleValidate}
             isValidCode={isValidCode}
+            onClose={handleClose} // Manejo de cierre
           />
         </div>
       )}

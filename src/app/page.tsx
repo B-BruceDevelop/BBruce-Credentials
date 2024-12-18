@@ -75,7 +75,7 @@ export default function Home() {
             </Link>
             {/* Botón para reabrir el popup cuando se quiera cambiar el código */}
             <button onClick={handleReopenPopup}>
-              Press space to enter new code
+              <p className="text-xs font-favoritRegular">Press space to enter new code</p>
             </button>
           </section>
         </main>
