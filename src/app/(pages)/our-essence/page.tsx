@@ -1,3 +1,4 @@
+
 import Header from "@/components/globals/header";
 import React from "react";
 
@@ -5,12 +6,12 @@ import React from "react";
 import Footer from "@/components/globals/footer";
 import DynamicBrandsCarousel from "@/components/sections/dynamicBrandsCarousel";
 
-const SelfDescription = () => {
+const OurEssence = () => {
   return (
     <div className="flex flex-col h-full flex-col items-center justify-between">
       <Header
         title="Our Essence"
-        prevPage="/bruceLee"
+        prevPage="/"
         nextPage="/the-origin"
         visible={true}
       />
@@ -23,4 +24,4 @@ const SelfDescription = () => {
   );
 };
 
-export default SelfDescription;
+export default OurEssence;

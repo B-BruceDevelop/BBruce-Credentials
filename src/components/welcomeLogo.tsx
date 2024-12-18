@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import nikeLogo from "@/assets/nike.svg";
 
-const NikeLogo = () => {
+const WelcomeLogo = () => {
   return (
     <Image
       src={nikeLogo}
@@ -17,6 +17,6 @@ const NikeLogo = () => {
   );
 };
 
-export default NikeLogo;
+export default WelcomeLogo;
 
 

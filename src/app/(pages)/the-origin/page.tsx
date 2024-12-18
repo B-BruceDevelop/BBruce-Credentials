@@ -26,7 +26,7 @@ const TheOrigin = () => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") {
         if (currentIndex === 0 ) {
-          router.push("/self-descrition");
+          router.push("/our-essence");
         } else {
           const newIndex = currentIndex - 1;
           setCurrentIndex(newIndex);
@@ -56,7 +56,7 @@ const TheOrigin = () => {
     <div className="flex flex-col h-full flex-col items-center justify-center bg-background">
       <Header
         title="Our Journey"
-        prevPage="/self-descrition"
+        prevPage="/our-essence"
         nextPage="/meet-us"
         visible={true}
         disableKeyboardNavigation={true}

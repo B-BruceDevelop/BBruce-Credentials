@@ -1,12 +1,12 @@
 import Header from "@/components/globals/header";
 
-const page = () => {
+const OurConviction = () => {
   return (
     <div className="flex flex-col w-full h-full">
       <Header
         title="Our conviction"
         prevPage="/"
-        nextPage="/self-descrition"
+        nextPage="/our-essence"
         visible={true}
       />
       <main className="flex grow w-full p-[1vw] relative overflow-hidden">
@@ -25,4 +25,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default OurConviction;
