@@ -5,7 +5,7 @@ import bbruceLogo from "@/assets/B-BRUCE_FullName_RED.svg";
 
 
 export type CodeContent = {
-    title: string;
+    title?: string;
     image: StaticImageData;
     WelcomeVideoUrl?: string;
     quote: string;
@@ -20,7 +20,6 @@ export type CodeContent = {
       },
       
     "Nike": {
-      title: "Nike",
       image: nikeLogo,
       WelcomeVideoUrl: "https://video.wixstatic.com/video/4cd4b0_d6a747fd0d134564ac8c39e03447b693/1080p/mp4/file.mp4",
       quote: "Este es el contenido especial para el código Nike."
