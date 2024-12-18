@@ -67,7 +67,7 @@ const ThePrinciples = () => {
       if (activeIndex === null) return;
 
       if (event.key === "ArrowRight") {
-        if (activeIndex === principles.length) {
+        if (activeIndex === principles.length - 1) {
           router.push("/shapeless-method"); // Navegar a la página siguiente
         } else {
           const newIndex = Math.min(activeIndex + 1, principles.length);
