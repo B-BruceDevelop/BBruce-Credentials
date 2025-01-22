@@ -9,28 +9,18 @@ import ImageCarousel from "@/components/sections/imageCarousel";
 
 import { teamMatesImages } from "@/assets/team/index";
 
-import work1 from "./DSC015931.png"
-import work2 from "./DSC015932.png"
-import work3 from "./DSC015933.png"
-import work4 from "./DSC015934.png"
-import work6 from "./DSC015936.png"
-import work7 from "./DSC015937.png"
-const workImages = [
-  work1,
-  work2,
-  work3,
-  work4,
-  work6,
-  work7,
-];
-import {
-  EstadiOlimpic,
-  TheVenue,
-  TheVenueOffice,
-} from "@/assets/meetUs";
+import work1 from "./DSC015931.png";
+import work2 from "./DSC015932.png";
+import work3 from "./DSC015933.png";
+import work4 from "./DSC015934.png";
+import work6 from "./DSC015936.png";
+import work7 from "./DSC015937.png";
+const workImages = [work1, work2, work3, work4, work6, work7];
+import { EstadiOlimpic, TheVenue, TheVenueOffice } from "@/assets/meetUs";
 
 import { Worldwide } from "@/assets/meetUs";
 import BarProgress from "@/components/sections/progressBar";
+import BigImageCarrousel from "@/components/sections/bigImageSlider";
 
 const teamCollaborationData = [
   { label: "Strategy", percentage: 15 },
@@ -80,7 +70,6 @@ const containerVariants = {
 };
 
 function MeetUs() {
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -126,7 +115,6 @@ function MeetUs() {
               className="object-cover"
               priority
             />
-        
           </motion.article>
           {/* Parte inferior con subdivisiones */}
           <motion.div
@@ -223,28 +211,14 @@ function MeetUs() {
           </motion.div>
           {/* Sticky Notes */}
           <motion.article
-          id="sticky-notes"
-          className="flex-grow rounded-[1vw] relative overflow-hidden"
-        >
-          <motion.div
-          key={currentIndex}
-          className="absolute inset-0 w-full h-full"
-          initial={{ opacity: 0,  }}
-          animate={{ opacity: 1,  }}
-          exit={{ opacity: 0,  }}
-          transition={{
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src={workImages[currentIndex]}
-            alt={`Trabajo ${currentIndex + 1}`}
-            fill
-            className="object-cover rounded-[1vw]"
-          />
-        </motion.div>
-        </motion.article>
+            id="sticky-notes"
+            className="flex-grow rounded-[1vw] relative overflow-hidden"
+          >
+            <BigImageCarrousel
+              currentIndex={currentIndex}
+              workImages={workImages}
+            />
+          </motion.article>
 
           {/* Team Photos */}
           <article id="team-photos" className="flex rounded-[1vw]">
@@ -271,7 +245,6 @@ function MeetUs() {
               muted
               className="absolute inset-0 w-full h-full object-cover"
             />
-        
           </motion.article>
 
           {/* Contenedores inferiores */}
