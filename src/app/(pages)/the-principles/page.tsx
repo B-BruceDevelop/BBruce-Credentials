@@ -76,7 +76,7 @@ const ThePrinciples = () => {
         }
       } else if (event.key === "ArrowLeft") {
         if (activeIndex === 0) {
-          router.push("/meet-us"); // Navegar a la página anterior
+          router.push("/big-picture"); // Navegar a la página anterior
         } else {
           const newIndex = Math.max(activeIndex - 1, 0);
           setActiveIndex(newIndex);
@@ -96,7 +96,7 @@ const ThePrinciples = () => {
     <div className="flex flex-col h-screen w-full items-center justify-center ">
       <Header
         title="Our Principles"
-        prevPage="meet-us"
+        prevPage="big-picture"
         nextPage="shapeless-method"
         visible={true}
         disableKeyboardNavigation={true}

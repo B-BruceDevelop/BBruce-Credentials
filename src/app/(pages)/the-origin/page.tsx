@@ -34,7 +34,7 @@ const TheOrigin = () => {
         }
       } else if (e.key === "ArrowRight") {
         if (currentIndex === maxIndex) {
-          router.push("/meet-us");
+          router.push("/big-picture");
         } else {
           const newIndex = currentIndex + 1;
           setCurrentIndex(newIndex);
@@ -57,7 +57,7 @@ const TheOrigin = () => {
       <Header
         title="Our Journey"
         prevPage="/our-essence"
-        nextPage="/meet-us"
+        nextPage="/big-picture"
         visible={true}
         disableKeyboardNavigation={true}
       />
