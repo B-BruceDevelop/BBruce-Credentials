@@ -42,7 +42,7 @@ const ImageCarousel = ({ images }: CarouselProps) => {
         {carouselImages.map((image, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-[calc(100%/5)] p-2"
+            className="flex-shrink-0 w-[calc(100%/5)] p-[0.25vw]"
           >
             <div className="relative w-full pb-[150%]">
               <Image
