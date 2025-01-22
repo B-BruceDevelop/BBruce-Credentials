@@ -146,8 +146,16 @@ export default function BrandCard({
                       )}
                     >
                       <motion.div
+                         initial={{
+                          opacity: 0, // Inicia con opacidad 0
+                          scale: 0.9,   // Inicia con escala 0.9
+                      
+                        }}
                         animate={{
-                          rotate: index === 3 ? 10 : 0, // Rota si el índice es 3, de lo contrario, no rota
+                          opacity: 1, // Finaliza con opacidad 1
+                          scale: 1,   // Finaliza con escala 1
+                          rotate: index === 3 ? 10 : 0,
+                          translateY: index === 1 ? "-3%" : "0%",
                         }}
                         transition={{
                           duration: 0.5, // Duración de la animación
@@ -157,7 +165,7 @@ export default function BrandCard({
                           "flex w-full h-full justify-center items-center",
                           index === 1
                             ? "absolute max-w-none h-[105%] w-[105%]" // Mantén el comportamiento para índice 1
-                            : "max-w-full max-h-full" // Para otros índices
+                            : "max-w-full " // Para otros índices
                         )}
                       >
                         <Image
@@ -166,9 +174,12 @@ export default function BrandCard({
                           width={400}
                           height={400}
                           className={cn(
-                            "object-contain animate-fadeInSmall",
+                            "object-contain ",
+                            index === 3
+                              ? "p-4" : "",
+                            
                             index === 1
-                              ? "absolute max-w-none h-[105%] w-[105%] translate-y-[-3%]" // Imagen expandida para índice 1
+                              ? "absolute max-w-none h-[105%] " // Imagen expandida para índice 1
                               : "max-w-full max-h-full", // Imagen estándar para otros índices
               
                           )}
