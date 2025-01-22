@@ -21,11 +21,13 @@ import team20 from "@/assets/team/Screenshot 2021-04-01 at 13.44 42.png";
 import team21 from "@/assets/team/Screenshot 2021-04-01 at 13.44 45.jpg";
 import team22 from "@/assets/team/Screenshot 2021-04-01 at 13.44 46.png";
 import team23 from "@/assets/team/Screenshot 2021-04-01 at 13.44 47.png";
+import team24 from "@/assets/team/Screenshot 2021-04-01 at 13.44 51.png";
 
 export const teamMatesImages = [
   team1,
   team2,
   team3,
+  team24,
   team4,
   team5,
   team6,
@@ -46,4 +48,5 @@ export const teamMatesImages = [
   team21,
   team22,
   team23,
+  
 ];
