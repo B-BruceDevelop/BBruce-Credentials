@@ -28,6 +28,7 @@ const BigImageCarrousel: React.FC<StickyNotesProps> = ({ currentIndex, workImage
             src={image}
             alt={`Trabajo ${index + 1}`}
             fill
+            sizes="w-full h-full"
             className="object-cover rounded-[1vw]"
           />
         </motion.div>

@@ -1,61 +1,45 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import Image, { type StaticImageData } from "next/image";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/autoplay";
+import Image, { StaticImageData } from "next/image";
 
 type CarouselProps = {
   images: StaticImageData[];
 };
 
 const ImageCarousel = ({ images }: CarouselProps) => {
-  const imagesPerView = 5; // Número de imágenes visibles
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [carouselImages, setCarouselImages] = useState<StaticImageData[]>(images);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // Mover la primera imagen al final del array
-      setCarouselImages((prevImages) => {
-        const updatedImages = [...prevImages];
-        const firstImage = updatedImages.shift(); // Eliminar la primera imagen
-        if (firstImage) updatedImages.push(firstImage); // Agregarla al final
-        return updatedImages;
-      });
-    }, 1500); // Cambiar imagen cada 2 segundos
-
-    return () => clearInterval(interval);
-  }, []);
-
-  if (!Array.isArray(images) || images.length === 0) {
-    return <div>No images to display</div>;
-  }
-
   return (
-    <div className="relative w-full max-w-4xl mx-auto overflow-hidden">
-      <div
-        ref={containerRef}
-        className="flex transition-transform duration-500 ease-in-out"
-        style={{
-          transform: `translateX(-${100 / imagesPerView}%)`, // Mover una posición por iteración
-        }}
-      >
-        {carouselImages.map((image, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 w-[calc(100%/5)] p-2"
-          >
-            <div className="relative w-full pb-[150%]">
-              <Image
-                src={image || "/placeholder.svg"}
-                alt={`Slide ${index + 1}`}
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Swiper
+      modules={[Autoplay]}
+      spaceBetween={4} // Espacio entre slides en px (0.25rem ≈ 0.25vw dinámico con Tailwind)
+      slidesPerView={5}
+      autoplay={{
+        delay: 1500,
+        disableOnInteraction: false,
+      }}
+      loop={true}
+      className="w-full max-w-4xl h-auto"
+    >
+      {images.map((image, index) => (
+        <SwiperSlide
+          key={index}
+          className="aspect-[2/3] flex justify-center items-center relative overflow-hidden rounded-lg"
+        >
+          <Image
+            src={image || "/placeholder.svg"}
+            alt={`Slide ${index + 1}`}
+            fill
+            sizes="w-full h-full"
+            className="object-cover w-full w-full rounded-lg"
+            />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 
