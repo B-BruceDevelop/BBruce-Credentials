@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Atrapalo from "./(cases)/atrapalo/page";
 import Nutrisport from "./(cases)/nutrisport/page";
 import Motorola from "./(cases)/motorola/page";
+import Olin from "./(cases)/olin/page";
 
 
 const lastCases: Project[] = [
@@ -28,6 +29,11 @@ const lastCases: Project[] = [
     id: 3,
     name: "motorola",
     page: <Motorola />
+  },
+  {
+    id: 4,
+    name: "Olin",
+    page: <Olin />
   }
 ]
 

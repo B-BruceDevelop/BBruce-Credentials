@@ -21,7 +21,7 @@ function Activation({ values }: Props) {
             alt="Strategic Report"
             width={0}
             height={0}
-            className="object-contain w-[50vw] h-auto animate-zoomInFast"
+            className="object-contain w-[50vw]  h-auto max-h-[45vh]  animate-zoomInFast"
           />
         </div>
         <h2 className="w-[60%] py-[1vw] text-center text-sm mt-8 font-favoritBold border rounded-full animate-slideInfromBottom">
